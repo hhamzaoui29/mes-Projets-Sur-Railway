@@ -1,0 +1,67 @@
+
+
+
+
+<%- include('../../partials/header') %>
+
+<div class="container py-5 mt-5">
+  <h1 class="text-center">Tableau de bord</h1>
+  <p class="text-center"> Bienvenue <strong>  <%=nom %>  </strong> Dans Votre Back-Office 🎉 </p>
+   
+  <!-- ✅ Alerte compteur -->
+  <% if (nbMessagesNonLu > 0) { %>
+    <div class="alert alert-warning mt-3">
+      📩 Vous avez <strong><%= nbMessagesNonLu %></strong> message(s) non lu(s).
+    </div>
+  <% } else { %>
+    <div class="alert alert-success mt-3">
+      ✅ Tous les messages ont été lus.
+    </div>
+  <% } %>
+
+  <div class="row mt-5">
+    
+
+    <% if (role === 'admin') { %> 
+
+                  <div class="col-md-4">
+                    <a href="/site/users" class="btn btn-outline-danger w-100 mb-3">👤 Gérer les Utilisateurs</a>
+                  </div>
+
+                  <div class="col-md-4">
+                    <a href="/site/services" class="btn btn-outline-primary w-100 mb-3">Gérer les Services</a>
+                  </div>
+
+                  <div class="col-md-4">
+                    <a href="/site/galeries" class="btn btn-outline-primary w-100 mb-3">Gérer la Galerie</a>
+                  </div>
+
+                  <div class="col-md-4">
+                    <!--<a href="/site/login/testimonials" class="btn btn-outline-primary w-100 mb-3">Gérer les Témoignages</a>-->
+                  <a href="#" class="btn btn-outline-primary w-100 mb-3">Gérer les Témoignages</a>
+                  </div>
+
+                  <div class="col-md-4">
+                    <a href="/site/contact/liste" class="btn btn-outline-primary w-100 mb-3">Gérer les Messages</a>
+                  </div>
+
+    <% } else if (role === 'invite') { %>
+      
+                <div class="col-md-4">
+                  <a href="/site/login/services" class="btn btn-outline-primary w-100 mb-3">Gérer les Services</a>
+                </div>
+
+                <div class="col-md-4">
+                  <a href="/site/login/galeries" class="btn btn-outline-primary w-100 mb-3">Gérer la Galerie</a>
+                </div>
+
+                <div class="col-md-4">
+                  <!--<a href="/site/login/testimonials" class="btn btn-outline-primary w-100 mb-3">Gérer les Témoignages</a>-->
+                  <a href="#" class="btn btn-outline-primary w-100 mb-3">Gérer les Témoignages</a>
+                </div>
+
+          <% } %>
+  </div>
+</div>
+
+<%- include('../../partials/footer') %>

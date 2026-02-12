@@ -5,6 +5,7 @@ const userController   = require('../../controllers/admin/usersController');
 const ensureController = require('../../controllers/admin/loginController');
 
 // Users CRUD
+
 router.get('/',               ensureController.ensureAuth, ensureController.ensureLogin, userController.formList);
 router.get('/formCreate',     ensureController.ensureAuth, ensureController.ensureLogin, userController.formCreate);
 router.get('/formUpdate/:id', ensureController.ensureAuth, ensureController.ensureLogin, userController.formUpdate);
@@ -12,6 +13,18 @@ router.get('/formUpdate/:id', ensureController.ensureAuth, ensureController.ensu
 router.post('/create',           ensureController.ensureAuth, ensureController.ensureLogin, userController.create);
 router.post('/update/:id',       ensureController.ensureAuth, ensureController.ensureLogin, userController.update);
 router.post('/deleteData/:id',   ensureController.ensureAuth, ensureController.ensureLogin, userController.deleteData);
+
+// Users CRUD
+/*
+router.get('/',                userController.formList);
+router.get('/formCreate',      userController.formCreate);
+router.get('/formUpdate/:id',  userController.formUpdate);
+
+router.post('/create',            userController.create);
+router.post('/update/:id',        userController.update);
+router.post('/deleteData/:id',    userController.deleteData);
+*/
+
 
 module.exports = router;
 

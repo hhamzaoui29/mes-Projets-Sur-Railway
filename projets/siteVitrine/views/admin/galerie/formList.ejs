@@ -2,8 +2,8 @@
 
 <div class="container py-5">
   <h1 class="mb-4">Gestion de la Galerie</h1>
-
-  <a href="/site/galeries/formCreate" class="btn btn-primary mb-3">Ajouter une nouvelle galerie</a>
+  <a href="#" class="btn btn-primary mb-3">Ajouter une nouvelle galerie</a>
+  <!--<a href="/site/galeries/formCreate" class="btn btn-primary mb-3">Ajouter une nouvelle galerie</a>-->
 
   <% if (galeries.length === 0) { %>
     <p>Aucune galerie n'a encore été ajoutée.</p>
@@ -33,16 +33,16 @@
 
             <!-- FOOTER avec boutons -->
             <div class="card-footer bg-white border-0 text-center">
-              <a href="/site/galeries/caroussel/<%= galerie.id %>" class="btn btn-sm btn-info me-2">Caroussel</a>
-              <a href="/site/galeries/formUpdate/<%= galerie.id %>" class="btn btn-sm btn-warning me-2">Modifier</a>
-              <form action="/site/galeries/delete/<%= galerie.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Supprimer cette image ?')">
+              <!--<a href="/site/galeries/caroussel/<%= galerie.id %>" class="btn btn-sm btn-info me-2">Caroussel</a>-->
+              <!--<a href="/site/galeries/formUpdate/<%= galerie.id %>" class="btn btn-sm btn-warning me-2">Modifier</a>-->
+              <!--<form action="/site/galeries/delete/<%= galerie.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Supprimer cette image ?')">
                 <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-              </form>
+              </form>-->
             </div>
             <div class="card-footer bg-white border-0 text-center">
               <!-- Bouton Ajouter Images (Modal) -->
               <button type="button" class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#addImagesModal<%= galerie.id %>"> Ajouter des images à la galerie  </button>
-              <a href="/site/caroussels/<%= galerie.id %>" class="btn btn-sm btn-info me-2">Gestion Du Caroussel</a>
+              <!--<a href="/site/caroussels/<%= galerie.id %>" class="btn btn-sm btn-info me-2">Gestion Du Caroussel</a>-->
             </div>
           </div>
         </div>

@@ -4,6 +4,18 @@
   
   <h1 class="text-center mb-4">Connexion</h1>
 
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Version Démonstration :</strong> 
+        Pour cette démonstration, les fonctionnalités de modification (édition et suppression) ont été désactivées.
+        Les formulaires de création ainsi que les boutons d'action correspondants ne sont également pas activés.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+    </div>
+    <p>
+        Veuillez saisir les identifiants de connexion suivants pour accéder à l'application <br>
+        Email    : admin@artisan.com <br>
+        Mot de passe : 123
+    </p>
+
   <% if (error) { %>
     <div class="alert alert-danger text-center"><%= error %></div>
   <% } %>

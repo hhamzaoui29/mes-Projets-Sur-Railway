@@ -7,6 +7,13 @@
 <div class="container py-5 mt-5">
   <h1 class="text-center">Tableau de bord</h1>
   <p class="text-center"> Bienvenue <strong>  <%=nom %>  </strong> Dans Votre Back-Office 🎉 </p>
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Version Démonstration :</strong> 
+    Pour cette démonstration, les fonctionnalités de modification (édition et suppression) ont été désactivées.
+    Les formulaires de création ainsi que les boutons d'action correspondants ne sont également pas activés.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+</div>
    
   <!-- ✅ Alerte compteur -->
   <% if (nbMessagesNonLu > 0) { %>

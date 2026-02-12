@@ -3,7 +3,8 @@
 <section class="container py-5 mt-5">
   <div class="mt-5">
     <h1 class="text-center mb-5">Nos Services</h1>
-    <a href="/site/services/formCreate" class="btn btn-primary mb-3">Ajouter un service</a>
+    <a href="#" class="btn btn-primary mb-3">Ajouter un service</a>
+    <!--<a href="/site/services/formCreate" class="btn btn-primary mb-3">Ajouter un service</a>-->
   </div>
   <% if (services.length === 0) { %>
     <p>Aucun service n'a encore été ajoutée.</p>
@@ -23,21 +24,21 @@
             <h5 class="card-title"><a href="/site/services/show/<%= service.id %>/<%= service.titre %>"> <%= service.titre %> </a></h5>
             <p class="card-text"><%= service.description %></p>
           </div>
-
+         
+            
           <!-- Footer avec boutons -->
           <div class="card-footer bg-white border-0 text-center">
-            <a href="/site/services/formUpdate/<%= service.id %>" 
-               class="btn btn-sm btn-warning me-2">
-               Modifier
-            </a>
-            <form action="/site/services/delete/<%= service.id %>" 
+             <a href="#" class="btn btn-primary btn-sm">✏️ Modifier</a>
+             <a href="#" class="btn btn-danger btn-sm">🗑️ Supprimer</a>
+            <!--<a href="/site/services/formUpdate/<%= service.id %>" class="btn btn-sm btn-warning me-2">   Modifier </a>-->
+            <!--<form action="/site/services/delete/<%= service.id %>" 
                   method="POST" 
                   style="display:inline;" 
                   onsubmit="return confirm('Supprimer ce service ?')">
               <button type="submit" class="btn btn-sm btn-danger">
                 Supprimer
               </button>
-            </form>
+            </form>-->
           </div>
         </div>
       </div>
