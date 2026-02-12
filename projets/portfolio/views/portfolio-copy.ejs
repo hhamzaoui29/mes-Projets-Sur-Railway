@@ -1,0 +1,115 @@
+<%- include('./partials/headerPortfolio') %>
+
+    <!-- Bandeau d’accueil (Hero) -->
+    <section class="bg-light text-dark py-5 text-center shadow-sm">
+      <div class="container">
+        <h1 class="display-5 fw-bold">🚀 Bienvenue sur mon Portfolio</h1>
+        <p class="lead mt-3">
+          Ici, je conçois et déploie des applications web modernes qui allient
+          <strong>simplicité</strong>, <strong>efficacité</strong> et <strong>organisation</strong>.
+        </p>
+        <p class="mt-2">
+          Découvrez mes projets : Quiz interactif et Site vitrine ( en cours de développement ) .
+        </p>
+        
+      </div>
+    </section>
+
+    <!-- Section Applications -->
+    <div class="container py-5" id="applications">
+        <h2 class="text-center mb-4">📂 Mes Applications</h2>
+        <div class="features-section">
+            <% let sections = [
+                { 
+                    icon: "🌐", 
+                    title: "Site Vitrine", 
+                    description: [
+                                      "Partie publique : affichage du dashboard, services, galeries et formulaire de contact",
+                                      "Partie admin : gestion complète CRUD pour utilisateurs, services, galeries et messages de contact",
+                                      "Formulaire de contact avec sauvegarde en base SQLite",
+                                      "Interface responsive (mobile / desktop) ",
+                                      "Système de notifications pour les messages non lus dans l’admin",
+                                      "Pagination et statut Lu/Non lu pour les messages de contact",
+                                      "Stockage des données dans SQLite via Sequelize",
+                                      "Architecture MVC avec routes, controllers, models et views"
+                                ], 
+                    link: "/site/vitrine",
+                    btn: "👁️ Voir"
+                },
+                { 
+                    icon: "🎮", 
+                    title: "Quiz", 
+                    description: [
+                                    "Connexion et création de compte utilisateur (inscription / authentification)",
+                                    "Tableau de bord Admin : gestion CRUD des utilisateurs, questions et catégories",
+                                    "Création et gestion des quiz (questions QCM)",
+                                    "Calcul et stockage des scores, historique des partie",
+                                    "Stockage des données dans une base MySQL",
+                                    "Interface responsive (mobile / desktop) et gestion des erreurs/validation",
+                                    "Déploiement : hébergement sur Railway + intégration continue (GitHub)"
+                                  ],
+                    link: "quizs/login",
+                    btn: "👁️ Voir"
+                },
+                { 
+                    icon: "🌐", 
+                    title: "Image Resize ", 
+                    description: [
+                    "Application de redimensionnement d'images avec options de taille, format et qualité, incluant un affichage des résultats et leur téléchargement."
+                                     
+                                ], 
+                    link: "/imageResize/",
+                    btn: "👁️ Voir"
+                },{ 
+                    icon: "📝", 
+                    title: "Générateur de Questionnaire PDF", 
+                    description: [
+                        "Création dynamique de questionnaires personnalisés",
+                        "Saisie et enregistrement des réponses dans un fichier JSON",
+                        "Architecture MVC modulaire (feature-based structure)",
+                        "Génération automatique d’un document PDF structuré en tableau",
+                        "Gestion des routes, controllers et services séparés",
+                        "Stockage local des données (JSON) et génération serveur-side avec pdf-lib",
+                        "Interface responsive avec EJS + Bootstrap"
+                    ],
+                    link: "/q",
+                    btn: "👁️ Voir"
+                   },
+                   { 
+                        icon: "🧾", 
+                        title: "Générateur de Factures PDF", 
+                        description: [
+                            "Création et gestion de factures dynamiques",
+                            "Stockage des données dans un fichier JSON",
+                            "Calcul automatique HT, TVA et Total TTC",
+                            "Génération de facture PDF avec tableau structuré",
+                            "Architecture MVC modulaire par feature",
+                            "Séparation des controllers, services et data",
+                            "Interface responsive avec EJS + Bootstrap"
+                        ],
+                        link: "/f",
+                        btn: "👁️ Voir"
+                    }
+
+               
+            ]; %>
+    
+            <% sections.forEach(section => { %>
+                <div class="feature-row d-flex align-items-center justify-content-between mb-3 p-3 border rounded shadow-sm">
+                    <div class="feature-text">
+                        <h4><%= section.icon %> <%= section.title %></h4>
+                        <ul class="mb-0">
+                            <% section.description.forEach(line => { %>
+                                <li><%= line %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                    <div class="feature-action ms-3">
+                        <a href="<%= section.link %>" class="btn btn-sm btn-info"><%= section.btn %></a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+<%- include('./partials/footerPortfolio') %>

@@ -1,0 +1,31 @@
+<%- include('../../partials/headerHome') %>
+
+<section class="container py-5 mt-2">
+  <h1  class="text-center  mb-2" > Nos Services</h1>
+  <% if (services.length === 0) { %>
+    <p>Aucun service n'a encore été ajoutée.</p>
+  <% } else { %>
+  <div class="row mt-5">
+    <% services.forEach(service => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm border-0 h-100 d-flex flex-column">
+          <!-- Image -->
+          <img src="/siteVitrine/<%= service.icon %>" 
+               class="card-img-top mx-auto mt-3" 
+               alt="<%= service.title %>" 
+               style="width:60px;">
+
+          <!-- Corps -->
+          <div class="card-body text-center flex-grow-1">
+            <h5 class="card-title"><a href="/site/vitrine/detailService/<%= service.id %> "class="btn btn-sm btn-warning me-1"> <%= service.titre %> </a> </h5>
+            <p class="card-text"><%= service.description %></p>
+          </div>
+
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <% } %>
+</section>
+
+<%- include('../../partials/footerHome') %>

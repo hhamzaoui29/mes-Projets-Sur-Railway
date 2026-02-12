@@ -1,0 +1,29 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5 mt-5">
+  <h1>Ajouter un Utilisateur</h1>
+  <form action="/site/users/create" method="POST">
+    <div class="mb-3">
+      <label>Nom</label>
+      <input type="text" name="nom" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Mot de passe</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Rôle</label>
+      <select name="role" class="form-control">
+        <option value="admin">Admin</option>
+        <option value="editor">Éditeur</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>

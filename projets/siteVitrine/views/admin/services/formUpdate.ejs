@@ -1,0 +1,32 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5">
+  <h1>Modifier un Service</h1>
+
+  <form action="/site/services/update/<%= service.id %>" method="POST" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label for="titre">Titre :</label>
+      <input type="text" name="titre" id="titre" class="form-control" value="<%= service.titre %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="description">Description :</label>
+      <textarea name="description" id="description" class="form-control" rows="4" required><%= service.description %></textarea>
+    </div>
+    
+    <div class="mb-3">
+      <p>Image actuelle :</p>
+      <img src="<%= service.icon %>" alt="<%= service.icon %>" class="img-thumbnail" width="200">
+    </div>
+
+    <div class="mb-3">
+      <label for="icon">Nouvelle image (optionnel) :</label>
+      <input type="file" name="icon" id="icon" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-warning">Modifier</button>
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>

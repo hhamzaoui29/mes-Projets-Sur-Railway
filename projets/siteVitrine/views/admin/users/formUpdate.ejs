@@ -1,0 +1,29 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5 mt-5">
+  <h1>Modifier l’Utilisateur</h1>
+  <form action="/site/users/update/<%= user.id %>" method="POST">
+    <div class="mb-3">
+      <label>Nom</label>
+      <input type="text" name="nom" value="<%= user.nom %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" name="email" value="<%= user.email %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Nouveau mot de passe (laisser vide pour ne pas changer)</label>
+      <input type="password" name="password" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label>Rôle</label>
+      <select name="role" class="form-control">
+        <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+        <option value="editor" <%= user.role === 'editor' ? 'selected' : '' %>>Éditeur</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Modifier</button>
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>

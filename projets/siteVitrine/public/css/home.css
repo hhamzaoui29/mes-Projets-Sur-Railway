@@ -1,0 +1,204 @@
+/* =======================================================
+   🌟 STYLES PAGE D’ACCUEIL — SITE VITRINE ARTISAN
+   ======================================================= */
+
+/* RESET léger */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Structure générale */
+  html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3 {
+    font-weight: 700;
+    text-align: center;
+   
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+  }
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ffc107;
+    margin: 0.5rem auto 0;
+  }
+  
+  /* =======================================================
+     🎯 HERO SECTION
+     ======================================================= */
+  .hero-section {
+    background: url("/siteVitrine/images/hero-bg.webp") center/cover no-repeat;
+    min-height: 85vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+  }
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55); /* voile sombre */
+    z-index: 0;
+  }
+  .hero-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-section h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  .hero-section p.lead {
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* =======================================================
+     ⚙️ SERVICES SECTION
+     ======================================================= */
+  .services-section {
+    position: relative;
+    /*background: url("/siteVitrine/images/services-bg.webp") center/cover fixed no-repeat;*/
+    padding: 80px 0;
+    color: #fff;
+  }
+  .services-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+  .services-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .services-section .card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .services-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* =======================================================
+     🧱 GALERIE SECTION
+     ======================================================= */
+  .galerie-section {
+    position: relative;
+    /*background: url("/siteVitrine/images/galerie-bg.webp") center/cover fixed no-repeat;*/
+    color: #fff;
+    padding: 80px 0;
+  }
+  .galerie-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+  }
+  .galerie-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .gallery-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .gallery-card:hover {
+    transform: scale(1.03);
+  }
+  .gallery-card img {
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  /* =======================================================
+     🧩 BOUTONS & LIENS
+     ======================================================= */
+  .btn-primary {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    transition: 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #e0a800;
+    color: #fff;
+  }
+  
+  .btn-warning {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ffc107;
+  }
+  .btn-warning:hover {
+    background-color: #ffc107;
+    color: #000;
+  }
+  
+  /* =======================================================
+     📱 RESPONSIVE
+     ======================================================= */
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2.2rem;
+    }
+    .hero-section p.lead {
+      font-size: 1rem;
+    }
+    .gallery-card img {
+      height: 200px;
+    }
+  }
+
+/* =======================================================
+   📌 FOOTER FIXE EN BAS DE PAGE
+   ======================================================= */
+ 
+  
+  /* le contenu principal prend toute la place disponible */
+  main {
+    flex: 1;
+  }
+  
+  /* le footer reste collé en bas */
+  footer {
+    background-color: #e7e8e9;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    padding: 0.75rem 0;  /* réduit la hauteur verticale */
+    font-size: 0.9rem;   /* texte un peu plus petit */
+    line-height: 1.4;    /* espace entre les lignes */
+}
+
+footer ul.nav {
+    margin-bottom: 0.5rem; /* réduit l’espace entre menu et texte */
+}
+
+footer p {
+    margin-bottom: 0.25rem; /* réduit l’espace entre les paragraphes */
+}

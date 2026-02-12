@@ -1,0 +1,36 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5 mt-5">
+  <h1>Gestion des Utilisateurs</h1>
+  <a href="/site/users/formCreate" class="btn btn-success mb-3">➕ Ajouter un utilisateur</a>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.nom %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td>
+            <a href="/site/users/formUpdate/<%= user.id %>" class="btn btn-primary btn-sm">✏️ Modifier</a>
+            <form action="/site/users/deleteData/<%= user.id %>" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-danger btn-sm">🗑️ Supprimer</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../../partials/footer') %>

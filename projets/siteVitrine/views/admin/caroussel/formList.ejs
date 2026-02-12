@@ -1,0 +1,66 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-4">
+  <h2 class="mb-3">Carrousel de la galerie : <%= galerie.titre %></h2>
+
+  <!-- Bouton Ajouter Images (Modal) -->
+  <button type="button" class="btn btn-sm btn-success me-2 mb-5" data-bs-toggle="modal" data-bs-target="#addImagesModal<%= galerie.id %>"> Ajouter des images à la galerie  </button>
+
+  <% if (galerie.images.length === 0) { %>
+    <p>Aucune image dans ce carrousel.</p>
+  <% } else { %>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Image</th>
+          <!--<th>Actions</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <% galerie.images.forEach((img, index) => { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td>
+              <img src="/siteVitrine/<%= img.image_path %>" alt="carrousel image" style="max-height:100px;" class="img-thumbnail">
+            </td>
+            <!--
+            <td>
+              <a href="/caroussels/<%= img.id %>/edit" class="btn btn-sm btn-warning">Modifier</a>
+              <form action="/caroussels/delete/<%= img.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Supprimer cette image ?')">
+                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+              </form>
+            </td>
+          -->
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <!-- MODAL AJOUT IMAGES -->
+    <div class="modal fade" id="addImagesModal<%= galerie.id %>" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form action="/site/caroussels/add" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="galerieId" value="<%= galerie.id %>">
+            <div class="modal-header">
+              <h5 class="modal-title">Ajouter des images à <%= galerie.titre %></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+              <input type="file" name="image" multiple required class="form-control">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">Ajouter</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+  <a href="/site/galeries" class="btn btn-secondary">⬅ Retour aux galeries</a>
+</div>
+
+<%- include('../../partials/footer') %>

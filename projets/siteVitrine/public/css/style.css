@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;              /* Le body prend toute la hauteur */
+    margin: 0;                 /* Enlever les marges par défaut */
+    display: flex;             /* Activer flexbox */
+    flex-direction: column;    /* Les éléments s'empilent verticalement */
+  }
+  
+  main {
+    flex: 1;   /* Le contenu prend toute la place disponible */
+  }
+  
+  footer {
+    margin-top: auto;   /* Le footer pousse vers le bas */
+  }
+  
+  .footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .footer-sticky {
+    position: sticky;
+    bottom: 0;
+  }
+
+  /** --- CSS Image --- **/
+  .card-img-top {
+    width: 100px;          /* largeur fixe */
+    height: 100px;         /* hauteur fixe */
+    object-fit: contain;   /* ou "cover" si tu veux recadrer */
+  }
+  .card.h-100 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body {
+    flex-grow: 1; /* prend tout l’espace disponible */
+  }
+  
+  .card-footer {
+    margin-top: auto; /* pousse le footer en bas de la carte */
+  }
+  
+  /*** ====================================== ***/
+  

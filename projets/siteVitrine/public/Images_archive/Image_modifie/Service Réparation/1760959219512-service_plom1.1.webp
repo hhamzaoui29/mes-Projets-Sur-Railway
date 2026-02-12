@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dimensions d'images — Site vitrine artisan</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;color:#111;background:#f7f8fb;padding:24px}
+    .container{max-width:980px;margin:0 auto;background:#fff;padding:24px;border-radius:10px;box-shadow:0 6px 18px rgba(20,20,40,0.06)}
+    h1{font-size:24px;margin-bottom:6px}
+    p.lead{color:#333;margin-top:0}
+    table{width:100%;border-collapse:collapse;margin:18px 0}
+    table th, table td{border:1px solid #e6e9ef;padding:10px;text-align:left;font-size:14px}
+    table th{background:#fbfbfd;font-weight:600}
+    .category{margin-top:18px}
+    .note{font-size:13px;color:#555;background:#fbfcff;padding:10px;border-left:4px solid #3b82f6;border-radius:4px}
+    .small{font-size:13px;color:#666}
+    code{background:#f4f6fb;padding:2px 6px;border-radius:4px;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guide — Dimensions d'images pour site vitrine (artisan)</h1>
+    <p class="lead">Fichier de référence listant les dimensions idéales par catégorie d'usage : bannière, services, galerie, portrait, logo et carrousel. Objectifs : performances, netteté et responsive.</p>
+
+    <section class="category">
+      <h2>1. Principes généraux</h2>
+      <div class="note">
+        <ul>
+          <li>Privilégier <strong>WebP</strong> ou <strong>AVIF</strong> si possible pour un bon ratio qualité/poids.</li>
+          <li>Générer plusieurs tailles (desktop / mobile) et utiliser <code>loading="lazy"</code> pour les images non critiques.</li>
+          <li>Poids recommandé : <strong>50–500 Ko</strong> selon l'usage. Compresses les images avant upload (sharp, TinyPNG, etc.).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>2. Page d'accueil</h2>
+      <table>
+        <thead>
+          <tr><th>Type d'image</th><th>Format</th><th>Dimensions idéales (px)</th><th>Poids max recommandé</th><th>Format fichier</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bannière principale (Hero)</td><td>Paysage</td><td>1920 × 1080</td><td>≤ 400 Ko</td><td>.webp / .jpg</td></tr>
+          <tr><td>Image de fond de section</td><td>Paysage</td><td>1600 × 900</td><td>≤ 300 Ko</td><td>.webp</td></tr>
+          <tr><td>Icônes / pictos</td><td>Carré</td><td>100 × 100</td><td>≤ 50 Ko</td><td>.svg / .png</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="category">
+      <h2>3. Page "Nos services"</h2>
+      <table>
+        <thead>
+          <tr><th>Type d'image</th><th>Format</th><th>Dimensions idéales</th><th>Poids max</th><th>Format fichier</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Image principale d'un service</td><td>Carré / léger paysage</td><td>800 × 800 ou 1000 × 700</td><td>≤ 250 Ko</td><td>.webp</td></tr>
+          <tr><td>Miniature (liste des services)</td><td>Carré</td><td>400 × 400</td><td>≤ 150 Ko</td><td>.webp</td></tr>
+          <tr><td>Illustration secondaire (avant/après)</td><td>Paysage (16:9)</td><td>1200 × 800</td><td>≤ 300 Ko</td><td>.webp</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Astuce : pour les métiers visuels, recadre sur les détails et privilégie une bonne luminosité.</p>
+    </section>
+
+    <section class="category">
+      <h2>4. Réalisations / Galerie</h2>
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Format</th><th>Dimensions</th><th>Poids max</th><th>Format</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Image de projet (grande)</td><td>Paysage</td><td>1600 × 900</td><td>≤ 400 Ko</td><td>.webp</td></tr>
+          <tr><td>Miniature</td><td>Carré</td><td>500 × 500</td><td>≤ 200 Ko</td><td>.webp</td></tr>
+          <tr><td>Zoom plein écran (lightbox)</td><td>Paysage</td><td>1920 × 1080</td><td>≤ 500 Ko</td><td>.webp</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="category">
+      <h2>5. À propos / Portrait</h2>
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Format</th><th>Dimensions</th><th>Poids max</th><th>Format</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Portrait artisan</td><td>Portrait</td><td>800 × 1000</td><td>≤ 200 Ko</td><td>.webp</td></tr>
+          <tr><td>Photo d'équipe</td><td>Paysage</td><td>1600 × 900</td><td>≤ 350 Ko</td><td>.webp</td></tr>
+          <tr><td>Image d'ambiance (atelier)</td><td>Paysage</td><td>1600 × 900</td><td>≤ 300 Ko</td><td>.webp</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="category">
+      <h2>6. Logo & Favicon</h2>
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Dimensions</th><th>Format</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Logo principal</td><td>500 × 500 (min)</td><td>.png (transparent)</td></tr>
+          <tr><td>Logo mobile (compact)</td><td>200 × 200</td><td>.png</td></tr>
+          <tr><td>Favicon</td><td>32 × 32</td><td>.ico / .png</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="category">
+      <h2>7. Carrousel (Slider)</h2>
+      <table>
+        <thead>
+          <tr><th>Type d'image</th><th>Format</th><th>Dimensions idéales (px)</th><th>Poids max recommandé</th><th>Format fichier</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Image plein écran (carrousel principal)</td><td>Paysage (16:9)</td><td>1920 × 1080</td><td>≤ 400 Ko</td><td>.webp</td></tr>
+          <tr><td>Image demi-écran</td><td>Paysage</td><td>1600 × 900</td><td>≤ 300 Ko</td><td>.webp</td></tr>
+          <tr><td>Version mobile</td><td>Carré ou 4:3</td><td>800 × 600</td><td>≤ 200 Ko</td><td>.webp</td></tr>
+          <tr><td>Miniature (nav du carrousel)</td><td>Carré</td><td>200 × 200</td><td>≤ 100 Ko</td><td>.webp</td></tr>
+        </tbody>
+      </table>
+
+      <p class="small">Conseils :
+        <ul>
+          <li>Privilégie le ratio <code>16:9</code> pour une apparence harmonieuse.</li>
+          <li>Centre le sujet pour éviter les recadrages indésirables sur mobile.</li>
+          <li>Utilise <code>loading="lazy"</code> et génère des versions <em>desktop</em> et <em>mobile</em> automatiquement (sharp).</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="category">
+      <h2>8. Adaptation responsive — exemples</h2>
+      <table>
+        <thead>
+          <tr><th>Usage</th><th>Desktop</th><th>Mobile</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bannière</td><td>1920 × 1080</td><td>800 × 600</td></tr>
+          <tr><td>Service</td><td>800 × 800</td><td>500 × 500</td></tr>
+          <tr><td>Galerie</td><td>1600 × 900</td><td>800 × 600</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Exemple d'automatisation : envoie une image haute résolution et ton serveur génère les variantes (desktop, tablet, mobile, miniature) via <code>sharp</code>.</p>
+    </section>
+
+    <footer style="margin-top:18px;border-top:1px solid #eee;padding-top:12px;color:#666;font-size:13px">
+      <strong>Fin du guide.</strong> Si tu veux, je peux :
+      <ul>
+        <li>Générer un <code>script Node.js + sharp</code> pour produire automatiquement toutes ces tailles.</li>
+        <li>Créer un composant EJS exemple qui affiche un carrousel responsive avec les miniatures.</li>
+      </ul>
+    </footer>
+
+  </div>
+</body>
+</html>

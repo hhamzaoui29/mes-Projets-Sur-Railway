@@ -1,0 +1,17 @@
+<%- include('../../partials/header') %>
+
+<section class="container py-5">
+    <h1 class="text-center mb-5"> <%= service.titre %></h1>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="/siteVitrine/<%= service.icon %>" class="card-img-top mx-auto mt-3" alt="<%= service.titre %>" style="width:60px;">
+            <div class="card-body text-center">
+              <h5 class="card-title"> <%= service.titre %>       </h5>
+              <p  class="card-text">  <%= service.description %> </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+<%- include('../../partials/footer') %>

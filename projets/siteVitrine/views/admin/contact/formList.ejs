@@ -1,0 +1,74 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5 mt-5">
+  <h1> Gestion des Messages </h1>
+   <!-- ✅ Alerte compteur -->
+   <% if (nbMessagesNonLu > 0) { %>
+    <div class="alert alert-warning mt-3">
+      📩 Vous avez <strong><%= nbMessagesNonLu %></strong> message(s) non lu(s).
+    </div>
+  <% } else { %>
+    <div class="alert alert-success mt-3">
+      ✅ Tous les messages ont été lus.
+    </div>
+  <% } %>
+
+  <table class="table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>E-mail</th>
+        <th>Téléphone</th>
+        <th>Sujet</th>
+        <th>Message</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% contacts.forEach(contact => { %>
+        <tr>
+          <td><%= contact.id %></td>
+          <td><%= contact.nom %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.telephone %></td>
+          <td><%= contact.sujet %></td>
+          <td><%= contact.message %></td>
+          <td>
+            <% if (contact.lu) { %>
+              <span class="badge bg-success">Lu</span>
+            <% } else { %>
+              <span class="badge bg-danger">Non lu</span>
+            <% } %>
+          </td>
+          <td>
+            <% if (!contact.lu) { %>
+              <form action="/site/contact/lu/<%= contact.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-primary btn-sm">✔️ Marquer lu</button>
+              </form>
+            <% } %>
+            <form action="/site/contact/delete/<%= contact.id %>" method="POST" style="display:inline;"> 
+              <button type="submit" class="btn btn-danger btn-sm">🗑️ Supprimer</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <!-- Pagination -->
+  <nav>
+    <ul class="pagination">
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+          <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</div>
+
+<%- include('../../partials/footer') %>
+
+
+

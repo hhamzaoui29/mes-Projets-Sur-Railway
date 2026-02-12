@@ -1,0 +1,42 @@
+<%- include('../../partials/headerHome') %>
+
+<div class="container py-5">
+  <h1 class=" section-title" >Nos Réalisations</h1>
+
+  <% if (galeries.length === 0) { %>
+    <p>Aucune galerie n'a encore été ajoutée.</p>
+  <% } else { %>
+    <div class="row">
+      <% galeries.forEach((galerie, index) => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card gallery-card">
+
+            <!-- IMAGE PRINCIPALE -->
+            <% if (galerie.image) { %>
+                <img src="/siteVitrine/<%= galerie.image %>" 
+                   class="card-img-top"
+                   alt="/siteVitrine/<%= galerie.titre %>"
+                   data-bs-toggle="modal"
+                   data-bs-target="#galleryModal<%= galerie.id %>">
+            <% } %>
+
+            <!-- DESCRIPTION -->
+            <div class="card-body text-muted">
+              <h5 class="card-title"><%= galerie.titre %></h5>
+              <p class="card-text">
+                Catégorie : <span class="badge bg-secondary"><%= galerie.categorie %></span>
+              </p>
+            </div>
+
+            <!-- FOOTER avec boutons -->
+            <div class="card-footer bg-white border-0 text-center">
+              <a href="/site/vitrine/caroussel/<%= galerie.id %>" class="btn btn-primary btn-lg mt-3">Plus de Photos</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../../partials/footerHome') %>

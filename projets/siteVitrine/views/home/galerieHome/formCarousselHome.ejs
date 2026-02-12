@@ -1,0 +1,42 @@
+<%- include('../../partials/headerHome') %>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center"><%= galerie.titre %></h1>
+  <p class="text-center">
+    Catégorie : <span class="badge bg-secondary"><%= galerie.categorie %></span>
+  </p>
+
+  <!-- Carrousel Bootstrap -->
+  <div id="carouselGalerie" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% if (galerie.images.length === 0) { %>
+        <div class="text-center">
+          <p>Aucune image n’a encore été ajoutée à cette galerie.</p>
+        </div>
+      <% } else { %>
+        <% galerie.images.forEach((img, index) => { %>
+          <div class="carousel-item <%= index === 0 ? 'active' : '' %> text-center">
+            <img src="/siteVitrine/<%= img.image_path %>" class="d-block mx-auto img-fluid rounded shadow" alt="image <%= index+1 %>">
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+
+    <% if (galerie.images.length > 1) { %>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselGalerie" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselGalerie" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+    <% } %>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="/site/vitrine/" class="btn btn-secondary">Retour</a>
+  </div>
+</div>
+
+<%- include('../../partials/footerHome') %>

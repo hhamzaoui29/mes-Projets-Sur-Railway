@@ -1,0 +1,45 @@
+<%- include('../../partials/headerHome') %>
+
+<div class="container py-5">
+  <h1>Contactez-nous</h1>
+  <p class="lead">Remplissez ce formulaire pour nous envoyer un message.</p>
+
+  <form action="/site/contact/create" method="POST" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom *</label>
+      <input type="text" class="form-control" id="nom" name="nom" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email *</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="telephone" class="form-label">Téléphone</label>
+      <input type="text" class="form-control" id="telephone" name="telephone">
+    </div>
+
+    <div class="mb-3">
+      <label for="sujet" class="form-label">Sujet *</label>
+      <select class="form-select" id="sujet" name="sujet" required>
+        <option value="">-- Sélectionnez --</option>
+        <option value="Devis">Demande de devis</option>
+        <option value="Infos">Demande d’informations</option>
+        <option value="SAV">Service après-vente</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="message" class="form-label">Message *</label>
+      <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+    </div>
+
+    <!-- Champ honeypot caché anti-bot -->
+    <input type="text" name="website" style="display:none">
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div>
+
+<%- include('../../partials/footerHome') %>

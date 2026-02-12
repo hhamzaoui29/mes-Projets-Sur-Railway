@@ -1,0 +1,92 @@
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: #3a6351 !important;
+  font-size: 1.5rem;
+}
+.nav-link {
+  color: #444 !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-link:hover {
+  color: #3a6351 !important;
+  transform: translateY(-2px);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3a6351;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-outline-primary {
+  color: #3a6351;
+  border-color: #3a6351;
+  font-weight: 500;
+}
+.btn-outline-primary:hover {
+  background-color: #3a6351;
+  color: white;
+  border-color: #3a6351;
+}
+.hero-section {
+                  /*background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;*/
+                  background: linear-gradient(rgba(74, 167, 229, 0.7), rgba(157, 98, 98, 0.7));
+                  min-height: 400px;
+                  color: white;
+                  padding: 100px 0;
+                  text-align: center;
+                  margin-top: 30px;
+                  border-radius: 10px;
+                }
+.service-card, .gallery-card {
+                                transition: transform 0.3s ease;
+                                border: none;
+                                border-radius: 10px;
+                                overflow: hidden;
+                                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                                height: 100%;
+                              }
+.service-card:hover, .gallery-card:hover {
+                                            transform: translateY(-10px);
+                                          }
+.service-icon {
+                font-size: 2.5rem;
+                color: #3a6351;
+                margin-bottom: 15px;
+              }
+footer {
+          background-color: #3a6351;
+          color: white;
+          padding: 30px 0;
+          margin-top: 50px;
+        }
+.section-title {
+                  position: relative;
+                  padding-bottom: 15px;
+                  margin-bottom: 30px;
+                }
+.section-title::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 80px;
+                        height: 3px;
+                        background-color: #3a6351;
+                      }

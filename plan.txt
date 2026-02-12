@@ -1,0 +1,428 @@
+🧱 PHASE 1 — SOCLE DU PORTFOLIO
+
+(Base technique – Aucune logique métier)
+
+🟢 Étape 1.1 — Initialisation
+
+Création du projet portfolio
+
+npm init -y
+
+Installation des modules :
+
+express
+
+ejs
+
+dotenv
+
+Mise en place de :
+
+app.js
+
+.env
+
+.gitignore
+
+🎯 Objectif : serveur fonctionnel
+
+🟢 Étape 1.2 — Structure de base
+
+Dossiers :
+
+routes/
+
+views/
+
+views/partials/
+
+public/
+
+public/css/
+
+Configuration Express :
+
+EJS
+
+fichiers statiques
+
+🎯 Objectif : structure propre et pro
+/*--------------------- jusque ici c'est ok -------------*/
+
+🟢 Étape 1.3 — Page principale (Accueil)
+
+Route /
+🧱 PHASE 1 — SOCLE DU PORTFOLIO
+
+(Base technique – Aucune logique métier)
+
+🟢 Étape 1.1 — Initialisation
+
+Création du projet portfolio
+
+npm init -y
+
+Installation des modules :
+
+express
+
+ejs
+
+dotenv
+
+Mise en place de :
+
+app.js
+
+.env
+
+.gitignore
+
+🎯 Objectif : serveur fonctionnel
+
+🟢 Étape 1.2 — Structure de base
+
+Dossiers :
+
+routes/
+
+views/
+
+views/partials/
+
+public/
+
+public/css/
+
+Configuration Express :
+
+EJS
+
+fichiers statiques
+
+🎯 Objectif : structure propre et pro
+
+🟢 Étape 1.3 — Page principale (Accueil)
+
+Route /
+
+Vue home.ejs
+
+Contenu :
+
+présentation
+
+liste des projets (liens fictifs)
+
+HTML sémantique + SEO basique
+
+🎯 Objectif : page d’entrée du portfolio
+
+⛔ STOP & VALIDATION
+
+🎨 PHASE 2 — UI & LAYOUT
+
+(Présentation, lisibilité, recruteur)
+
+🟢 Étape 2.1 — Layout global
+
+header.ejs
+
+footer.ejs
+
+inclusion EJS
+
+navigation principale :
+
+Accueil
+
+Projets
+
+Contact
+
+🎯 Objectif : cohérence visuelle
+
+🟢 Étape 2.2 — CSS du portfolio
+
+main.css
+
+structure CSS propre :
+
+base
+
+layout
+
+components
+
+responsive simple
+
+🎯 Objectif : site agréable et lisible
+
+⛔ STOP & VALIDATION
+
+📂 PHASE 3 — PAGES DU PORTFOLIO
+🟢 Étape 3.1 — Page Projets
+
+/projects
+
+cartes de projets :
+
+e-commerce
+
+quiz
+
+vitrine
+
+bouton :
+
+“Voir le projet”
+
+🎯 Objectif : navigation claire
+
+🟢 Étape 3.2 — Page Contact
+
+/contact
+
+infos simples
+
+futur formulaire possible
+
+⛔ STOP & VALIDATION
+
+🔌 PHASE 4 — INTÉGRATION DES PROJETS
+
+(La partie la plus importante)
+
+🟢 Étape 4.1 — Intégrer le projet e-commerce
+
+déplacement dans projects/ecommerce
+
+suppression de :
+
+app.listen
+
+.env
+
+montage via /ecommerce
+
+tests complets
+
+⛔ STOP & VALIDATION
+
+🟢 Étape 4.2 — Intégrer le quiz
+
+même logique
+
+route /quiz
+
+⛔ STOP & VALIDATION
+
+🟢 Étape 4.3 — Intégrer le site vitrine
+
+route /vitrine
+
+⛔ STOP & VALIDATION
+
+🚀 PHASE 5 — FINALISATION & RAILWAY
+🟢 Étape 5.1 — Variables d’environnement
+
+.env local
+
+variables Railway
+
+🟢 Étape 5.2 — Préparation déploiement
+
+npm start
+
+port dynamique
+
+test production locale
+
+🟢 Étape 5.3 — Déploiement Railway
+
+GitHub
+
+Railway
+
+tests live
+
+🎯 Objectif : portfolio en ligne
+
+📄 PHASE 6 — BONUS RECRUTEUR
+
+(Optionnel mais très fort)
+
+README GitHub
+
+screenshots
+
+description de chaque projet
+
+compétences mises en avant
+
+✅ Règle qu’on va suivre
+
+✔ Une étape à la fois
+✔ Validation obligatoire
+✔ Aucune précipitation
+✔ Logique respectée
+Vue home.ejs
+
+Contenu :
+
+présentation
+
+liste des projets (liens fictifs)
+
+HTML sémantique + SEO basique
+
+🎯 Objectif : page d’entrée du portfolio
+
+⛔ STOP & VALIDATION
+
+🎨 PHASE 2 — UI & LAYOUT
+
+(Présentation, lisibilité, recruteur)
+
+🟢 Étape 2.1 — Layout global
+
+header.ejs
+
+footer.ejs
+
+inclusion EJS
+
+navigation principale :
+
+Accueil
+
+Projets
+
+Contact
+
+🎯 Objectif : cohérence visuelle
+
+🟢 Étape 2.2 — CSS du portfolio
+
+main.css
+
+structure CSS propre :
+
+base
+
+layout
+
+components
+
+responsive simple
+
+🎯 Objectif : site agréable et lisible
+
+⛔ STOP & VALIDATION
+
+📂 PHASE 3 — PAGES DU PORTFOLIO
+🟢 Étape 3.1 — Page Projets
+
+/projects
+
+cartes de projets :
+
+e-commerce
+
+quiz
+
+vitrine
+
+bouton :
+
+“Voir le projet”
+
+🎯 Objectif : navigation claire
+
+🟢 Étape 3.2 — Page Contact
+
+/contact
+
+infos simples
+
+futur formulaire possible
+
+⛔ STOP & VALIDATION
+
+🔌 PHASE 4 — INTÉGRATION DES PROJETS
+
+(La partie la plus importante)
+
+🟢 Étape 4.1 — Intégrer le projet e-commerce
+
+déplacement dans projects/ecommerce
+
+suppression de :
+
+app.listen
+
+.env
+
+montage via /ecommerce
+
+tests complets
+
+⛔ STOP & VALIDATION
+
+🟢 Étape 4.2 — Intégrer le quiz
+
+même logique
+
+route /quiz
+
+⛔ STOP & VALIDATION
+
+🟢 Étape 4.3 — Intégrer le site vitrine
+
+route /vitrine
+
+⛔ STOP & VALIDATION
+
+🚀 PHASE 5 — FINALISATION & RAILWAY
+🟢 Étape 5.1 — Variables d’environnement
+
+.env local
+
+variables Railway
+
+🟢 Étape 5.2 — Préparation déploiement
+
+npm start
+
+port dynamique
+
+test production locale
+
+🟢 Étape 5.3 — Déploiement Railway
+
+GitHub
+
+Railway
+
+tests live
+
+🎯 Objectif : portfolio en ligne
+
+📄 PHASE 6 — BONUS RECRUTEUR
+
+(Optionnel mais très fort)
+
+README GitHub
+
+screenshots
+
+description de chaque projet
+
+compétences mises en avant
+
+✅ Règle qu’on va suivre
+
+✔ Une étape à la fois
+✔ Validation obligatoire
+✔ Aucune précipitation
+✔ Logique respectée

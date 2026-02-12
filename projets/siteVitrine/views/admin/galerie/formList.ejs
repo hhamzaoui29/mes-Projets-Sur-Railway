@@ -1,0 +1,108 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5">
+  <h1 class="mb-4">Gestion de la Galerie</h1>
+
+  <a href="/site/galeries/formCreate" class="btn btn-primary mb-3">Ajouter une nouvelle galerie</a>
+
+  <% if (galeries.length === 0) { %>
+    <p>Aucune galerie n'a encore été ajoutée.</p>
+  <% } else { %>
+    <div class="row">
+      <% galeries.forEach((galerie, index) => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+
+            <!-- IMAGE PRINCIPALE -->
+            <% if (galerie.image) { %>
+                <img src="/siteVitrine/<%=galerie.image %>" 
+                   class="card-img-top img-thumbnail"
+                   alt="<%= galerie.titre %>"
+                   style="cursor:pointer; width:100%; height:auto; object-fit:cover;"
+                   data-bs-toggle="modal"
+                   data-bs-target="#galleryModal<%= galerie.id %>">
+            <% } %>
+
+            <!-- DESCRIPTION -->
+            <div class="card-body text-center">
+              <h5 class="card-title"><%= galerie.titre %></h5>
+              <p class="card-text">
+                Catégorie : <span class="badge bg-secondary"><%= galerie.categorie %></span>
+              </p>
+            </div>
+
+            <!-- FOOTER avec boutons -->
+            <div class="card-footer bg-white border-0 text-center">
+              <a href="/site/galeries/caroussel/<%= galerie.id %>" class="btn btn-sm btn-info me-2">Caroussel</a>
+              <a href="/site/galeries/formUpdate/<%= galerie.id %>" class="btn btn-sm btn-warning me-2">Modifier</a>
+              <form action="/site/galeries/delete/<%= galerie.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Supprimer cette image ?')">
+                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+              </form>
+            </div>
+            <div class="card-footer bg-white border-0 text-center">
+              <!-- Bouton Ajouter Images (Modal) -->
+              <button type="button" class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#addImagesModal<%= galerie.id %>"> Ajouter des images à la galerie  </button>
+              <a href="/site/caroussels/<%= galerie.id %>" class="btn btn-sm btn-info me-2">Gestion Du Caroussel</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL POUR CARROUSEL DE LA GALERIE -->
+        <div class="modal fade" id="galleryModal<%= galerie.id %>" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+              <div id="carousel<%= galerie.id %>" class="carousel slide" data-bs-ride="false">
+
+                <div class="carousel-inner">
+                  <% galerie.images.forEach((img, i) => { %>
+                    <div class="carousel-item <%= i === 0 ? 'active' : '' %> text-center">
+                      <img src="/siteVitrine/<%= img.image_path %>" class="img-fluid rounded shadow" alt="Image <%= i+1 %>">
+                    </div>
+                  <% }) %>
+                </div>
+
+                <!-- Contrôles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= galerie.id %>" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= galerie.id %>" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Suivant</span>
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL AJOUT IMAGES -->
+        <div class="modal fade" id="addImagesModal<%= galerie.id %>" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="/site/caroussels/add" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="galerieId" value="<%= galerie.id %>">
+                <div class="modal-header">
+                  <h5 class="modal-title">Ajouter des images à <%= galerie.titre %></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="file" name="image" multiple required class="form-control">
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success">Ajouter</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+
+
+<%- include('../../partials/footer') %>

@@ -1,0 +1,74 @@
+<%- include('../partials/headerHome') %>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section rounded">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Votre artisan de confiance</h1>
+        <p class="lead">Des services professionnels, rapides et de qualité</p>
+        <a href="/site/contact" class="btn btn-primary btn-lg mt-3">Demander un devis</a>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="container py-5 mt-5">
+      <h2 class="text-center section-title">Nos Services</h2>
+      <% if (services.length === 0) { %>
+        <p>Aucun service n'a encore été ajouté.</p>
+      <% } else { %>
+      <div class="row mt-5">
+        <% services.slice(0, 3).forEach(service => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0 h-100 d-flex flex-column">
+              <!-- Image -->
+              <img src="/siteVitrine/<%= service.icon %>" 
+                   class="card-img-top mx-auto mt-3" 
+                   alt="<%= service.title %>" 
+                   style="width:60px;">
+    
+              <!-- Corps -->
+              <div class="card-body text-center flex-grow-1">
+                <h5 class="card-title"> <%= service.titre %> </h5>
+                <p class="card-text text-justify"><%= service.description %></p>
+                <a href="/site/vitrine/detailService/<%= service.id %> "class="btn btn-sm btn-warning me-1">Plus</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+      <!-- Bouton voir tous les services -->
+      <div class="text-center mt-4">
+        <a href="/site/vitrine/services" class="btn btn-primary">Voir tous nos services</a>
+      </div>
+      <% } %>
+    </section>
+    
+    <!-- Galerie -->
+    <section class="py-5">
+      <h2 class="text-center section-title">Nos Réalisations</h2>
+      <% if (galeries.length === 0) { %>
+        <p>Aucun service n'a encore été ajouté.</p>
+      <% } else { %>
+        <div class="row">
+          <% galeries.slice(0,3).forEach(galerie => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card gallery-card">
+              <img src="/siteVitrine/<%= galerie.image %>"  class="card-img-top" alt="<%= galerie.categorie %>">
+              <div class="card-body text-center">
+                <h5><%=galerie.titre%></h5>
+                <p class="text-muted"><%=galerie.titre%></p>
+                <a href="/site/vitrine/caroussel/<%=galerie.id%>" class="btn btn-primary btn-lg mt-3">Plus de photos </a>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <!-- Bouton voir tous les services -->
+      <div class="text-center mt-4">
+        <a href="/site/vitrine/realisations" class="btn btn-primary">Voir tous nos Réalisations</a>
+      </div>
+        <% } %>
+    </section>
+  </main>
+
+  <%- include('../partials/footerHome') %>

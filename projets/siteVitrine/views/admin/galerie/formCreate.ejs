@@ -1,0 +1,42 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5">
+  <h1>Ajouter une image</h1>
+
+  <form action="/site/galeries/Create" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="titre">Titre :</label>
+      <input type="text" name="titre" id="titre" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="categorie">Catégorie :</label>
+      <select name="categorie" id="categorie" class="form-control" required>
+        <option value="salle-de-bain">Salle de Bain</option>
+        <option value="sejour">Séjour</option>
+        <option value="cuisine">Cuisine</option>
+        <option value="chambre">Chambre</option>
+      </select>
+    </div>
+
+    <!-- 🔹 Nouveau champ : Choisir le service -->
+    <div class="mb-3">
+      <label for="serviceId">Service lié :</label>
+      <select name="serviceId" id="serviceId" class="form-control" required>
+        <option value="">-- Choisir un service --</option>
+        <% services.forEach(service => { %>
+          <option value="<%= service.id %>"><%= service.titre %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="image">Image :</label>
+      <input type="file" name="image" id="image" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>

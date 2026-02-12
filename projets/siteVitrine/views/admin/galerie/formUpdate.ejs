@@ -1,0 +1,48 @@
+<%- include('../../partials/header') %>
+
+<div class="container py-5">
+  <h1>Modifier une image</h1>
+
+  <form action="/site/galeries/update/<%= image.id %>" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="titre">Titre :</label>
+      <input type="text" name="titre" id="titre" class="form-control" value="<%= image.titre %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="categorie">Catégorie :</label>
+      <select name="categorie" id="categorie" class="form-control" required>
+        <option value="salle-de-bain" <%= image.categorie === 'salle-de-bain' ? 'selected' : '' %>>Salle de Bain</option>
+        <option value="sejour" <%= image.categorie === 'sejour' ? 'selected' : '' %>>Séjour</option>
+        <option value="cuisine" <%= image.categorie === 'cuisine' ? 'selected' : '' %>>Cuisine</option>
+        <option value="chambre" <%= image.categorie === 'chambre' ? 'selected' : '' %>>Chambre</option>
+      </select>
+    </div>
+
+    <!-- 🔹 Nouveau champ : Modifier le service lié -->
+    <div class="mb-3">
+      <label for="serviceId">Service lié :</label>
+      <select name="serviceId" id="serviceId" class="form-control" required>
+        <% services.forEach(service => { %>
+          <option value="<%= service.id %>" <%= image.serviceId === service.id ? "selected" : "" %>>
+            <%= service.titre %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <p>Image actuelle :</p>
+      <img src="/siteVitrine/<%= image.image %>" alt="<%= image.titre %>" class="img-thumbnail" width="200"> 
+    </div>
+
+    <div class="mb-3">
+      <label for="image">Nouvelle image (optionnel) :</label>
+      <input type="file" name="image" id="image" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-warning">Modifier</button>
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>
