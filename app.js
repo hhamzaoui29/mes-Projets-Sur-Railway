@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/portfolio',     express.static(path.join(__dirname, 'projets/portfolio/public')));
 app.use('/siteVitrine',   express.static(path.join(__dirname, 'projets/siteVitrine/public')));
-
+app.use('/composants',    express.static(path.join(__dirname, 'projets/composants/public')));
 
 
 console.log("Dossier racine :", __dirname);
@@ -78,12 +78,14 @@ app.use((req, res, next) => {
 // ====================================================================================================================================================================================================//
 
 
-const portfolioRoutes  = require("./projets/portfolio/routes/index");
+const portfolioRoutes  = require("./projets/portfolio/routes");
 const siteRoute        = require("./projets/siteVitrine/routes");
+const composantsRoute  = require("./projets/composants/routes");
 
 // Brancher les modules de routes
 app.use("/", portfolioRoutes);
 app.use("/site", siteRoute);
+app.use('/composants', composantsRoute);
 
 
 // ====================================================================================================================================================================================================//

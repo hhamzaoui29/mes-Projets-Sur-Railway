@@ -1,0 +1,53 @@
+/* style.css */
+
+/* Fond global et texte */
+body {
+    background-color: #f8f9fa; /* gris clair */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Conteneurs */
+  .container {
+    max-width: 700px;
+  }
+  
+  /* Formulaire */
+  form.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Titres */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .h1 a {
+    text-align: center;
+    color:#0d6efd;
+    margin: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Boutons */
+  .btn-primary {
+    background-color: #0d6efd;
+    border: none;
+  }
+  
+  .btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+  }
+  

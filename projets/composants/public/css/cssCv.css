@@ -1,0 +1,109 @@
+body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #eef2f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 4.75rem;
+text-align: center;
+}
+
+.accroche{
+  margin-left: 50px;
+  margin-right: 20px;
+  color: #333;
+  font-size: 1.10rem;
+}
+
+h3 {
+      font-size: 1.3rem;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 0.3rem;
+      text-align: center;
+      font-weight: 800;
+    }
+
+
+h5{
+      color:#0a7bc6
+  }
+p, li {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 0.4rem;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #217dbb;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.border-start {
+  border-left: 2px solid #ccc !important;
+}
+
+.fst-italic {
+  font-style: italic;
+}
+
+@media (max-width: 991px) {
+  main, aside {
+    padding: 0 !important;
+    border-left: none !important;
+  }
+}
+
+.coordonnees, .savoir_faire, .savoir_etre, .interets, .sociaux{
+  background-color: #00ACEE;
+  color:#333;
+}
+.coordonnees li, .savoir_faire li, .savoir_etre li, .interets li, .sociaux a{
+  color:#eef2f7;
+}
+
+.horloge {
+  background-color: #00ACEE;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+

@@ -1,0 +1,154 @@
+/* Assure que le body et le html prennent toute la hauteur */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+/* Le container principal doit prendre l’espace disponible */
+.container {
+    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Assure que le contenu s’étire bien */
+.main-content {
+    flex: 1;
+}
+
+/* Fixe le footer en bas */
+footer {
+    width: 100%;
+    background-color: #f8f9fa; /* Couleur Bootstrap light */
+    text-align: center;
+    padding: 15px 0;
+}
+
+/**------------------------------------**/
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Messages personnalisés */
+.congratulations {
+    color: green;
+    font-weight: bold;
+}
+
+.good-score {
+    color: orange;
+    font-weight: bold;
+}
+
+.low-score {
+    color: red;
+    font-weight: bold;
+}
+
+/* Réponses */
+.answer-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.answer-list li {
+    background: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.answer-list li:hover {
+    background: #ddd;
+}
+/**------------------- Responsive -----------------**/
+
+@media (max-width: 768px) {
+    /* 1. Transformer la structure du tableau en bloc */
+    .table-responsive table, 
+    .table-responsive thead, 
+    .table-responsive tbody, 
+    .table-responsive th, 
+    .table-responsive td, 
+    .table-responsive tr {
+      display: block;
+      width: 100%;
+    }
+  
+    /* 2. Masquer complètement l'en-tête du tableau */
+    .table-responsive thead {
+      display: none;
+    }
+  
+    /* 3. Style pour chaque ligne (tr) */
+    .table-responsive tr {
+      margin-bottom: 1rem;
+      border: 1px solid #dee2e6;
+      border-radius: 0.25rem;
+    }
+  
+    /* 4. Style pour chaque cellule (td) */
+    .table-responsive td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 45%; /* Espace pour le libellé */
+      text-align: left;
+    }
+  
+    /* 5. Affichage du libellé (data-label) */
+    .table-responsive td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      width: 40%;
+      padding-right: 1rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  
+    /* 6. Cas spécial pour les boutons */
+    .table-responsive td a.btn {
+      display: inline-block;
+      width: auto;
+      padding: 0.25rem 0.5rem;
+      margin: 0.25rem 0;
+    }
+  }
+
+  .demo-banner {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 1rem;
+}
