@@ -279,12 +279,7 @@ function drawTableBody(page, x, y, largeur, hauteurLigneMin, lignes, font) {
     const xFin  = x + largeur;
     
     //
-    let currentY = y;
-    lignes.forEach(ligne => {
-                                // tout ton code actuel
-                                currentY -= lineHeight;
-                            });
-    
+    let currentY = y;    
 
     // ===============================
     // 2️⃣ Parcours lignes
@@ -337,7 +332,9 @@ function drawTableBody(page, x, y, largeur, hauteurLigneMin, lignes, font) {
         // 4️⃣ Texte
         // ===============================
        //Y de référence UNIQUE pour la ligne
-       const cellCenterY = currentY - hauteurLigne / 2 - fontSize / 2;
+      
+         const textBlockHeight = designationLines.length * lineHeight;
+         const textStartY = currentY - (hauteurLigne - textBlockHeight) / 2 - fontSize;
 
 
         // Désignation (wrap)
@@ -345,7 +342,7 @@ function drawTableBody(page, x, y, largeur, hauteurLigneMin, lignes, font) {
             page,
             ligne.designation.toString(),
             xColA,
-            cellCenterY,
+            textStartY,
             colA,
             font,
             fontSize,
@@ -358,7 +355,7 @@ function drawTableBody(page, x, y, largeur, hauteurLigneMin, lignes, font) {
                             ligne.quantite.toString(),//Le texte à écrire
                             xColB,   //La position X de **la colonne**, c’est-à-dire le coin gauche de la cellule
                             colB,    //La largeur de la cellule dans laquelle on veut centrer le texte
-                            cellCenterY,   // La position Y pour le texte (attention : pdf-lib commence à 0 en bas de page)
+                            textStartY,   // La position Y pour le texte (attention : pdf-lib commence à 0 en bas de page)
                             font,    //L’objet police (ex: `standardFont`)
                             fontSize //La taille de la police pour ce texte
                         );
@@ -368,7 +365,7 @@ function drawTableBody(page, x, y, largeur, hauteurLigneMin, lignes, font) {
         const prixWidth = font.widthOfTextAtSize(prixText, fontSize);
         page.drawText(prixText, {
             x: xColC + colC - prixWidth - padding,
-            y: cellCenterY,
+            y: textStartY,
             size: fontSize,
             font
         });
@@ -378,7 +375,7 @@ function drawTableBody(page, x, y, largeur, hauteurLigneMin, lignes, font) {
         const totalWidth = font.widthOfTextAtSize(totalText, fontSize);
         page.drawText(totalText, {
             x: xColD + colD - totalWidth - padding,
-            y: cellCenterY,
+            y: textStartY,
             size: fontSize,
             font
         });
