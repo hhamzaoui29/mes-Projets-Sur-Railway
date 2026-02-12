@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire métier</title>
+    <link rel="stylesheet" href="/questionnaire/css/style.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Informations</h1>
+
+    <form action="/q/start" method="POST">
+
+        <div>
+            <label>Nom et prénom</label><br>
+            <input type="text" name="nom" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Poste / Fonction</label><br>
+            <input type="text" name="poste" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Entreprise</label><br>
+            <input type="text" name="entreprise" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Date</label><br>
+            <input type="date" name="date" required>
+        </div>
+
+        <br><br>
+
+        <button type="submit">Commencer le questionnaire</button>
+
+    </form>
+    </div>
+
+    <footer class="footer">
+    <p>
+        © <%= new Date().getFullYear() %> Hamzaoui Hamid.
+        Tous droits réservés.
+    </p>
+</footer>
+</body>
+</html>
+

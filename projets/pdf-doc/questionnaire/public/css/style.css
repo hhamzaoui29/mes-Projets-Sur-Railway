@@ -1,0 +1,172 @@
+/* =============================
+   RESET SIMPLE
+============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============================
+   GLOBAL
+============================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 30px;
+}
+
+/* =============================
+   CONTAINER PRINCIPAL
+============================= */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* =============================
+   TITRES
+============================= */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1f3c88;
+}
+
+h2 {
+    margin: 25px 0 10px;
+    color: #333;
+    border-left: 4px solid #1f3c88;
+    padding-left: 10px;
+}
+
+/* =============================
+   INFOS (NOM / ENTREPRISE / DATE)
+============================= */
+.info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info p {
+    background: #f1f3f6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* =============================
+   TABLE QUESTIONNAIRE
+============================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+thead {
+    background: #1f3c88;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: justify;
+}
+
+/* Lignes alternées */
+tbody tr:nth-child(even) {
+    background: #f8f9fb;
+}
+
+/* =============================
+   FORMULAIRES
+============================= */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* =============================
+   BOUTONS
+============================= */
+button {
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: #1f3c88;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #163172;
+}
+
+/* =============================
+   FOOTER
+============================= */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 13px;
+    color: #777;
+}
+
+/* Icônes dans le tableau */
+.icon-question {
+    color: #2563eb; /* bleu */
+    margin-right: 6px;
+}
+
+.icon-answer {
+    color: #059669; /* vert */
+    margin-right: 6px;
+}
+
+/* Alignement icône + texte */
+.question-cell,
+.answer-cell {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+

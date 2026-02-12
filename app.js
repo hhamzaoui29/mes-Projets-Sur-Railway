@@ -23,7 +23,9 @@ app.set("view engine", "ejs");
 // 🧩 Définir les dossiers de vues à rechercher
 app.set("views", [
                     path.join(__dirname, "views"),               
-                    path.join(__dirname, "projets" ),      
+                    path.join(__dirname, "projets" ),
+                    path.join(__dirname, "projets/pdf-doc/questionnaire/views"),
+                    path.join(__dirname, "projets/pdf-doc/facture/views")     
                   ]);
 
 // ====================================================================================================================================================================================================//
@@ -38,6 +40,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use('/portfolio',     express.static(path.join(__dirname, 'projets/portfolio/public')));
 app.use('/siteVitrine',   express.static(path.join(__dirname, 'projets/siteVitrine/public')));
 app.use('/composants',    express.static(path.join(__dirname, 'projets/composants/public')));
+app.use('/questionnaire', express.static(path.join(__dirname, 'projets/pdf-doc/questionnaire/public')));
+app.use('/facture',       express.static(path.join(__dirname, 'projets/pdf-doc/facture/public')));
 
 
 console.log("Dossier racine :", __dirname);
@@ -81,11 +85,15 @@ app.use((req, res, next) => {
 const portfolioRoutes  = require("./projets/portfolio/routes");
 const siteRoute        = require("./projets/siteVitrine/routes");
 const composantsRoute  = require("./projets/composants/routes");
+const questionnaireRoutes = require("./projets/pdf-doc/questionnaire/routes/questionnaireRoute");
+const factureRoutes       = require("./projets/pdf-doc/facture/routes/facturesRoutes");
 
 // Brancher les modules de routes
 app.use("/", portfolioRoutes);
 app.use("/site", siteRoute);
 app.use('/composants', composantsRoute);
+app.use("/q", questionnaireRoutes);
+app.use("/f", factureRoutes);
 
 
 // ====================================================================================================================================================================================================//

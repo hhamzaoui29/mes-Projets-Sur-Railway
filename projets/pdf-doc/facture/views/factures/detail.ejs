@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail facture</title>
+    <link rel="stylesheet" href="/facture/css/style.css">
+</head>
+<body>
+
+    <h1>📄 Facture <%= facture.numero %></h1>
+
+    <p><strong>Client :</strong> <%= facture.client.nom %></p>
+    <p><strong>Adresse :</strong> <%= facture.client.adresse %></p>
+    <p><strong>Date :</strong> <%= facture.date %></p>
+
+    <hr>
+
+    <h2>Détails</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Désignation</th>
+                <th>Quantité</th>
+                <th>Prix (€)</th>
+                <th>Total ligne (€)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% facture.lignes.forEach(ligne => { %>
+                <tr>
+                    <td><%= ligne.designation %></td>
+                    <td><%= ligne.quantite %></td>
+                    <td><%= ligne.prix %></td>
+                    <td><%= ligne.quantite * ligne.prix %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <h3>Total facture : <%= facture.total %> €</h3>
+
+    <br>
+
+    <a href="/f/factures">⬅ Retour à la liste</a>
+
+</body>
+</html>

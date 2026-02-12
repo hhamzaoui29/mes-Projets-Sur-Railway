@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "numero": "FAC-2026-001",
+    "tva":0.10,
+    "client": {
+      "nom": "Entreprise ABC",
+      "adresse": "12 rue de Paris, 75000 Paris"
+    },
+    "date": "2026-02-06",
+    "lignes": [
+      {
+        "designation": "Développement site web-Entreprise ABC-12 rue de Paris, 75000 Paris",
+        "quantite": 1,
+        "prix": 1200
+      },
+      {
+        "designation": "Maintenance applicative",
+        "quantite": 2,
+        "prix": 1500
+      },
+      {
+        "designation": "Debug",
+        "quantite": 2,
+        "prix": 1550
+      },
+      {
+        "designation": "Études",
+        "quantite": 2,
+        "prix": 150
+      }
+    ]
+    
+  },
+  {
+    "id": 2,
+    "numero": "FAC-2026-002",
+    "tva":0.20,
+    "client": {
+      "nom": "Société XYZ",
+      "adresse": "8 avenue de Lyon, 69000 Lyon"
+    },
+    "date": "2026-02-10",
+    "lignes": [
+      {
+        "designation": "Audit technique",
+        "quantite": 1,
+        "prix": 800
+      },
+      {
+        "designation": "Conseil",
+        "quantite": 3,
+        "prix": 200
+      }
+    ]
+  }
+  
+]

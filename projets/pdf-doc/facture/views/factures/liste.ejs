@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des factures</title>
+    <link rel="stylesheet" href="/facture/css/style.css">
+</head>
+<body>
+
+    <h1>📄 Liste des factures</h1>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Client</th>
+                <th>Date</th>
+                <th>Total (€)</th>
+                <th>Action</th>
+                <th>Visualier</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% factures.forEach(facture => { %>
+                <tr>
+                    <td><%= facture.numero %></td>
+                    <td><%= facture.client.nom %></td>
+                    <td><%= facture.date %></td>
+                    <td><%= facture.total %></td>
+                    <td>
+                        <a href="/f/factures/<%= facture.id %>">Détail</a>
+                    </td>
+                    <td>
+                        <a href="/f/factures/<%= facture.id %>/view">voir</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</body>
+</html>
