@@ -34,7 +34,7 @@ async function createInvoiceInfoBlock(page, data,y, font, boldFont) {
 
 
   const wrappedLivraison = wrapText(
-    `Adresse livraison : ${data.client.adresse || "Non renseignée"} ${data.client.cp || ""} ${data.client.ville || ""}`,
+    `Adresse de facturation : ${data.client.adresse || "Non renseignée"} ${data.client.cp || ""} ${data.client.ville || ""}`,
     font,
     fontSize,
     leftWidth - padding * 2
