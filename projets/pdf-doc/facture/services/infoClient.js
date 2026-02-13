@@ -32,7 +32,16 @@ async function createInvoiceInfoBlock(page, data,y, font, boldFont) {
      On prépare le texte AVANT de dessiner
   ====================================================== */
 
-
+    // Bloc INFO ENTREPRISE
+  page.drawRectangle({
+                      x: 305, // position de x est en haut a droit du cadre
+                      y: 790, // position de y est en haut a droit du cadre
+                      width:  280,// la largeur du cadre
+                      height: -100, // la hauteur du cadre
+                      borderWidth: 1,
+                      borderColor: rgb(0, 0, 0),
+                      color: undefined,
+                      });
   const wrappedLivraison = wrapText(
     `Adresse de facturation : ${data.client.adresse || "Non renseignée"} ${data.client.cp || ""} ${data.client.ville || ""}`,
     font,
@@ -76,6 +85,7 @@ async function createInvoiceInfoBlock(page, data,y, font, boldFont) {
   /* ======================================================
      4️⃣ DESSIN DES CADRES
   ====================================================== */
+
 
   // Bloc gauche
 page.drawRectangle({
