@@ -5,7 +5,7 @@
     "tva":0.10,
     "entreprise":{
                     "nom": "Solution Informatique",
-                    "adresse": "19 rue des boucles",
+                    "adresse": "19 rue des marées",
                     "cp":"29200",
                     "ville":"Brest",
                     "tel": " 02 98 20 20 20 ",
@@ -14,7 +14,7 @@
     "client": {
                 "nom": "Entreprise ABC",
                 "adresse": "12 rue de Paris",
-                "cp":"29400",
+                "cp":"29200",
                 "ville":"Brest",
                 "Tél" : "01 02 03 04 05",
                 "E-mail" : "contact@mail.com"
