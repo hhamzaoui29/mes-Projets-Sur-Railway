@@ -28,7 +28,7 @@ function drawTableHeader(page, x, y, largeur, hauteur, titres, font) {
     // ===============================
     // 1️⃣ Définition des colonnes
     // ===============================
-
+ 
     const colA = largeur * 0.50; // Désignation
     const colB = largeur * 0.10; // Quantité
     const colC = largeur * 0.15; // Prix
@@ -470,7 +470,7 @@ function drawTable(page, width, height, facture, font) {
 
     // 2️⃣ Position et dimensions du tableau
     const xTable = 50;
-    const yTable = height - 150;          // sous le titre "Facture" ou Début du tableau
+    const yTable = height ;          // sous le titre "Facture" ou Début du tableau
     const largeurTable = width - 100;     // marges gauche / droite
     const hauteurLigne = 25;
    
@@ -502,15 +502,17 @@ function drawTable(page, width, height, facture, font) {
     const totaux = calculerTotaux(totalGeneral,tauxTVA);
 
     // 5️⃣ Dessiner le pied du tableau (total)
-    drawTableFooter(
-                        page,
-                        xTable,
-                        yAfterBody,
-                        largeurTable,
-                        hauteurLigne,
-                        totaux,
-                        font
-                    );
+    const yAfterTableFooter = drawTableFooter(
+                                                page,
+                                                xTable,
+                                                yAfterBody,
+                                                largeurTable,
+                                                hauteurLigne,
+                                                totaux,
+                                                font
+                                            );
+     // 🔹 RETURN la position Y finale du tableau
+     return yAfterTableFooter;
 }
 
 module.exports = {

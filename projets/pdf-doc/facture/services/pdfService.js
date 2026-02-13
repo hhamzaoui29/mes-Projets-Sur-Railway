@@ -5,8 +5,10 @@ const { PDFDocument, StandardFonts, rgb } = require("pdf-lib");
 const fs = require("fs");
 const path = require("path");
 
-const table = require("./table");
-const texte = require('./texte');
+const {drawTable} = require("./table");
+const {formatEuro} = require('./fonctionUtils');
+const {createInvoiceInfoBlock} = require('./infoClient');
+
 
 
 
@@ -15,57 +17,140 @@ const texte = require('./texte');
 ========================================= */
 
 /**
- * Dessine l'en-tête de la facture
+ * | Paramètre  | Rôle                                                |
+* | ---------- | --------------------------------------------------- |
+* | `pdfDoc`   | Le document PDF principal (instance de PDFDocument) |
+* | `page`     | La page sur laquelle on dessine                     |
+* | `data`     | Les données de la facture (numero, client, etc.)    |
+* | `font`     | La police déjà chargée                              |
+* | `height`   | Hauteur totale de la page                           |
+* | `width`    | Largeur totale de la page                           |
+* | `logoPath` | Chemin vers le fichier image du logo                |
+* |____________|_____________________________________________________|
+* 
+*🔎 Comprendre les coordonnées PDF
+* - Dans pdf-lib :
+*                  - (0,0) est en bas à gauche
+*                  - X augmente vers la droite
+*                  - Y augmente vers le haut
+* 
  */
-function createHeader(page, data, font, height, width) {
+async function createHeader(pdfDoc, page, data, font, width, logoPath) {
+    let xInitial = 50;      // marge gauche initiale
+    let yInitial = 50;        // marge du haut initiale (on va descendre en ajoutant)
 
-    // 1️⃣ Titre principal
-    page.drawText(`Facture N°: ${data.numero}`, {
-                                                    x: 50,
-                                                    y: height - 90,
-                                                    size: 18,
-                                                    font: font,
-                                                    color: rgb(0, 0, 0)
-                                                });
+    // Hauteur de la page
+    const pageHeight = page.getHeight();  
 
-    // 2️⃣ Date du jour
-    const today = new Date();
-    const dateStr = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+    // 1️⃣ Logo en haut à droite si fourni
+    if (logoPath && fs.existsSync(logoPath)) {
+                                                const logoBytes = fs.readFileSync(logoPath);
+                                                const logoImage = await pdfDoc.embedPng(logoBytes); // utiliser embedJpg si JPG
 
-    page.drawText(`Date du jour : ${dateStr}`, {
-                                                    x: 350,
-                                                    y: height -50,
-                                                    size: 20,
-                                                    font: font,
-                                                    color: rgb(0.26, 0.26, 0.26)
-                                                });
+                                                const maxWidth = 150; 
+                                                const scale = maxWidth / logoImage.width;
+                                                const scaledWidth = logoImage.width * scale;
+                                                const scaledHeight = logoImage.height * scale;
 
-    // 3️⃣ Infos entreprise
-    page.drawText(`Entreprise : ${data.client.nom}`, {
-                                                    x: 50,
-                                                    y: height - 110,
-                                                    size: 12,
-                                                    font: font,
-                                                    color: rgb(0.26, 0.26, 0.26)
-                                                });
+                                                page.drawImage(logoImage, {
+                                                                            x: width - scaledWidth - 400,                 // marge droite
+                                                                            y: pageHeight - scaledHeight - 30,          // marge haut
+                                                                            width: scaledWidth,
+                                                                            height: scaledHeight
+                                                                        });
+                                            }
+    
+    // 2️⃣ Titre principal 
 
-    page.drawText(`Adresse : ${data.client.adresse}`, {
-                                                    x: 50,
-                                                    y: height - 125,
-                                                    size: 12,
-                                                    font: font,
-                                                    color: rgb(0.26, 0.26, 0.26)
-                                                });
+    // 4️⃣ Infos entreprise
+    const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+     yInitial += 40;
+    page.drawText(` ${data.entreprise.nom}`, {
+        x: xInitial + 260,
+        y: pageHeight - yInitial,
+        size: 25,
+        font: boldFont,
+        color: rgb(0.26, 0.26, 0.26)
+    });
+    
+    yInitial += 20;  
 
-    // 4️⃣ Ligne de séparation
+
+    page.drawText(`${data.entreprise.adresse}`, {
+        x: xInitial + 340,
+        y: pageHeight - yInitial,
+        size: 15,
+        font: font,
+        color: rgb(0.26, 0.26, 0.26)
+    });
+     
+    yInitial +=20;
+    page.drawText(`${data.entreprise.cp} ${data.entreprise.ville}`,{
+        x: xInitial + 340,
+        y: pageHeight - yInitial,
+        size: 15,
+        font: font,
+        color: rgb(0.26, 0.26, 0.26)
+    });
+
+    yInitial += 100;
+    page.drawText(`Tél : ${data.entreprise.tel}`,{
+        x: xInitial + 80,
+        y: pageHeight - yInitial,
+        size: 15,
+        font: font,
+        color: rgb(0.26, 0.26, 0.26)
+    });
+
+    page.drawText(`E-mail : ${data.entreprise.mail}`,{
+        x: xInitial + 240,
+        y: pageHeight - yInitial,
+        size: 15,
+        font: font,
+        color: rgb(0.26, 0.26, 0.26)
+    });
+
+    
+
+
+    // 5️⃣ Ligne de séparation         
+    yInitial += 20;
+
     page.drawLine({
-                    start: { x: 50, y: height - 150 },
-                    end: { x: width - 50, y: height - 150 },
-                    thickness: 1,
-                    color: rgb(0.7, 0.7, 0.7)
-                });
-    // Ligne de séparation
-    //page.moveTo(150, 150).lineTo(345, 150).stroke();
+        start: { x: xInitial, y: pageHeight - yInitial },
+        end: { x: width - xInitial, y: pageHeight - yInitial },
+        thickness: 1,
+        color: rgb(0.7, 0.7, 0.7)
+    });
+    
+    const yFinal = pageHeight - yInitial;
+    return yFinal;
+    // ✅ Avec ce système, tu modifies seulement xInitial ou yInitial au début
+    // et tu gères facilement le positionnement vertical en ajoutant des valeurs.
+}
+
+/******** 
+* - x = position horizontale (gauche)
+* - y = position verticale (haut du bloc)
+* - largeur = largeur disponible
+* - infos = tableau d’infos
+* - font = police
+*/
+function drawAdditionalInfo(page, x, y, largeur, infos, font) {
+    const fontSize = 10;
+    let currentY = y;
+
+    infos.forEach(info => {
+        page.drawText(info, {
+                                    x,
+                                    y: currentY,
+                                    size: fontSize,
+                                    font
+                                });
+                                currentY -= 14; // descente ligne
+                            });
+
+    return currentY;
 }
 
 
@@ -97,15 +182,38 @@ async function creerPdfSimple(facture) {
 
                                                     // 4️⃣ Charger une police standard
                                                     const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+                                                    // 👇 Police en gras
+                                                    const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
                                                     // 5️⃣ Ajouter du texte
                                                 
                                                     //Header
-                                                   createHeader(page,facture, font, height, width);
+                                                   const logoPath = path.join(__dirname, "..", "public", "images", "logo.png");
+                                                   const yAfterHeader = await createHeader(pdfDoc, page,facture, font, width, logoPath);
 
-                                                    // 6️⃣ Dessiner un tableau vide pour les lignes de la facture
-                                                    
-                                                    table.drawTable(page, width, height, facture, font);
+                                                   //invoiceInfoBloc
+                                                   const yAfterInvoiceBlock =  await createInvoiceInfoBlock(
+                                                                                                                page,
+                                                                                                                facture,
+                                                                                                                yAfterHeader,
+                                                                                                                font,
+                                                                                                                boldFont
+                                                                                                            );
+
+                                                   
+                                                   // 6️⃣ Dessiner un tableau vide pour les lignes de la facture
+                                                   // utiliser yAfterHeader pour le tableau
+                                                   const yTable = yAfterInvoiceBlock - 20; // marge de sécurité
+                                                    const yAfterTable  = drawTable(page, width, yTable, facture, font);
+
+                                                    //LES INFOS
+                                                    const xTable = 50;
+                                                    const largeurTable = width - 100;
+                                                    const additionalInfos = [ facture.infos.conditions];
+
+                                                    const yAfterFooter = drawAdditionalInfo(page, xTable, yAfterTable - 20, largeurTable, additionalInfos, font);
+
+
                                                     // 6️⃣ Générer le PDF en bytes
                                                     const pdfBytes = await pdfDoc.save();
 

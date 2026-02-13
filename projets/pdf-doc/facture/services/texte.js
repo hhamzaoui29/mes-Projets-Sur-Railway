@@ -115,7 +115,29 @@ function drawCenteredText(page, text, xCol, largeurCol, y, font, size) {
 }
 
 
+async function drawTextWithPagination(pdfDoc, page, lines, font, fontSize, margin) {
+  let y = page.getHeight() - margin;
+  const lineHeight = fontSize + 2; // espace entre les lignes
 
+  for (let i = 0; i < lines.length; i++) {
+    // si on arrive trop bas → nouvelle page
+    if (y < margin + lineHeight) {
+      page = pdfDoc.addPage();       // nouvelle page
+      y = page.getHeight() - margin; // reset y
+    }
+
+    page.drawText(lines[i], {
+      x: margin,
+      y: y,
+      size: fontSize,
+      font,
+    });
+
+    y -= lineHeight;
+  }
+
+  return { page, y };
+}
 
 
 
@@ -126,4 +148,5 @@ module.exports = {
                     wrapText,
                     drawTextInCell,
                     drawCenteredText,
+                    drawTextWithPagination
                  };
