@@ -6,7 +6,7 @@
     "entreprise":{
                     "nom": "Solution Informatique",
                     "adresse": "19 rue des boucles",
-                    "cp":"29400",
+                    "cp":"29200",
                     "ville":"Brest",
                     "tel": " 02 98 20 20 20 ",
                      "mail" : "contact@mail.com"
@@ -74,10 +74,22 @@
     "id": 2,
     "numero": "FAC-2026-002",
     "tva":0.20,
+     "entreprise":{
+                    "nom": "Solution Informatique",
+                    "adresse": "19 rue des boucles",
+                    "cp":"29400",
+                    "ville":"Brest",
+                    "tel": " 02 98 20 20 20 ",
+                     "mail" : "contact@mail.com"
+              },
     "client": {
-      "nom": "Société XYZ",
-      "adresse": "8 avenue de Lyon, 69000 Lyon"
-    },
+                "nom": "Entreprise LCD",
+                "adresse": "12 rue de brest",
+                "cp":"29800",
+                "ville":"Landerneau",
+                "Tél" : "09 02 03 04 05",
+                "E-mail" : "contact@mail.com"
+              },
     "date": "2026-02-10",
     "lignes": [
       {
@@ -90,7 +102,11 @@
         "quantite": 3,
         "prix": 20
       }
-    ]
+    ],
+     "infos": {
+               "reglement":" Réglement : Paiement à réception En cas de retard de paiement, une pénalité forfaitaire de 40 euros sera due au titre des frais de recouvrement.",
+               "conditions": "Voir les conditions"
+             }
   }
   
 ]
