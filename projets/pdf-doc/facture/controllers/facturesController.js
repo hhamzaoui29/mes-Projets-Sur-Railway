@@ -66,29 +66,25 @@ async function teste(req, res) {
  * CONTROLLER : visualiser PDF dans le navigateur
  ******************************************************************/
 async function visualiserPdf(req, res) {
+                                            const id = parseInt(req.params.id);
+                                            const facture = factureModel.getFactureById(id);
+                                            if (!facture) return res.status(404).send("Facture introuvable");
 
+                                            try {
+                                                    // Générer PDF en mémoire
+                                                    const pdfBytes = await pdfService.creerPdfSimple(facture);
+                                                        //console.log("PDF bytes type:", typeof pdfBytes);
+                                                        //console.log("PDF bytes length:", pdfBytes?.length);
+                                                        
+                                                    // Envoyer au navigateur
+                                                    res.setHeader("Content-Type", "application/pdf");
+                                                    res.setHeader("Content-Disposition", `inline; filename=${facture.numero}.pdf`);
+                                                    res.send(Buffer.from(pdfBytes));
 
-
-
-    const id = parseInt(req.params.id);
-    const facture = factureModel.getFactureById(id);
-    if (!facture) return res.status(404).send("Facture introuvable");
-
-    try {
-        // Générer PDF en mémoire
-        const pdfBytes = await pdfService.creerPdfSimple(facture);
-            //console.log("PDF bytes type:", typeof pdfBytes);
-            //console.log("PDF bytes length:", pdfBytes?.length);
-            
-        // Envoyer au navigateur
-        res.setHeader("Content-Type", "application/pdf");
-        res.setHeader("Content-Disposition", `inline; filename=${facture.numero}.pdf`);
-        res.send(Buffer.from(pdfBytes));
-
-    } catch (error) {
-        res.status(500).send("Erreur génération PDF");
-    }
-}
+                                                } catch (error) {
+                                                    res.status(500).send("Erreur génération PDF");
+                                                }
+                                        }
 
 /******************************************************************
  * EXPORTS

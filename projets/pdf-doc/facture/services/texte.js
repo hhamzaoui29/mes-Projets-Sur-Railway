@@ -139,6 +139,94 @@ async function drawTextWithPagination(pdfDoc, page, lines, font, fontSize, margi
   return { page, y };
 }
 
+/**
+ * ==========================================================
+ * FONCTION : Dessiner un texte multi-ligne avec wrap auto
+ * ==========================================================
+ * 
+ * @param {Object} options
+ * @param {PDFPage} options.page        → Page PDF
+ * @param {string} options.text         → Texte complet (peut contenir \n)
+ * @param {number} options.x            → Position X de départ
+ * @param {number} options.y            → Position Y de départ
+ * @param {number} options.width        → Largeur disponible
+ * @param {PDFFont} options.font        → Police
+ * @param {number} options.fontSize     → Taille du texte
+ * @param {number} options.lineHeight   → Hauteur entre lignes
+ * @param {"left"|"center"|"right"} options.align → Alignement
+ * 
+ * @returns {number} → Nouvelle position Y après écriture
+ */
+function drawMultilineText({
+    page,
+    text,
+    x,
+    y,
+    width,
+    font,
+    fontSize = 12,
+    lineHeight = 14,
+    align = "left"
+}) {
+
+    // ===============================
+    // 1️⃣ Séparation des paragraphes (\n)
+    // ===============================
+    const paragraphs = text.split("\n");
+
+    let allLines = [];
+
+    // ===============================
+    // 2️⃣ Wrap automatique de chaque paragraphe
+    // ===============================
+    paragraphs.forEach(paragraph => {
+
+        const wrappedLines = wrapText(
+            paragraph,
+            font,
+            fontSize,
+            width
+        );
+
+        allLines = allLines.concat(wrappedLines);
+    });
+
+    // ===============================
+    // 3️⃣ Dessin ligne par ligne
+    // ===============================
+    let currentY = y;
+
+    allLines.forEach(line => {
+
+        let textX = x;
+
+        // 🔹 Gestion alignement
+        const textWidth = font.widthOfTextAtSize(line, fontSize);
+
+        if (align === "center") {
+            textX = x + (width / 2) - (textWidth / 2);
+        }
+
+        if (align === "right") {
+            textX = x + width - textWidth;
+        }
+
+        page.drawText(line, {
+            x: textX,
+            y: currentY,
+            size: fontSize,
+            font
+        });
+
+        // 🔹 Descente pour la ligne suivante
+        currentY -= lineHeight;
+    });
+
+    // ===============================
+    // 4️⃣ Retourne la nouvelle position Y
+    // ===============================
+    return currentY;
+}
 
 
 
@@ -148,5 +236,6 @@ module.exports = {
                     wrapText,
                     drawTextInCell,
                     drawCenteredText,
-                    drawTextWithPagination
+                    drawTextWithPagination,
+                    drawMultilineText
                  };

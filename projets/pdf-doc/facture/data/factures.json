@@ -3,6 +3,7 @@
     "id": 1,
     "numero": "FAC-2026-001",
     "tva":0.10,
+    "siret" : "SIRET : 123 456 789 00010 - TVA : FR00123456789",
     "entreprise":{
                     "nom": "Solution Informatique",
                     "adresse": "19 rue des marées",
@@ -37,35 +38,16 @@
         "prix": 15.50
       },
       {
-        "designation": "Études",
-        "quantite": 2,
-        "prix": 12
-      },
-      {
-        "designation": "Développement ",
-        "quantite": 1,
-        "prix": 22
-      },
-      {
-        "designation": "Maintenance applicative",
-        "quantite": 2,
-        "prix": 15
-      },
-      {
         "designation": "Debug",
         "quantite": 2,
         "prix": 15.50
-      },
-      {
-        "designation": "Études",
-        "quantite": 2,
-        "prix": 12
       }
       
     ],
     "infos": {
                "reglement":" Réglement : Paiement à réception En cas de retard de paiement, une pénalité forfaitaire de 40 euros sera due au titre des frais de recouvrement.",
-               "conditions": "Voir les conditions"
+               "conditions": "Qu'est-ce que le Lorem Ipsum ?\nLe Lorem Ipsum est un texte de remplissage utilisé dans le secteur de l'imprimerie et de la composition. Depuis le XVIe siècle, il sert de texte factice standard, lorsqu'un imprimeur anonyme a mélangé des caractères pour créer un livre d'exemples typographiques. Il a traversé les siècles, s'adaptant même à la composition électronique, sans subir de modifications majeures. Sa popularité a explosé dans les années 1960 avec la commercialisation des feuilles Letraset contenant des extraits de Lorem Ipsum, puis plus récemment avec les logiciels de PAO comme Aldus PageMaker, qui intègrent des versions de ce texte.",
+                "mentionsLegales": "Qu'est-ce que le Lorem Ipsum ?\nLe Lorem Ipsum est un texte de remplissage utilisé dans le secteur de l'imprimerie et de la composition. Depuis le XVIe siècle, il sert de texte factice standard, lorsqu'un imprimeur anonyme a mélangé des caractères pour créer un livre d'exemples typographiques. Il a traversé les siècles, s'adaptant même à la composition électronique, sans subir de modifications majeures. Sa popularité a explosé dans les années 1960 avec la commercialisation des feuilles Letraset contenant des extraits de Lorem Ipsum, puis plus récemment avec les logiciels de PAO comme Aldus PageMaker, qui intègrent des versions de ce texte."
              }
     
  },

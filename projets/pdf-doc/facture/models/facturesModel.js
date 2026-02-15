@@ -7,7 +7,8 @@ const path = require("path");
 /******************************************************************
  * CHEMIN DU FICHIER JSON qui sera lu et écrit par les fonctions de ce module
  ******************************************************************/
-const dataPath = path.join(__dirname, "..", "data", "factures.json");
+//const dataPath = path.join(__dirname, "..", "data", "factures.json"); facturesSurPlusiersPages.json
+const dataPath = path.join(__dirname, "..", "data", "facturesSurPlusiersPages.json");
 
 /******************************************************************
  * FONCTION : lire toutes les factures
@@ -18,12 +19,12 @@ const dataPath = path.join(__dirname, "..", "data", "factures.json");
  ******************************************************************/
 function getAllFactures() {
                             try {
-                                const data = fs.readFileSync(dataPath, "utf-8");
-                                return JSON.parse(data);
-                            } catch (error) {
-                                console.error("❌ Erreur lecture factures :", error);
-                                return [];
-                            }
+                                    const data = fs.readFileSync(dataPath, "utf-8");
+                                    return JSON.parse(data);
+                                } catch (error) {
+                                                    console.error("❌ Erreur lecture factures :", error);
+                                                    return [];
+                                                }
                           }
 
 /******************************************************************
@@ -33,12 +34,17 @@ function getAllFactures() {
  * @returns {object|null}
  ******************************************************************/
 function getFactureById(id) {
-                                const factures = getAllFactures();
+                              try {
+                                    const factures = getAllFactures();
 
-                                // Recherche de la facture correspondant à l'id
-                                const facture = factures.find(f => f.id === id);
+                                    // Recherche de la facture correspondant à l'id
+                                     const facture = factures.find(f => f.id === id);
 
-                                return facture || null;
+                                    return facture || null;
+                                  } catch (error) {
+                                     console.error("❌ Erreur lecture facturesId :", error);
+                                                    return [];
+                                  }
                             }
                             
 /******************************************************************

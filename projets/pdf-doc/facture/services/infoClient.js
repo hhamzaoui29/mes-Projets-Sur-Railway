@@ -1,6 +1,6 @@
 // invoiceBlock.js
 
-const { rgb } = require("pdf-lib");
+const { rgb,grayscale } = require("pdf-lib");
 const { wrapText } = require("./texte"); // ta fonction existante
 
 async function createInvoiceInfoBlock(page, data,y, font, boldFont) {
@@ -38,15 +38,18 @@ async function createInvoiceInfoBlock(page, data,y, font, boldFont) {
                       y: 790, // position de y est en haut a droit du cadre
                       width:  280,// la largeur du cadre
                       height: -100, // la hauteur du cadre
-                      borderWidth: 1,
-                      borderColor: rgb(0, 0, 0),
-                      color: undefined,
+                      borderWidth: 5,
+                      borderColor: grayscale(0.5),
+                     // borderColor: rgb(0, 0, 0),
+                      opacity: 0.5,
+                      color: undefined
+
                       });
   const wrappedLivraison = wrapText(
     `Adresse de facturation : ${data.client.adresse || "Non renseignée"} ${data.client.cp || ""} ${data.client.ville || ""}`,
     font,
     fontSize,
-    leftWidth - padding * 2
+    leftWidth - padding * 2,
   );
 
   const wrappedObjet = wrapText(
@@ -220,13 +223,14 @@ page.drawRectangle({
     });
     yInfos -= lineHeight;
   });
-
+  
+   
 
   /* ======================================================
      8️⃣ RETOUR POSITION Y POUR drawTable
   ====================================================== */
 
-  return yStart - mainBlockHeight - infosBlockHeight - 20;
+  return yStart ;
 }
 
 module.exports = { createInvoiceInfoBlock };
