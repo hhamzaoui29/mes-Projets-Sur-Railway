@@ -168,13 +168,7 @@ async function createFooter(
                                 
 
                                 // Texte centrée
-                                const footerText = ` ${data.entreprise.adresse} - 
-                                                     ${data.entreprise.cp} 
-                                                     ${data.entreprise.ville} - 
-                                                     ${data.entreprise.tel} - 
-                                                     ${data.entreprise.mail} - 
-                                                     ${data.siret} - 
-                                                     ${pageText}`;
+                                const footerText = ` ${data.entreprise.adresse} - ${data.entreprise.cp} ${data.entreprise.ville} - ${data.entreprise.tel} - ${data.entreprise.mail} - ${data.siret} - ${pageText}`;
 
                                 drawMultilineText({
                                                     page,
