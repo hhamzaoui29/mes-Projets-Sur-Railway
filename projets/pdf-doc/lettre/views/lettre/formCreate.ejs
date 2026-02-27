@@ -3,89 +3,134 @@
 <head>
     <title>Créer une lettre</title>
     <link rel="stylesheet" href="/lettre/css/style.css">
+ 
 </head>
 <body>
 
    <div class="container">
-     <h2>Créer une lettre</h2>
+     <h2>📝 Créer une lettre</h2>
 
     <form action="/l/create" method="POST">
 
-        <!-- Titre -->
-         <div>
-            <label>prenom </label>
-            <input type="text" name="prenom" required>
-        </div>
-        <div>
-            <label>Nom </label>
-            <input type="text" name="nom" required>
+        <!-- Identité de l'expéditeur -->
+        <div class="section-title">
+            <span>👤 Qui êtes-vous ?</span>
         </div>
         
-        <!-- Expediteur -->
+        <div class="form-row">
+            <div class="form-col">
+                <div class="form-group">
+                    <label><span class="field-required">Prénom</span></label>
+                    <input type="text" name="prenom" required placeholder="Votre prénom">
+                </div>
+            </div>
+            <div class="form-col">
+                <div class="form-group">
+                    <label><span class="field-required">Nom</span></label>
+                    <input type="text" name="nom" required placeholder="Votre nom">
+                </div>
+            </div>
+        </div>
+
+        <!-- Expéditeur et Destinataire avec séparation visuelle -->
+        <div class="form-row">
+            <!-- Colonne Expéditeur -->
+            <div class="form-col">
+                <div class="expediteur-container">
+                    <div class="container-badge">✉️ EXPÉDITEUR</div>
+                    
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <input type="text" name="adresse" placeholder="Numéro et rue">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label>Code Postal</label>
+                                <input type="text" name="cp" placeholder="Code postal">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" name="ville" placeholder="Ville">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="field-required">Téléphone</span></label>
+                        <input type="text" name="tel" required placeholder="Votre téléphone">
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="field-required">E-mail</span></label>
+                        <input type="email" name="mail" required placeholder="votre@email.com">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Barre de séparation verticale -->
+            <div class="separator-vertical"></div>
+            
+            <!-- Colonne Destinataire -->
+            <div class="form-col">
+                <div class="destinataire-container">
+                    <div class="container-badge">🎯 DESTINATAIRE</div>
+                    
+                    <div class="form-group">
+                        <label>Société</label>
+                        <input type="text" name="societe" placeholder="Nom de la société">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <input type="text" name="addr" placeholder="Numéro et rue">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label>Code Postal</label>
+                                <input type="text" name="cp_s" placeholder="Code postal">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" name="ville_s" placeholder="Ville">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Séparation horizontale avant le contenu -->
+        <div class="separator-horizontal"></div>
+
+        <!-- Objet et Contenu de la lettre -->
+        <div class="section-title">
+            <span>📄 Contenu de la lettre</span>
+        </div>
         
-      
-        <div>
-            <label>Adresse</label>
-            <input type="text" name="adresse" >
+        <div class="form-group objet-field">
+            <label><span class="field-required">Objet</span></label>
+            <input type="text" name="objet" required placeholder="Objet de la lettre" style="width: 100%;">
         </div>
-
-        <div>
-            <label>Code Postal</label>
-            <input type="text" name="cp" >
-        </div>
-
-        <div>
-            <label>Ville</label>
-            <input type="text" name="ville" >
-        </div>
-
-        <div>
-            <label>Téléphone</label>
-            <input type="text" name="tel" required>
-        </div>
-
-        <div>
-            <label>E-mail</label>
-            <input type="text" name="mail" required>
-        </div>
-
-        <!-- Destinataire -->
-         <div>
-            <label>Sociéte</label>
-            <input type="text" name="societe" >
-        </div>
-
-        <div>
-            <label>Adresse</label>
-            <input type="text" name="addr">
-        </div>
-
-         <div>
-            <label>Code Postal</label>
-            <input type="text" name="cp_s" >
-        </div>
-
-        <div>
-            <label>Ville</label>
-            <input type="text" name="ville_s">
-        </div>
-
-        <div>
-            <label>Objet</label>
-            <input class="objet" type="text" name="objet" required>
-        </div>
-        <!-- le corps de la lettre-->
-        <div>
-            <label>Contenu</label>
-            <textarea name="contenu" rows="8" required></textarea>
-        </div>
-        <!-- La signature -->
         
-         
+        <div class="form-group">
+            <label><span class="field-required">Contenu</span></label>
+            <textarea name="contenu" rows="8" required placeholder="Rédigez votre lettre ici..."></textarea>
+        </div>
 
-        <button type="submit">Créer</button>
+        <!-- Indication des champs obligatoires -->
+        <div class="required-hint">
+            <span class="field-required"></span> Champs obligatoires
+        </div>
 
-
+        <button type="submit">📨 Créer la lettre</button>
 
     </form>
    </div>
