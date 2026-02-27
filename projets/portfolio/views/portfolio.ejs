@@ -80,6 +80,7 @@
                 ], 
                 tags: ["Node.js", "Express", "SQLite"],
                 link: "/site/vitrine",
+                target: "_blank",
                 btn: "Voir le projet",
                 color: "primary"
             },
@@ -96,6 +97,7 @@
                 ],
                 tags: ["Node.js", "pdf-lib", "JSON"],
                 link: "/q",
+                target: "_blank",
                 btn: "Voir le projet",
                 color: "success"
             },
@@ -112,6 +114,7 @@
                 ],
                 tags: ["Node.js", "PDF-lib", "Bootstrap"],
                 link: "/f",
+                target: "_blank",
                 btn: "Voir le projet",
                 color: "warning"
             },
@@ -128,6 +131,7 @@
                 ],
                 tags: ["Node.js", "PDF-lib", "EJS"],
                 link: "/l",
+                target: "_blank",
                 btn: "Voir le projet",
                 color: "info"
             }
@@ -167,7 +171,8 @@
                 </div>
                 
                 <div class="project-footer">
-                    <a href="<%= section.link %>" class="btn btn-<%= section.color %>">
+                    <!--<a href="<%= section.link %>" class="btn btn-<%= section.color %>">-->
+                        <a href="<%= section.link %>" class="btn btn-<%= section.color %>" target="<%= section.target || '_self' %>"  rel="<%= section.target === '_blank' ? 'noopener noreferrer' : '' %>">
                         <span><%= section.btn %></span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
