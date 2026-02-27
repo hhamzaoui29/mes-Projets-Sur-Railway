@@ -1,0 +1,74 @@
+<footer class="footer">
+    <div class="container">
+        <!-- Section principale (celle que vous aviez) -->
+        <div class="footer-main">
+           
+            
+            <!-- Badges de confiance -->
+            <div class="trust-badges">
+                <span class="trust-badge">
+                    <i class="fas fa-check-circle"></i> Satisfaction client
+                </span>
+                <span class="trust-badge">
+                    <i class="fas fa-shield-alt"></i> Garantie qualité
+                </span>
+                <span class="trust-badge">
+                    <i class="fas fa-clock"></i> Support réactif
+                </span>
+            </div>
+        </div>
+        
+        <!-- Icônes sociales -->
+        <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-pinterest-p"></i>
+            </a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                <i class="far fa-copyright"></i> 
+                <%= new Date().getFullYear() %> Hamzaoui Hamid. 
+            </p>
+            <p>
+                <i class="fas fa-code-branch me-2"></i>
+                Version 2.0 - Tous droits réservés
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="/portfolio/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script optionnel pour animations supplémentaires -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animation des icônes sociales au survol
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
