@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1772135229357",
+    "prenom": "Hamid",
+    "nom": "Hamzaoui",
+    "adresse": "10 Rue Des Alouettes",
+    "cp": "29400",
+    "ville": "Plouneventer",
+    "tel": "0616892424",
+    "mail": "hamid.hamzaoui@sfr.fr",
+    "societe": "",
+    "addr": "",
+    "cp_s": "",
+    "ville_s": "",
+    "objet": "Candidature – Développeur web junior / backend",
+    "contenu": "Madame, Monsieur,\r\nActuellement développeur web junior, je souhaite vous adresser ma candidature afin de rejoindre une équipe technique dans laquelle je pourrai mettre en pratique mes compétences et continuer à monter en compétences sur des projets concrets.\r\n\r\nIssu d’une formation en développement web, j’ai acquis de solides bases en développement back-end (Node.js, PHP, Java), en bases de données et en conception d’applications structurées, notamment selon le pattern MVC. \r\n\r\nJ’ai travaillé sur plusieurs projets personnels, incluant des applications web dynamiques, des\r\nfonctionnalités CRUD, ainsi que la gestion de la logique métier et des données.\r\n\r\nLors de mon expérience chez Alcatel Lucent Enterprise, j’ai participé au traitement et à l’intégration de données issues d’APIs, ainsi qu’à l’automatisation de traitements applicatifs, en collaboration avec des équipes techniques.\r\n \r\nCette expérience m’a permis de développer ma rigueur, mon sens de l’analyse et ma compréhension des enjeux liés aux applications utilisées en environnement professionnel.\r\n\r\nCurieux, sérieux et motivé, je souhaite évoluer dans un environnement structuré, au contact de\r\ndéveloppeurs expérimentés, afin de consolider mes compétences techniques et contribuer efficacement aux projets qui me seront confiés.\r\n\r\nOuvert à une POEI via France Travail si nécessaire, je reste motivé par toute opportunité me permettant de m’inscrire dans une dynamique d’apprentissage et d’évolution professionnelle.\r\nJe serais ravi de pouvoir échanger avec vous lors d’un entretien afin de vous exposer plus en détail mon parcours et ma motivation.\r\n\r\nJe vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.",
+    "createdAt": "2026-02-26T19:47:09.357Z",
+    "updateAt": "2026-02-26T19:58:40.730Z"
+  }
+]

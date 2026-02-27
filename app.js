@@ -13,7 +13,7 @@ require("dotenv").config();
 const sessionConfig = require('./sessionConfig');
 
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 
 
@@ -29,7 +29,8 @@ app.set("views", [
                     path.join(__dirname, "views"),               
                     path.join(__dirname, "projets" ),
                     path.join(__dirname, "projets/pdf-doc/questionnaire/views"),
-                    path.join(__dirname, "projets/pdf-doc/facture/views")     
+                    path.join(__dirname, "projets/pdf-doc/facture/views"),
+                    path.join(__dirname, "projets/pdf-doc/lettre/views"),     
                   ]);
 
 // ====================================================================================================================================================================================================//
@@ -46,6 +47,9 @@ app.use('/siteVitrine',   express.static(path.join(__dirname, 'projets/siteVitri
 app.use('/composants',    express.static(path.join(__dirname, 'projets/composants/public')));
 app.use('/questionnaire', express.static(path.join(__dirname, 'projets/pdf-doc/questionnaire/public')));
 app.use('/facture',       express.static(path.join(__dirname, 'projets/pdf-doc/facture/public')));
+app.use('/lettre',        express.static(path.join(__dirname, 'projets/pdf-doc/lettre/public')));
+
+
 
 
 console.log("Dossier racine :", __dirname);
@@ -102,6 +106,7 @@ const siteRoute        = require("./projets/siteVitrine/routes");
 const composantsRoute  = require("./projets/composants/routes");
 const questionnaireRoutes = require("./projets/pdf-doc/questionnaire/routes/questionnaireRoute");
 const factureRoutes       = require("./projets/pdf-doc/facture/routes/facturesRoutes");
+const lettreRoutes        = require("./projets/pdf-doc/lettre/routes/lettresRoutes");
 
 // Brancher les modules de routes
 app.use("/", portfolioRoutes);
@@ -109,6 +114,7 @@ app.use("/site", siteRoute);
 app.use('/composants', composantsRoute);
 app.use("/q", questionnaireRoutes);
 app.use("/f", factureRoutes);
+app.use("/l", lettreRoutes);
 
 
 // ====================================================================================================================================================================================================//

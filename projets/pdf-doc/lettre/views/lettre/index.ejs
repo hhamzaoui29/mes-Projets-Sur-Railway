@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des lettres</title>
+    <link rel="stylesheet" href="/lettre/css/style.css">
+</head>
+<body>
+    <div class="container">
+    <h2>Liste des lettres</h2>
+
+    <a href="/l/formCreate">Créer une nouvelle lettre</a>
+
+    <hr>
+
+    <% if (!letters || letters.length === 0) { %>
+        <p>Aucune lettre enregistrée.</p>
+    <% } %>
+
+    <% letters.forEach(lettre => { %>
+                                        <div style="margin-bottom:20px; border:1px solid #ccc; padding:10px;">
+                                            <strong><%= lettre.prenom %> <%= lettre.nom %></strong><br>
+                                            Société : <%= lettre.societe || "Non renseignée" %><br>
+                                            Objet : <%= lettre.objet %><br>
+                                            Date : <%= new Date(lettre.createdAt).toLocaleDateString() %>
+                                            <br><br>
+                                            
+                                            <!-- Lien pour voir les détails de la lettre -->
+                                            <a href="/l/<%= lettre.id %>">👁 Voir</a>
+
+                                             <!-- Lien pour éditer la lettre -->
+                                            <a href="/l/<%= lettre.id %>/formUpdate"> ✏ Modifier</a>
+
+                                            <!-- Formulaire pour supprimer la lettre -->
+                                            <form action="/l/<%= lettre.id %>/delete" method="POST" style="display:inline;">
+                                                <button type="submit"> 🗑 Supprimer</button>
+                                            </form>
+                                        </div>
+                              <% }) %>
+
+    <footer class="footer">
+    <p>
+        © <%= new Date().getFullYear() %> Hamzaoui Hamid.
+        Tous droits réservés.
+    </p>
+</footer>
+</body>
+</html>
+

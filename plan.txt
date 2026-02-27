@@ -426,3 +426,19 @@ compétences mises en avant
 ✔ Validation obligatoire
 ✔ Aucune précipitation
 ✔ Logique respectée
+
+/*-----------------------*/
+modules Installer:
+   /-  dependencies
+                - npm install bcrypt
+                - npm install docx //pdf-lib
+                - npm install dotenv,
+                - npm install ejs
+                - npm install express
+                - npm install express-session
+                - npm install fontkit //pdf-lib
+                - npm install multer
+                - npm install pdf-lib //pdf-lib
+                - npm install pdfkit
+                - npm install sequelize
+                - npm install sqlite3

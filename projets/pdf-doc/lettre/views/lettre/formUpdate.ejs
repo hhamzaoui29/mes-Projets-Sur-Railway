@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Créer une lettre</title>
+    <link rel="stylesheet" href="/lettre/css/style.css">
+</head>
+<body>
+
+   <div class="container">
+     <h2>Créer une lettre</h2>
+
+    <form action="/l/<%= letter.id %>/update" method="POST">
+
+        <!-- Titre -->
+         <div>
+            <label>prenom </label>
+            <input type="text" name="prenom" value="<%= letter.prenom %>"  required>
+        </div>
+        <div>
+            <label>Nom </label>
+            <input type="text" name="nom" value="<%= letter.nom %>"    required>
+        </div>
+        
+        <!-- Expediteur -->
+        
+      
+        <div>
+            <label>Adresse</label>
+            <input type="text" name="adresse" value="<%= letter.adresse %>">
+        </div>
+
+        <div>
+            <label>Code Postal</label>
+            <input type="text" name="cp" value="<%= letter.cp %>">
+        </div>
+
+        <div>
+            <label>Ville</label>
+            <input type="text" name="ville" value="<%= letter.ville %>">
+        </div>
+
+        <div>
+            <label>Téléphone</label>
+            <input type="text" name="tel" value="<%= letter.tel %>" required>
+        </div>
+
+        <div>
+            <label>E-mail</label>
+            <input type="text" name="mail" value="<%= letter.mail %>"    required>
+        </div>
+
+        <!-- Destinataire -->
+         <div>
+            <label>Sociéte</label>
+            <input type="text" name="societe"   value="<%= letter.societe %>">
+        </div>
+
+        <div>
+            <label>Adresse</label>
+            <input type="text" name="addr" value="<%= letter.addr %>">
+        </div>
+
+         <div>
+            <label>Code Postal</label>
+            <input type="text" name="cp_s" value="<%= letter.cp_s %>">
+        </div>
+
+        <div>
+            <label>Ville</label>
+            <input type="text" name="ville_s" value="<%= letter.ville_s %>">
+        </div>
+
+        <div>
+            <label>Objet</label>
+            <input class="objet" type="text" name="objet" value="<%= letter.objet %>" required>
+        </div>
+        <!-- le corps de la lettre-->
+        <div>
+            <label>Contenu</label>
+            <textarea name="contenu" rows="8" required><%= letter.contenu %></textarea>
+        </div>
+        <!-- La signature -->
+        
+         
+
+        <button type="submit">Modifier</button>
+
+
+
+    </form>
+   </div>
+
+</body>
+</html>

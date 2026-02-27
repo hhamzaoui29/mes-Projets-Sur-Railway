@@ -28,6 +28,6 @@ class PdfBuilder {
                     // ===============================
                     space(amount) {
                                         this.currentY -= amount;
-                                    }
+                                  }
 
                  }

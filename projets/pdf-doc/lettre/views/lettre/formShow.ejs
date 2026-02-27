@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail lettre</title>
+    <link rel="stylesheet" href="/lettre/css/style.css">
+</head>
+<body>
+
+  <div class="container">
+      <h2>Détail de la lettre</h2>
+
+    <a href="/l">← Retour à la liste</a>
+
+    <hr>
+
+    <h3>Expéditeur</h3>
+    <p>
+        <%= letter.prenom %> <%= letter.nom %><br>
+        <%= letter.adresse %><br>
+        <%= letter.cp %> <%= letter.ville %><br>
+        Tel : <%= letter.tel %><br>
+        Mail : <%= letter.mail %>
+    </p>
+
+    <h3>Destinataire</h3>
+    <p>
+        <%= letter.societe %><br>
+        <%= letter.addr %><br>
+        <%= letter.cp_s %> <%= letter.ville_s %>
+    </p>
+
+    <h3>Objet</h3>
+    <p><strong><%= letter.objet %></strong></p>
+
+    <h3>Contenu</h3>
+    <p style="white-space: pre-line;">
+        <%= letter.contenu %>
+    </p>
+
+    <hr>
+
+    <small>
+        Créée le : <%= new Date(letter.createdAt).toLocaleString() %>
+    </small>
+
+    <a href="/l/<%= letter.id %>/generer">Générer PDF</a>
+  </div>
+
+</body>
+</html>

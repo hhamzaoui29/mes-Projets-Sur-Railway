@@ -57,14 +57,13 @@ async function createHeader(
                                                                                 const scaledHeight = logoImage.height * scale;
 
                                                                                 page.drawImage(logoImage, {
-                                                                                                            x: width - scaledWidth - 400,                 // marge droite
-                                                                                                            y: pageHeight - scaledHeight - 30,          // marge haut
+                                                                                                            x: width - scaledWidth - 400,        // marge droite
+                                                                                                            y: pageHeight - scaledHeight - 30,   // marge haut
                                                                                                             width: scaledWidth,
                                                                                                             height: scaledHeight
-                                                                                                        });
+                                                                                                          });
                                                                             }
                                     
-                                    // 2️⃣ Titre principal 
 
                                     // 4️⃣ Infos entreprise
                                     const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
@@ -75,11 +74,9 @@ async function createHeader(
                                                                                 size: 25,
                                                                                 font: boldFont,
                                                                                 color: rgb(0.26, 0.26, 0.26)
-                                                                            });
+                                                                             });
                                     
                                     yInitial += 20;  
-
-
                                     page.drawText(`${data.entreprise.adresse}`, {
                                                                                     x: xInitial + 340,
                                                                                     y: pageHeight - yInitial,
