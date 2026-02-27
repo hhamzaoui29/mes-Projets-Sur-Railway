@@ -1,43 +1,78 @@
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title || "Mon Portfolio" %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || "Mon Portfolio" %></title>
 
-  <!-- CSS Bootstrap et ton style -->
-  <link rel="stylesheet" href="/portfolio/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/portfolio/css/portfolio.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS du header (spécifique) -->
+    <link rel="stylesheet" href="/portfolio/css/header.css">
+    
+    <!-- Ton CSS principal (avec main-container) -->
+    <link rel="stylesheet" href="/portfolio/css/portfolio.css">
+    
+    <!-- CSS du footer (spécifique) -->
+    <link rel="stylesheet" href="/portfolio/css/footer.css">
 </head>
 <body>
   
- <!-- Barre de navigation -->
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <!-- Bouton hamburger (mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <h1 class="h1">
-        <a class="navbar-brand btn btn-secondary" href="/composants" target="_blank" >🧑‍💼 Mon Curriculum Vitae En Ligne</a>
-      </h1>
-    </div>
-  </div>
-</nav>
-
-  <!-- Conteneur principal -->
-  <div class="container my-5">
-
-
-
-     
-
-    
-
-
-
-
-
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- Logo gauche (visible seulement sur mobile) -->
+            <a class="navbar-brand d-lg-none" href="/">
+                <i class="fas fa-code me-2"></i>Hamzaoui H.
+            </a>
+            
+            <!-- Bouton hamburger -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu de navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#applications">
+                            <i class="fas fa-project-diagram"></i> Projets
+                        </a>
+                    </li>
+                    <li class="nav-item mx-lg-3">
+                        <a class="navbar-brand" href="/composants" target="_blank">
+                            <i class="fas fa-id-card"></i> Mon CV En Ligne
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/competences">
+                            <i class="fas fa-cog"></i> Compétences
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Icônes sociales (desktop) -->
+            <div class="social-icons d-none d-lg-flex">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
 

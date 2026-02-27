@@ -1,107 +1,216 @@
 <%- include('./partials/headerPortfolio') %>
 
-    <!-- Bandeau d’accueil (Hero) -->
-    <section class="bg-light text-dark py-5 text-center shadow-sm">
-      <div class="container">
-        <h1 class="display-5 fw-bold">🚀 Bienvenue sur mon Portfolio</h1>
-        <p class="lead mt-3">
-          Ici, je conçois et déploie des applications web modernes qui allient
-          <strong>simplicité</strong>, <strong>efficacité</strong> et <strong>organisation</strong>.
-        </p>
-        <p class="mt-2">
-               Découvrez mes projets : site vitrine, application de questionnaires et génération dynamique de factures en PDF à partir des données saisies via formulaire ou via fichier JSON
-        </p>
-        
-      </div>
-    </section>
-
-    <!-- Section Applications -->
-    <div class="container py-5" id="applications">
-        <h2 class="text-center mb-4">📂 Mes Applications</h2>
-        <div class="features-section">
-            <% let sections = [
-                { 
-                    icon: "🌐", 
-                    title: "Site Vitrine", 
-                    description: [
-                                      "Partie publique : affichage du dashboard, services, galeries et formulaire de contact",
-                                      "Partie admin : gestion complète CRUD pour utilisateurs, services, galeries et messages de contact",
-                                      "Formulaire de contact avec sauvegarde en base SQLite",
-                                      "Interface responsive (mobile / desktop) ",
-                                      "Système de notifications pour les messages non lus dans l’admin",
-                                      "Pagination et statut Lu/Non lu pour les messages de contact",
-                                      "Stockage des données dans SQLite via Sequelize",
-                                      "Architecture MVC avec routes, controllers, models et views"
-                                ], 
-                    link: "/site/vitrine",
-                    btn: "👁️ Voir"
-                },
-                { 
-                    icon: "📝", 
-                    title: "Générateur de Questionnaire PDF", 
-                    description: [
-                        "Création dynamique de questionnaires personnalisés",
-                        "Saisie et enregistrement des réponses dans un fichier JSON",
-                        "Architecture MVC modulaire (feature-based structure)",
-                        "Génération automatique d’un document PDF structuré en tableau",
-                        "Gestion des routes, controllers et services séparés",
-                        "Stockage local des données (JSON) et génération serveur-side avec pdf-lib",
-                        "Interface responsive avec EJS + Bootstrap"
-                    ],
-                    link: "/q",
-                    btn: "👁️ Voir"
-                   },
-                   { 
-                        icon: "🧾", 
-                        title: "Générateur de Factures PDF", 
-                        description: [
-                            "Création et gestion de factures dynamiques",
-                            "Stockage des données dans un fichier JSON",
-                            "Calcul automatique HT, TVA et Total TTC",
-                            "Génération de facture PDF avec tableau structuré",
-                            "Architecture MVC modulaire par feature",
-                            "Séparation des controllers, services et data",
-                            "Interface responsive avec EJS + Bootstrap",
-                        ],
-                        link: "/f",
-                        btn: "👁️ Voir"
-                    },
-                    { 
-                        icon: "✉️", 
-                        title: "Application de génération de lettres PDF", 
-                        description: [
-                            "Application web permettant la création et la gestion de lettres dynamiques",
-                            "Persistance des données via stockage JSON structuré",
-                            "Génération de documents PDF à partir des données sauvegardées",
-                            "Architecture MVC modulaire organisée par feature",
-                            "Séparation claire des Controllers, Services et couche Data",
-                            "Interface responsive développée avec EJS et Bootstrap",
-                            "Gestion des identifiants uniques et routage dynamique",
-                            "Manipulation avancée du PDF (polices personnalisées, mise en page structurée)"
-                        ],
-                        link: "/l",
-                        btn: "🔎 Voir le projet"
-                    }
-
-               
-            ]; %>
+<!-- CONTAINER PRINCIPAL UNIQUE -->
+<div class="main-container">
     
-            <% sections.forEach(section => { %>
-                <div class="feature-row d-flex align-items-center justify-content-between mb-3 p-3 border rounded shadow-sm">
-                    <div class="feature-text">
-                        <h4><%= section.icon %> <%= section.title %></h4>
-                        <ul class="mb-0">
-                            <% section.description.forEach(line => { %>
-                                <li><%= line %></li>
-                            <% }); %>
-                        </ul>
-                    </div>
-                    <div class="feature-action ms-3">
-                        <a href="<%= section.link %>" class="btn btn-sm btn-info"><%= section.btn %></a>
-                    </div>
+    <!-- ===== EN-TÊTE ===== -->
+    <div class="main-header">
+        <div class="header-badge">✨ Développeur Full Stack</div>
+        <h1>Bienvenue sur mon <span class="gradient-text">Portfolio</span></h1>
+    </div>
+    
+    <!-- ===== SECTION HERO INTÉGRÉE ===== -->
+    <div class="hero-section">
+        <div class="text-center">
+            <h2 class="hero-title">Applications Web Modernes</h2>
+            <p class="hero-description">
+                Je conçois et déploie des applications web qui allient
+                <span class="highlight">simplicité</span>, 
+                <span class="highlight">efficacité</span> et 
+                <span class="highlight">organisation</span>.
+            </p>
+            <p class="text-secondary mb-4">
+                <i class="fas fa-rocket me-2"></i>
+                Site vitrine • Questionnaires • Factures • Lettres
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Applications</div>
                 </div>
-            <% }); %>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">PDF</div>
+                    <div class="stat-label">Dynamique</div>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <!-- ===== SÉPARATEUR ===== -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">📂</div>
+    </div>
+    
+    <!-- ===== SECTION PROJETS ===== -->
+    <div class="section-title">
+        <div class="section-icon">🚀</div>
+        <div class="section-text">
+            <h2>Mes Réalisations</h2>
+            <p>Découvrez mes projets récents</p>
+        </div>
+    </div>
+    
+    <!-- Filtres -->
+    <div class="filters-wrapper">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="pdf">PDF</button>
+        <button class="filter-btn" data-filter="admin">Admin</button>
+    </div>
+    
+    <!-- Grille des projets -->
+    <div class="projects-grid">
+        <% let sections = [
+            { 
+                icon: "🌐", 
+                title: "Site Vitrine", 
+                category: "web",
+                badge: "CRUD",
+                description: [
+                    "Site vitrine avec partie publique et admin",
+                    "Gestion CRUD complète",
+                    "Formulaire de contact avec SQLite",
+                    "Interface responsive"
+                ], 
+                tags: ["Node.js", "Express", "SQLite"],
+                link: "/site/vitrine",
+                btn: "Voir le projet",
+                color: "primary"
+            },
+            { 
+                icon: "📝", 
+                title: "Questionnaire PDF", 
+                category: "pdf",
+                badge: "JSON",
+                description: [
+                    "Création de questionnaires",
+                    "Enregistrement en JSON",
+                    "Génération PDF structuré",
+                    "Architecture MVC"
+                ],
+                tags: ["Node.js", "pdf-lib", "JSON"],
+                link: "/q",
+                btn: "Voir le projet",
+                color: "success"
+            },
+            { 
+                icon: "🧾", 
+                title: "Factures PDF", 
+                category: "pdf",
+                badge: "PDF",
+                description: [
+                    "Gestion de factures",
+                    "Calcul HT/TVA/TTC",
+                    "PDF avec tableau",
+                    "Stockage JSON"
+                ],
+                tags: ["Node.js", "PDF-lib", "Bootstrap"],
+                link: "/f",
+                btn: "Voir le projet",
+                color: "warning"
+            },
+            { 
+                icon: "✉️", 
+                title: "Lettres PDF", 
+                category: "pdf",
+                badge: "Nouveau",
+                description: [
+                    "Création de lettres",
+                    "Génération PDF",
+                    "Gestion JSON",
+                    "Identifiants uniques"
+                ],
+                tags: ["Node.js", "PDF-lib", "EJS"],
+                link: "/l",
+                btn: "Voir le projet",
+                color: "info"
+            }
+        ]; %>
+    
+        <% sections.forEach((section, index) => { %>
+            <div class="project-card" data-category="<%= section.category %>">
+                <% if (section.badge) { %>
+                    <div class="project-badge"><%= section.badge %></div>
+                <% } %>
+                
+                <div class="project-header">
+                    <div class="project-icon"><%= section.icon %></div>
+                    <div>
+                        <h3 class="project-title"><%= section.title %></h3>
+                        <div class="project-category">
+                            <i class="fas fa-tag"></i> <%= section.category %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-tags">
+                    <% section.tags.forEach(tag => { %>
+                        <span class="project-tag"><%= tag %></span>
+                    <% }); %>
+                </div>
+                
+                <div class="project-description">
+                    <ul class="feature-list">
+                        <% section.description.forEach(line => { %>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <%= line %>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                
+                <div class="project-footer">
+                    <a href="<%= section.link %>" class="btn btn-<%= section.color %>">
+                        <span><%= section.btn %></span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+</div>
+<!-- FIN DU CONTAINER PRINCIPAL -->
+
+<!-- Script pour les filtres -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 <%- include('./partials/footerPortfolio') %>
+
