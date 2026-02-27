@@ -396,7 +396,7 @@ body {
 }
 
 .footer p::after {
-    content: "❤️";
+    
     margin-left: 5px;
     color: #e74c3c;
 }
