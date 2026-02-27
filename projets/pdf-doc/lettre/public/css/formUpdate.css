@@ -1,0 +1,433 @@
+    
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de fond décoratif */
+.container::before {
+    content: "✏️";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 150px;
+    opacity: 0.03;
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+/* En-tête */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    position: relative;
+    padding-left: 20px;
+}
+
+.header h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 5px;
+}
+
+.header h2::after {
+    content: "📝";
+    margin-left: 15px;
+    font-size: 32px;
+}
+
+/* Lien de retour */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #667eea;
+    font-weight: 500;
+    padding: 12px 25px;
+    background: #f8f9ff;
+    border-radius: 50px;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.back-link:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.back-link::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Section title */
+.section-title {
+    font-size: 1.2em;
+    margin: 30px 0 20px 0;
+    color: #333;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title .section-icon {
+    font-size: 24px;
+}
+
+/* Ligne du formulaire avec colonnes */
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.form-col {
+    flex: 1;
+}
+
+/* Conteneurs pour expéditeur et destinataire */
+.expediteur-container {
+    background-color: #f8f9ff;
+    border: 2px solid #667eea;
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.15);
+    transition: all 0.3s;
+}
+
+.expediteur-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.25);
+}
+
+.destinataire-container {
+    background-color: #fff8f0;
+    border: 2px solid #ff9800;
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(255, 152, 0, 0.15);
+    transition: all 0.3s;
+}
+
+.destinataire-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 152, 0, 0.25);
+}
+
+/* Badges pour les conteneurs */
+.container-badge {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.expediteur-container .container-badge {
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.destinataire-container .container-badge {
+    color: #ff9800;
+    border: 2px solid #ff9800;
+}
+
+/* Barre de séparation verticale */
+.separator-vertical {
+    width: 4px;
+    background: linear-gradient(to bottom, #667eea, #ff9800);
+    margin: 30px 0;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.separator-vertical::before,
+.separator-vertical::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid;
+}
+
+.separator-vertical::before {
+    top: -8px;
+    border-color: #667eea;
+}
+
+.separator-vertical::after {
+    bottom: -8px;
+    border-color: #ff9800;
+}
+
+/* Séparation horizontale */
+.separator-horizontal {
+    height: 4px;
+    background: linear-gradient(to right, #667eea, #ff9800);
+    margin: 40px 0;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Groupe de formulaire */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group label .required {
+    color: #ff4444;
+    margin-left: 3px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background: white;
+}
+
+.form-control:hover {
+    border-color: #b0b0b0;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+/* Champs requis */
+.form-control[required] {
+    border-left: 4px solid #667eea;
+}
+
+.destinataire-container .form-control[required] {
+    border-left: 4px solid #ff9800;
+}
+
+/* Ligne pour code postal et ville */
+.address-row {
+    display: flex;
+    gap: 15px;
+}
+
+.address-row .form-group {
+    flex: 1;
+}
+
+/* Zone de texte */
+textarea.form-control {
+    resize: vertical;
+    min-height: 150px;
+    font-family: inherit;
+}
+
+/* Champ objet */
+.objet-field {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* Actions du formulaire */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary::before {
+    content: "💾";
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.btn-secondary::before {
+    content: "✖️";
+}
+
+.btn-danger {
+    background: #fee8e8;
+    color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-danger::before {
+    content: "🗑️";
+}
+
+/* Info badge */
+.info-badge {
+    background: #e8f0fe;
+    color: #667eea;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 20px 0 10px;
+}
+
+.info-badge::before {
+    content: "ℹ️";
+}
+
+/* Indicateur de champ modifié */
+.form-control.modified {
+    border-color: #f39c12;
+    background: #fff8e7;
+}
+
+/* Message d'erreur */
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-control.error + .error-message {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .separator-vertical {
+        display: none;
+    }
+
+    .address-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

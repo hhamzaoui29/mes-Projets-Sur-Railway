@@ -2,48 +2,140 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des lettres</title>
-    <link rel="stylesheet" href="/lettre/css/style.css">
+    <link rel="stylesheet" href="/lettre/css/index.css">
+
 </head>
 <body>
     <div class="container">
-    <h2>Liste des lettres</h2>
+        
+        <!-- En-tête avec titre et bouton de création -->
+        <div class="header">
+            <h2>Mes lettres</h2>
+            <a href="/l/formCreate" class="btn-create">Nouvelle lettre</a>
+        </div>
 
-    <a href="/l/formCreate">Créer une nouvelle lettre</a>
+        <!-- Statistiques -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-icon">📄</div>
+                <div class="stat-info">
+                    <h4>Total lettres</h4>
+                    <p><%= letters ? letters.length : 0 %></p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏢</div>
+                <div class="stat-info">
+                    <h4>Avec société</h4>
+                    <p><%= letters ? letters.filter(l => l.societe && l.societe.trim() !== '').length : 0 %></p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-info">
+                    <h4>Dernière lettre</h4>
+                    <p>
+                        <% if (letters && letters.length > 0) { %>
+                            <%= new Date(Math.max(...letters.map(l => new Date(l.createdAt)))).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' }) %>
+                        <% } else { %>
+                            -
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+        </div>
 
-    <hr>
+        <!-- Message si aucune lettre -->
+        <% if (!letters || letters.length === 0) { %>
+            <div class="empty-state">
+                <div class="empty-icon">📭</div>
+                <p>Aucune lettre enregistrée pour le moment</p>
+                <a href="/l/formCreate" class="btn-create">Créer ma première lettre</a>
+            </div>
+        <% } %>
 
-    <% if (!letters || letters.length === 0) { %>
-        <p>Aucune lettre enregistrée.</p>
-    <% } %>
+        <!-- Grille des lettres -->
+        <% if (letters && letters.length > 0) { %>
+            <div class="letters-grid">
+                <% letters.forEach((lettre, index) => { %>
+                    <div class="letter-card">
+                        <div class="card-badge">LET-<%= String(lettre.id).padStart(4, '0') %></div>
+                        
+                        <!-- En-tête de la carte -->
+                        <div class="card-header">
+                            <div class="card-avatar">
+                                <%= lettre.prenom ? lettre.prenom.charAt(0).toUpperCase() : '?' %><%= lettre.nom ? lettre.nom.charAt(0).toUpperCase() : '' %>
+                            </div>
+                            <div class="card-title">
+                                <h3><%= lettre.prenom || '' %> <%= lettre.nom || '' %></h3>
+                                <div class="company">
+                                    <%= lettre.societe && lettre.societe.trim() !== '' ? lettre.societe : 'Société non renseignée' %>
+                                </div>
+                            </div>
+                        </div>
 
-    <% letters.forEach(lettre => { %>
-                                        <div style="margin-bottom:20px; border:1px solid #ccc; padding:10px;">
-                                            <strong><%= lettre.prenom %> <%= lettre.nom %></strong><br>
-                                            Société : <%= lettre.societe || "Non renseignée" %><br>
-                                            Objet : <%= lettre.objet %><br>
-                                            Date : <%= new Date(lettre.createdAt).toLocaleDateString() %>
-                                            <br><br>
-                                            
-                                            <!-- Lien pour voir les détails de la lettre -->
-                                            <a href="/l/<%= lettre.id %>">👁 Voir</a>
+                        <!-- Corps de la carte -->
+                        <div class="card-body">
+                            <div class="subject">
+                                <strong>Objet</strong>
+                                <%= lettre.objet && lettre.objet.length > 50 ? lettre.objet.substring(0, 50) + '...' : lettre.objet %>
+                            </div>
+                            
+                            <div class="card-meta">
+                                <span class="date">
+                                    <%= new Date(lettre.createdAt).toLocaleDateString('fr-FR', { 
+                                        year: 'numeric', 
+                                        month: 'short', 
+                                        day: 'numeric' 
+                                    }) %>
+                                </span>
+                                <span class="time">
+                                    <%= new Date(lettre.createdAt).toLocaleTimeString('fr-FR', { 
+                                        hour: '2-digit', 
+                                        minute: '2-digit' 
+                                    }) %>
+                                </span>
+                            </div>
+                        </div>
 
-                                             <!-- Lien pour éditer la lettre -->
-                                            <a href="/l/<%= lettre.id %>/formUpdate"> ✏ Modifier</a>
+                        <!-- Actions -->
+                        <div class="card-actions">
+                            <a href="/l/<%= lettre.id %>" class="btn-action btn-view">👁 Voir</a>
+                            <a href="/l/<%= lettre.id %>/formUpdate" class="btn-action btn-edit">✏ Modifier</a>
+                            <form action="/l/<%= lettre.id %>/delete" method="POST" style="flex: 1;">
+                                <button type="submit" class="btn-action btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette lettre ?')">🗑 Supprimer</button>
+                            </form>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
 
-                                            <!-- Formulaire pour supprimer la lettre -->
-                                            <form action="/l/<%= lettre.id %>/delete" method="POST" style="display:inline;">
-                                                <button type="submit"> 🗑 Supprimer</button>
-                                            </form>
-                                        </div>
-                              <% }) %>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                <%= new Date().getFullYear() %> Hamzaoui Hamid. Tous droits réservés.
+            </p>
+        </footer>
+    </div>
 
-    <footer class="footer">
-    <p>
-        © <%= new Date().getFullYear() %> Hamzaoui Hamid.
-        Tous droits réservés.
-    </p>
-</footer>
+    <!-- Script pour animations supplémentaires -->
+    <script>
+        // Animation d'apparition des cartes
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.letter-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
 </body>
 </html>
-

@@ -2,49 +2,117 @@
 <html>
 <head>
     <title>Détail lettre</title>
-    <link rel="stylesheet" href="/lettre/css/style.css">
+    <link rel="stylesheet" href="/lettre/css/formShow.css">
+
 </head>
 <body>
 
   <div class="container">
-      <h2>Détail de la lettre</h2>
+      
+      <div class="letter-header">
+          <div class="date-badge">
+              Lettre créée le <%= new Date(letter.createdAt).toLocaleDateString('fr-FR', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+              }) %>
+          </div>
+          <h2>Détail de la lettre</h2>
+      </div>
 
-    <a href="/l">← Retour à la liste</a>
+      <div class="navigation">
+          <a href="/l" class="back-link">Retour à la liste</a>
+          
+          <div class="actions">
+              <a href="/l/<%= letter.id %>/generer" class="btn-pdf">
+                  Générer le PDF
+              </a>
+          </div>
+      </div>
 
-    <hr>
+      <!-- Section adresses côte à côte -->
+      <div class="addresses-section">
+          <!-- Expéditeur -->
+          <div class="address-card expediteur">
+              <div class="card-header">
+                  <div class="card-icon">✉️</div>
+                  <h3>Expéditeur</h3>
+              </div>
+              <div class="address-content">
+                  <p>
+                      <strong><%= letter.prenom %> <%= letter.nom %></strong><br>
+                      <%= letter.adresse || 'Adresse non renseignée' %><br>
+                      <%= letter.cp || '' %> <%= letter.ville || '' %>
+                  </p>
+                  <div class="contact-info">
+                      <p><i>📞</i> <%= letter.tel %></p>
+                      <p><i>✉️</i> <%= letter.mail %></p>
+                  </div>
+              </div>
+          </div>
 
-    <h3>Expéditeur</h3>
-    <p>
-        <%= letter.prenom %> <%= letter.nom %><br>
-        <%= letter.adresse %><br>
-        <%= letter.cp %> <%= letter.ville %><br>
-        Tel : <%= letter.tel %><br>
-        Mail : <%= letter.mail %>
-    </p>
+          <!-- Destinataire -->
+          <div class="address-card destinataire">
+              <div class="card-header">
+                  <div class="card-icon">🎯</div>
+                  <h3>Destinataire</h3>
+              </div>
+              <div class="address-content">
+                  <p>
+                      <strong><%= letter.societe || 'Société non renseignée' %></strong><br>
+                      <%= letter.addr || 'Adresse non renseignée' %><br>
+                      <%= letter.cp_s || '' %> <%= letter.ville_s || '' %>
+                  </p>
+                  <% if (!letter.societe && !letter.addr && !letter.cp_s && !letter.ville_s) { %>
+                      <p style="color: #999; font-style: italic;">Aucune adresse renseignée</p>
+                  <% } %>
+              </div>
+          </div>
+      </div>
 
-    <h3>Destinataire</h3>
-    <p>
-        <%= letter.societe %><br>
-        <%= letter.addr %><br>
-        <%= letter.cp_s %> <%= letter.ville_s %>
-    </p>
+      <!-- Contenu de la lettre -->
+      <div class="letter-content">
+          <div class="subject">
+              <h4>Objet</h4>
+              <p><%= letter.objet %></p>
+          </div>
 
-    <h3>Objet</h3>
-    <p><strong><%= letter.objet %></strong></p>
+          <div class="body-text">
+              <%= letter.contenu %>
+          </div>
 
-    <h3>Contenu</h3>
-    <p style="white-space: pre-line;">
-        <%= letter.contenu %>
-    </p>
+          <!-- Signature automatique -->
+          <div class="signature">
+              <p>Fait pour valoir ce que de droit,</p>
+              <p class="name"><%= letter.prenom %> <%= letter.nom %></p>
+          </div>
+      </div>
 
-    <hr>
+      <!-- Pied de page -->
+      <div class="footer">
+          <div class="creation-date">
+              Créée le <%= new Date(letter.createdAt).toLocaleString('fr-FR') %>
+          </div>
+          <div class="letter-id">
+              Réf: LET-<%= String(letter.id).padStart(5, '0') %>
+          </div>
+      </div>
 
-    <small>
-        Créée le : <%= new Date(letter.createdAt).toLocaleString() %>
-    </small>
-
-    <a href="/l/<%= letter.id %>/generer">Générer PDF</a>
   </div>
+
+  <!-- Script pour gérer les données manquantes -->
+  <script>
+      // Ajouter un comportement interactif si nécessaire
+      document.addEventListener('DOMContentLoaded', function() {
+                                                                    // Gestion des champs vides
+                                                                    const emptyFields = document.querySelectorAll('.address-content p:empty');
+                                                                    emptyFields.forEach(field => {
+                                                                                                    field.innerHTML = '<span style="color: #999;">Non renseigné</span>';
+                                                                                                });
+                                                                });
+  </script>
 
 </body>
 </html>

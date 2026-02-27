@@ -1,94 +1,283 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Créer une lettre</title>
-    <link rel="stylesheet" href="/lettre/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier la lettre</title>
+    <link rel="stylesheet" href="/lettre/css/formUpdate.css">
 </head>
 <body>
 
    <div class="container">
-     <h2>Créer une lettre</h2>
-
-    <form action="/l/<%= letter.id %>/update" method="POST">
-
-        <!-- Titre -->
-         <div>
-            <label>prenom </label>
-            <input type="text" name="prenom" value="<%= letter.prenom %>"  required>
-        </div>
-        <div>
-            <label>Nom </label>
-            <input type="text" name="nom" value="<%= letter.nom %>"    required>
-        </div>
         
-        <!-- Expediteur -->
-        
-      
-        <div>
-            <label>Adresse</label>
-            <input type="text" name="adresse" value="<%= letter.adresse %>">
+        <!-- En-tête avec titre et lien retour -->
+        <div class="header">
+            <h2>Modifier la lettre</h2>
+            <a href="/l" class="back-link">Retour à la liste</a>
         </div>
 
-        <div>
-            <label>Code Postal</label>
-            <input type="text" name="cp" value="<%= letter.cp %>">
+        <!-- Identité de l'expéditeur (section séparée) -->
+        <div class="section-title">
+            <span class="section-icon">👤</span>
+            <span>Qui êtes-vous ?</span>
         </div>
 
-        <div>
-            <label>Ville</label>
-            <input type="text" name="ville" value="<%= letter.ville %>">
+        <!-- Ligne pour prénom et nom -->
+        <div class="form-row" style="margin-bottom: 30px;">
+            <div class="form-col">
+                <div class="form-group">
+                    <label>Prénom <span class="required">*</span></label>
+                    <input type="text" 
+                           name="prenom" 
+                           class="form-control" 
+                           value="<%= letter.prenom %>" 
+                           required 
+                           placeholder="Votre prénom">
+                </div>
+            </div>
+            <div class="form-col">
+                <div class="form-group">
+                    <label>Nom <span class="required">*</span></label>
+                    <input type="text" 
+                           name="nom" 
+                           class="form-control" 
+                           value="<%= letter.nom %>" 
+                           required 
+                           placeholder="Votre nom">
+                </div>
+            </div>
         </div>
 
-        <div>
-            <label>Téléphone</label>
-            <input type="text" name="tel" value="<%= letter.tel %>" required>
-        </div>
+        <!-- Formulaire principal -->
+        <form action="/l/<%= letter.id %>/update" method="POST" id="editForm">
+            
+            <!-- Expéditeur et Destinataire côte à côte avec séparation -->
+            <div class="form-row">
+                <!-- Colonne Expéditeur -->
+                <div class="form-col">
+                    <div class="expediteur-container">
+                        <div class="container-badge">✉️ EXPÉDITEUR</div>
+                        
+                        <!-- Adresse -->
+                        <div class="form-group">
+                            <label>Adresse</label>
+                            <input type="text" 
+                                   name="adresse" 
+                                   class="form-control" 
+                                   value="<%= letter.adresse || '' %>" 
+                                   placeholder="Numéro et rue">
+                        </div>
 
-        <div>
-            <label>E-mail</label>
-            <input type="text" name="mail" value="<%= letter.mail %>"    required>
-        </div>
+                        <!-- Code postal et ville -->
+                        <div class="address-row">
+                            <div class="form-group">
+                                <label>Code Postal</label>
+                                <input type="text" 
+                                       name="cp" 
+                                       class="form-control" 
+                                       value="<%= letter.cp || '' %>" 
+                                       placeholder="Code postal">
+                            </div>
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" 
+                                       name="ville" 
+                                       class="form-control" 
+                                       value="<%= letter.ville || '' %>" 
+                                       placeholder="Ville">
+                            </div>
+                        </div>
 
-        <!-- Destinataire -->
-         <div>
-            <label>Sociéte</label>
-            <input type="text" name="societe"   value="<%= letter.societe %>">
-        </div>
+                        <!-- Téléphone -->
+                        <div class="form-group">
+                            <label>Téléphone <span class="required">*</span></label>
+                            <input type="tel" 
+                                   name="tel" 
+                                   class="form-control" 
+                                   value="<%= letter.tel %>" 
+                                   required 
+                                   placeholder="Votre téléphone">
+                        </div>
 
-        <div>
-            <label>Adresse</label>
-            <input type="text" name="addr" value="<%= letter.addr %>">
-        </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label>E-mail <span class="required">*</span></label>
+                            <input type="email" 
+                                   name="mail" 
+                                   class="form-control" 
+                                   value="<%= letter.mail %>" 
+                                   required 
+                                   placeholder="votre@email.com">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barre de séparation verticale -->
+                <div class="separator-vertical"></div>
+                
+                <!-- Colonne Destinataire -->
+                <div class="form-col">
+                    <div class="destinataire-container">
+                        <div class="container-badge">🎯 DESTINATAIRE</div>
+                        
+                        <!-- Société -->
+                        <div class="form-group">
+                            <label>Société</label>
+                            <input type="text" 
+                                   name="societe" 
+                                   class="form-control" 
+                                   value="<%= letter.societe || '' %>" 
+                                   placeholder="Nom de la société">
+                        </div>
 
-         <div>
-            <label>Code Postal</label>
-            <input type="text" name="cp_s" value="<%= letter.cp_s %>">
-        </div>
+                        <!-- Adresse destinataire -->
+                        <div class="form-group">
+                            <label>Adresse</label>
+                            <input type="text" 
+                                   name="addr" 
+                                   class="form-control" 
+                                   value="<%= letter.addr || '' %>" 
+                                   placeholder="Numéro et rue">
+                        </div>
 
-        <div>
-            <label>Ville</label>
-            <input type="text" name="ville_s" value="<%= letter.ville_s %>">
-        </div>
+                        <!-- Code postal et ville destinataire -->
+                        <div class="address-row">
+                            <div class="form-group">
+                                <label>Code Postal</label>
+                                <input type="text" 
+                                       name="cp_s" 
+                                       class="form-control" 
+                                       value="<%= letter.cp_s || '' %>" 
+                                       placeholder="Code postal">
+                            </div>
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" 
+                                       name="ville_s" 
+                                       class="form-control" 
+                                       value="<%= letter.ville_s || '' %>" 
+                                       placeholder="Ville">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div>
-            <label>Objet</label>
-            <input class="objet" type="text" name="objet" value="<%= letter.objet %>" required>
-        </div>
-        <!-- le corps de la lettre-->
-        <div>
-            <label>Contenu</label>
-            <textarea name="contenu" rows="8" required><%= letter.contenu %></textarea>
-        </div>
-        <!-- La signature -->
-        
-         
+            <!-- Séparation horizontale avant le contenu -->
+            <div class="separator-horizontal"></div>
 
-        <button type="submit">Modifier</button>
+            <!-- Section Contenu de la lettre -->
+            <div class="section-title">
+                <span class="section-icon">📄</span>
+                <span>Contenu de la lettre</span>
+            </div>
 
+            <!-- Objet -->
+            <div class="form-group objet-field">
+                <label>Objet <span class="required">*</span></label>
+                <input type="text" 
+                       name="objet" 
+                       class="form-control" 
+                       value="<%= letter.objet %>" 
+                       required 
+                       placeholder="Objet de la lettre">
+            </div>
 
+            <!-- Contenu -->
+            <div class="form-group">
+                <label>Contenu <span class="required">*</span></label>
+                <textarea name="contenu" 
+                          class="form-control" 
+                          rows="8" 
+                          required 
+                          placeholder="Rédigez votre lettre ici..."><%= letter.contenu %></textarea>
+            </div>
 
-    </form>
+            <!-- Info badge -->
+            <div class="info-badge">
+                Les champs marqués d'un * sont obligatoires
+            </div>
+
+            <!-- Actions du formulaire -->
+            <div class="form-actions">
+                <a href="/l" class="btn btn-secondary">Annuler</a>
+                <form action="/l/<%= letter.id %>/delete" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette lettre ?')">Supprimer</button>
+                </form>
+                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+            </div>
+        </form>
    </div>
+
+   <!-- Script pour les interactions -->
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('editForm');
+            const inputs = document.querySelectorAll('.form-control');
+
+            // Détection des modifications
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.classList.add('modified');
+                });
+            });
+
+            // Validation du formulaire
+            form.addEventListener('submit', function(e) {
+                let isValid = true;
+                const requiredFields = document.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('error');
+                        isValid = false;
+                        
+                        // Créer et ajouter le message d'erreur
+                        let errorMsg = field.nextElementSibling;
+                        if (!errorMsg || !errorMsg.classList.contains('error-message')) {
+                            errorMsg = document.createElement('div');
+                            errorMsg.className = 'error-message';
+                            errorMsg.textContent = 'Ce champ est obligatoire';
+                            field.parentNode.insertBefore(errorMsg, field.nextSibling);
+                        }
+                    } else {
+                        field.classList.remove('error');
+                        const errorMsg = field.nextElementSibling;
+                        if (errorMsg && errorMsg.classList.contains('error-message')) {
+                            errorMsg.remove();
+                        }
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    // Scroll jusqu'au premier champ en erreur
+                    const firstError = document.querySelector('.error');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    // Afficher le chargement
+                    form.classList.add('loading');
+                }
+            });
+
+            // Confirmation avant de quitter si des modifications ont été faites
+            let formModified = false;
+            inputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    formModified = true;
+                });
+            });
+
+            window.addEventListener('beforeunload', function(e) {
+                if (formModified) {
+                    e.preventDefault();
+                    e.returnValue = 'Vous avez des modifications non enregistrées. Êtes-vous sûr de vouloir quitter ?';
+                }
+            });
+        });
+   </script>
 
 </body>
 </html>

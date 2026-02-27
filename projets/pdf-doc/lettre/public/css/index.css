@@ -1,0 +1,459 @@
+    
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de fond décoratif */
+.container::before {
+    content: "📬";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 150px;
+    opacity: 0.03;
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+/* En-tête */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+}
+
+.header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    position: relative;
+    padding-left: 20px;
+}
+
+.header h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 5px;
+}
+
+.header h2::after {
+    content: "📋";
+    margin-left: 15px;
+    font-size: 32px;
+}
+
+/* Bouton de création */
+.btn-create {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.btn-create:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-create::before {
+    content: "➕";
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Statistiques */
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #f5f7ff, #ffffff);
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea20, #764ba220);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #667eea;
+}
+
+.stat-info h4 {
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.stat-info p {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Message vide */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8f9ff, #ffffff);
+    border-radius: 20px;
+    margin: 30px 0;
+    border: 2px dashed #667eea30;
+}
+
+.empty-state .empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    color: #999;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.empty-state .btn-create {
+    display: inline-flex;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Grille des lettres */
+.letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+/* Carte lettre */
+.letter-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+    border-color: transparent;
+}
+
+/* Badge statut */
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 5px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* En-tête de carte */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+.card-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea20, #764ba220);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.card-title {
+    flex: 1;
+}
+
+.card-title h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.card-title .company {
+    font-size: 14px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-title .company::before {
+    content: "🏢";
+    font-size: 12px;
+}
+
+/* Corps de la carte */
+.card-body {
+    margin-bottom: 20px;
+}
+
+.card-body .subject {
+    background: #f8f9ff;
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+    border-left: 3px solid #667eea;
+}
+
+.card-body .subject strong {
+    color: #667eea;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+}
+
+.card-meta .date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-meta .date::before {
+    content: "📅";
+}
+
+.card-meta .time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-meta .time::before {
+    content: "⏰";
+}
+
+/* Actions */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f5f5f5;
+}
+
+.btn-action {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-view {
+    background: #e8f0fe;
+    color: #667eea;
+}
+
+.btn-view:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-edit {
+    background: #fff3e0;
+    color: #f39c12;
+}
+
+.btn-edit:hover {
+    background: #f39c12;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: #fee8e8;
+    color: #e74c3c;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-delete:hover {
+    background: #e74c3c;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 3px solid #f5f5f5;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    position: relative;
+}
+
+.footer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.footer p::before {
+    content: "©";
+    font-size: 16px;
+}
+
+.footer p::after {
+    content: "❤️";
+    margin-left: 5px;
+    color: #e74c3c;
+}
+
+/* Animation de chargement */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header h2 {
+        font-size: 28px;
+    }
+
+    .btn-create {
+        justify-content: center;
+    }
+
+    .letters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        min-width: 100%;
+    }
+
+    .card-actions {
+        flex-wrap: wrap;
+    }
+
+    .btn-action {
+        flex: 1 1 calc(50% - 5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-action {
+        flex: 1 1 100%;
+    }
+}
