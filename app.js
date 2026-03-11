@@ -114,7 +114,7 @@ app.use(expressLayouts);
 // Configuration des layouts
 app.set('layout', 'admin/layout');  // Layout par défaut (optionnel)
 
-app.use(viewHelpers);  // Toutes vos variables globales
+//app.use(viewHelpers);  // Toutes vos variables globales
                             
 // ====================================================================================================================================================================================================//
 //                                                                              🚦 Importation des routes                                                                                              //
