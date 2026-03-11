@@ -9,7 +9,7 @@ const app = express();
 
 const expressLayouts = require("express-ejs-layouts");// Permet de gérer les layouts EJS
 
-const viewHelpers = require('../mes-Projets-Sur-Railway/projets/shop/middleware/viewsHelpers'); // Import du fichier
+//const viewHelpers = require('../mes-Projets-Sur-Railway/projets/shop/middleware/viewsHelpers'); // Import du fichier
 
 const session = require("express-session");
 
