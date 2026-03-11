@@ -1,0 +1,60 @@
+{
+    "1/- Présentation du poste": [
+        "1. Quel est l'intitulé de votre poste ?",
+        "2. Pouvez-vous décrire brièvement le poste de développeur d'applications ?",
+        "3. Quelles sont ses missions principales ?",
+        "4. Y a-t-il des missions secondaires pour ce poste ?",
+        "5. Comment ce poste s'inscrit-il dans l'organisation de l'entreprise ? À quels autres services est-il directement relié ?"
+    ],
+
+    "2/- Organisation du travail": [
+        "6. Comment se déroule une journée ou une semaine type ?",
+        "7. Travaille-t-il plutôt au bureau, sur le terrain ou les deux ?",
+        "8. Travaille-t-il seul ou en équipe ?",
+        "9. A-t-il des responsabilités particulières ?",
+        "10. A-t-il des objectifs ou indicateurs à suivre ?",
+        "11. Avec quels autres métiers collabore-t-il régulièrement ?"
+    ],
+
+    "3/- Conditions de travail": [
+        "12. Quels sont ses horaires de travail ?",
+        "13. Travaille-t-il les week-ends ou jours fériés ?",
+        "14. Est-ce qu'il a des déplacements professionnels ?",
+        "15. Quels outils, matériels ou logiciels utilise-t-il ?",
+        "16. Le poste présente-t-il des contraintes physiques particulières ?"
+    ],
+
+    "4/- Accès au métier et formation": [
+        "17. Quel niveau d'études est généralement requis ?",
+        "18. Quelles formations permettent d'accéder à ce poste ?",
+        "19. Une première expérience est-elle recommandée ?",
+        "20. Le diplôme est-il indispensable selon vous ?",
+        "21. Recrutez-vous également par la voie de l'alternance pour ce poste ?"
+    ],
+
+    "5/- Compétences et qualités": [
+        "22. Quelles compétences techniques sont nécessaires ?",
+        "23. Quelles qualités personnelles sont importantes ?",
+        "24. Quelles connaissances sont indispensables ?",
+        "25. Y a-t-il des compétences émergentes qui deviennent importantes dans ce métier ?"
+    ],
+
+    "6/- Évolution professionnelle": [
+        "26. Les perspectives d'embauche sont-elles favorables ?",
+        "27. Quelles évolutions sont possibles ?",
+        "28. La formation continue est-elle importante dans ce métier ?",
+        "29. Pouvez-vous donner des exemples de formations continues pertinentes ?"
+    ],
+
+    "7/- Rémunération et avantages": [
+        "30. Quelle est la rémunération approximative d'un débutant ?",
+        "31. Existe-t-il des systèmes de primes ou d'avantages variables ?",
+        "32. Quels sont les avantages annexes (tickets-restaurant, mutuelle, etc.) ?"
+    ],
+
+    "8/- Contraintes et conseils": [
+        "33. Quelles sont les principales contraintes ou difficultés de ce métier ?",
+        "34. Quel est l'élément que vous préférez dans la gestion de ce poste ?",
+        "35. Quels conseils me donneriez-vous pour réussir dans cette voie professionnelle ?"
+    ]
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire métier</title>
+    <link rel="stylesheet" href="/questionnaire/css/style.css">
+    <!--<link rel="stylesheet" href="/questionnaire/css/questionnaire.css">--> 
+</head>
+<body>
+    <div class="container">
+    <h1>Questionnaire</h1>
+
+
+    <form action="/q/submit" method="POST">
+
+        <!-- Champs cachés pour renvoyer les infos personnelles -->
+    <input type="hidden" name="nom" value="<%= formData.nom %>">
+    <input type="hidden" name="poste" value="<%= formData.poste %>">
+    <input type="hidden" name="entreprise" value="<%= formData.entreprise %>">
+    <input type="hidden" name="date" value="<%= formData.date %>">
+    
+    <hr>
+    
+       <% Object.entries(questions).forEach(([section, questions]) => { %>
+        
+        <h2><%= section %></h2>
+        
+        <% questions.forEach((question, index) => { %>
+            <div style="margin-bottom:15px;">
+                <label for="<%= section.replace(/\s+/g,'_') %>_<%= index %>"><%= question %></label><br>
+                <textarea 
+                    id="<%= section.replace(/\s+/g,'_') %>_<%= index %>" 
+                    name="reponses[]" 
+                    rows="3" 
+                    style="width:100%;" 
+                    required>
+                </textarea>
+            </div>
+        <% }) %>
+
+    <% }) %>
+
+            <button type="submit">Valider le questionnaire</button>
+    
+    </form>
+    </div>
+    <footer class="footer">
+    <p>
+        © <%= new Date().getFullYear() %> Hamzaoui Hamid.
+        Tous droits réservés.
+    </p>
+</footer>
+
+</body>
+</html>
+

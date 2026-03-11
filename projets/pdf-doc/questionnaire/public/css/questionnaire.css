@@ -1,0 +1,63 @@
+/* Police globale lisible */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f5f6f8;
+    color: #333;
+}
+
+/** 🔹 2. Conteneur principal (effet “carte”)  **/
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/** 🔹 3. Titre du questionnaire **/
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1f2937;
+}
+
+/** 🔹 4. Structure du tableau **/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/** 🔹 5. En-tête du tableau **/
+thead th {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/** 🔹 6. Cellules (QUESTION / RÉPONSE) **/
+td {
+    padding: 12px;
+    vertical-align: top;
+    border: 1px solid #ddd;
+
+    /* Gestion du texte long */
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+/** 7. Largeur des colonnes **/
+th:nth-child(1),
+td:nth-child(1) {
+    width: 45%;
+    font-weight: 600;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 55%;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résumé questionnaire</title>
+     <link rel="stylesheet" href="/questionnaire/css/style.css">
+     <!--<link rel="stylesheet" href="/questionnaire/css/questionnaire.css">-->
+</head>
+<body>
+    <div class="container">
+        <h1>Résumé du questionnaire</h1>
+
+        <p><strong>Nom :</strong> <%= formData.nom %></p>
+        <p><strong>Poste :</strong> <%= formData.poste %></p>
+        <p><strong>Entreprise :</strong> <%= formData.entreprise %></p>
+        <p><strong>Date :</strong> <%= formData.date %></p>
+
+        <hr>
+        <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Réponse</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% questionnaire.forEach(item => { %>
+                <tr>
+                <td><%= item.question %></td>
+                <td> <%= item.reponse %></td>
+            </tr>
+            
+        <% }) %>
+        </tbody>
+    </table>
+
+        <form action="/q/download" method="POST">
+            <input type="hidden" name="nom" value="<%= formData.nom %>">
+            <input type="hidden" name="poste" value="<%= formData.poste %>">
+            <input type="hidden" name="entreprise" value="<%= formData.entreprise %>">
+            <input type="hidden" name="date" value="<%= formData.date %>">
+
+            <% questionnaire.forEach((item, idx) => { %>
+                <input type="hidden" name="questionnaire[<%= idx %>][section]" value="<%= item.section %>">
+                <input type="hidden" name="questionnaire[<%= idx %>][question]" value="<%= item.question %>">
+                <input type="hidden" name="questionnaire[<%= idx %>][reponse]" value="<%= item.reponse %>">
+            <% }) %>
+
+            <button type="submit" name="format" value="pdf">Télécharger PDF</button>
+            <button type="submit" name="format" value="word">Télécharger Word</button>
+        </form>
+    </div>
+    <footer class="footer">
+    <p>
+        © <%= new Date().getFullYear() %> Hamzaoui Hamid.
+        Tous droits réservés.
+    </p>
+</footer>
+</body>
+</html>
+
