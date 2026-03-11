@@ -127,7 +127,7 @@ const composantsRoute     = require("./projets/composants/routes");
 const questionnaireRoutes = require("./projets/pdf-doc/questionnaire/routes/questionnaireRoutes");
 const factureRoutes       = require("./projets/pdf-doc/facture/routes/facturesRoutes");
 const lettreRoutes        = require("./projets/pdf-doc/lettre/routes/lettresRoutes");
-const shopRoutes          = require('./projets/shop/routes');
+//const shopRoutes          = require('./projets/shop/routes');
 
 
 // Brancher les modules de routes
@@ -137,7 +137,7 @@ app.use('/composants', composantsRoute);
 app.use("/q",          questionnaireRoutes);
 app.use("/f",          factureRoutes);
 app.use("/l",          lettreRoutes);
-app.use('/shop',       shopRoutes);
+//app.use('/shop',       shopRoutes);
 
 
 
