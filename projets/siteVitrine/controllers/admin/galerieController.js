@@ -6,9 +6,9 @@ const imageManager = require("../../utils/imageManager");
 const renderFormList = async (req, res) => {
                                               try {
                                                       const galeries = await Galerie.findAll({
-                                                                                              include: [{ model: Caroussel, as: "images" }],
-                                                                                              order: [['categorie', 'ASC'], ['id', 'DESC']],
-                                                                                            });
+                                                                                                include: [{ model: Caroussel, as: "images" }],
+                                                                                                order: [['categorie', 'ASC'], ['id', 'DESC']],
+                                                                                              });
                                                       res.render('siteVitrine/views/admin/galerie/formList', { galeries, titre: "Liste Des Galeries" });
                                                     } catch (err) {
                                                                     res.status(500).send("Erreur affichage galerie : " + err.message);

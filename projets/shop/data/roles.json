@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "admin",
+    "displayName": "Administrateur",
+    "permission": "all",
+    "slug": "admin",
+    "description": "Le passage standard du Lorem Ipsum utilisé depuis le XVIe siècle est reproduit ci-dessous pour les personnes intéressées. Les sections 1.10.32 et 1.10.33 du « De Finibus Bonorum et Malorum » de Cicéron sont également reproduites dans leur version originale, accompagnées de leur traduction anglaise de 1914 par H. Rackham.",
+    "parentId": null,
+    "createdAt": "2026-03-03T09:11:57.669Z",
+    "updatedAt": "2026-03-03T09:11:57.669Z"
+  },
+  {
+    "id": 2,
+    "name": "clt",
+    "displayName": "Client",
+    "permission": "read",
+    "slug": "clt",
+    "description": "Le passage standard du Lorem Ipsum utilisé depuis le XVIe siècle est reproduit ci-dessous pour les personnes intéressées. Les sections 1.10.32 et 1.10.33 du « De Finibus Bonorum et Malorum » de Cicéron sont également reproduites dans leur version originale, accompagnées de leur traduction anglaise de 1914 par H. Rackham.",
+    "parentId": null,
+    "createdAt": "2026-03-03T19:02:24.189Z",
+    "updatedAt": "2026-03-03T19:02:24.189Z"
+  },
+  {
+    "id": 3,
+    "name": "Res",
+    "displayName": "Responsable",
+    "permission": "read, write",
+    "slug": "res",
+    "description": "Le passage standard du Lorem Ipsum utilisé depuis le XVIe siècle est reproduit ci-dessous pour les personnes intéressées. Les sections 1.10.32 et 1.10.33 du « De Finibus Bonorum et Malorum » de Cicéron sont également reproduites dans leur version originale, accompagnées de leur traduction anglaise de 1914 par H. Rackham.",
+    "parentId": null,
+    "createdAt": "2026-03-07T07:09:23.529Z",
+    "updatedAt": "2026-03-07T07:15:24.120Z"
+  }
+]

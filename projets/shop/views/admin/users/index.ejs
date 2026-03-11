@@ -1,0 +1,206 @@
+<%
+title = 'Gestion des utilisateurs';
+%>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Liste des utilisateurs</h1>
+        <a href="/shop/users/formCreate" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nouvel utilisateur
+        </a>
+    </div>
+
+    <!-- Messages flash -->
+    <% if (flash && flash.message) { %>
+        <div class="flash-message <%= flash.type %>"> 
+            <%= flash.message %>
+        </div>
+    <% } %>
+
+    <!-- Tableau des utilisateurs -->
+    <% if (users && users.length > 0) { %>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Rôle</th>
+                        <th>Téléphone</th>
+                        <th>Inscription</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.nom %></td>
+                            <td><%= user.prenom || '-' %></td>
+                            <td>
+                                <span class="badge <%= user.roleName === 'Administrateur' ? 'badge-admin' : 'badge-client' %>">
+                                    <%= user.roleName %>
+                                </span>
+                            </td>
+                            <td><%= user.telephone || '-' %></td>
+                            <td><%= new Date(user.createdAt).toLocaleDateString('fr-FR') %></td>
+                            <td class="actions">
+                                <a href="/shop/users/formUpdate/<%= user.id %>" class="btn-edit" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="/shop/users/delete/<%= user.id %>" 
+                                      method="POST" 
+                                      style="display: inline;"
+                                      onsubmit="return confirm('Supprimer cet utilisateur ?')">
+                                    <button type="submit" class="btn-delete" title="Supprimer">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="empty-state">
+            <i class="fas fa-users fa-3x"></i>
+            <h3>Aucun utilisateur</h3>
+            <p>Commencez par créer un premier utilisateur.</p>
+            <a href="/shop/users/formCreate" class="btn btn-primary">
+                Créer un utilisateur
+            </a>
+        </div>
+    <% } %>
+</div>
+
+<!-- Styles -->
+<style>
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.data-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table tr:hover {
+    background: #f9f9f9;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-admin {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+.badge-client {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit, .btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-edit {
+    color: #4f46e5;
+}
+
+.btn-edit:hover {
+    background: #e0e7ff;
+}
+
+.btn-delete {
+    color: #dc2626;
+}
+
+.btn-delete:hover {
+    background: #fee2e2;
+}
+
+.flash-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.flash-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.empty-state i {
+    color: #9ca3af;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: #374151;
+}
+
+.empty-state p {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+</style>

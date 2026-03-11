@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/questionnaire/css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>📝 Créer un questionnaire</h2>
+            
+            <% if (locals.erreur) { %>
+                <div class="alert">
+                    <%= erreur %>
+                </div>
+            <% } %>
+
+            <!-- Tabs pour choisir le mode -->
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('step')" id="tab-step">
+                    🏗️ Mode étape par étape
+                </button>
+                <button class="tab" onclick="switchTab('json')" id="tab-json">
+                    📝 Mode JSON direct
+                </button>
+            </div>
+
+            <!-- Formulaire caché pour l'envoi -->
+            <form id="formEnvoi" action="/q/create" method="POST">
+                <input type="hidden" id="nomFichierFinal" name="nomFichier">
+                <input type="hidden" id="contenuFinal" name="contenu">
+            </form>
+
+            <!-- Mode 1: Étape par étape -->
+            <div id="mode-step" class="tab-content active">
+                <div class="info-box">
+                    <h4>📌 Constructeur visuel</h4>
+                    <p>Ajoutez des sections et leurs questions une par une.</p>
+                </div>
+
+                <!-- Formulaire pour le nom du fichier -->
+                <div class="form-group">
+                    <label for="nomFichier">Nom du fichier</label>
+                    <input type="text" id="nomFichier" name="nomFichier" 
+                           value="mon-questionnaire.json" 
+                           placeholder="ex: questionnaire-rh.json">
+                </div>
+
+                <!-- Sections du questionnaire -->
+                <div id="sections">
+                    <!-- Les sections seront ajoutées dynamiquement ici -->
+                </div>
+
+                <!-- Boutons d'action -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="ajouterSection()">
+                        ➕ Ajouter une section
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="genererDepuisStep()">
+                        💾 Générer le questionnaire
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="convertStepToJson()">
+                        🔄 Voir le JSON
+                    </button>
+                    <a href="/q" class="btn btn-secondary">← Retour</a>
+                </div>
+            </div>
+
+            <!-- Mode 2: JSON direct -->
+            <div id="mode-json" class="tab-content">
+                <div class="info-box">
+                    <h4>📌 Mode expert JSON</h4>
+                    <p>Collez directement votre JSON au format :</p>
+                    <pre>
+{
+    "1/- Titre de la section": [
+        "Question 1",
+        "Question 2",
+        "Question 3"
+    ],
+    "2/- Autre section": [
+        "Question A",
+        "Question B"
+    ]
+}
+                    </pre>
+                </div>
+
+                <div class="form-group">
+                    <label for="nomFichierJson">Nom du fichier</label>
+                    <input type="text" id="nomFichierJson" 
+                           value="mon-questionnaire.json" 
+                           placeholder="ex: questionnaire-rh.json">
+                </div>
+
+                <div class="form-group">
+                    <label for="contenuJson">Contenu JSON</label>
+                    <textarea id="contenuJson" placeholder='Collez votre JSON ici...'>{
+    "1/- Exemple": [
+        "Question 1",
+        "Question 2"
+    ]
+}</textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="genererDepuisJson()">
+                        💾 Créer le questionnaire
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="formatJson()">
+                        🔧 Formater le JSON
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="convertJsonToStep()">
+                        🔄 Convertir en mode étape
+                    </button>
+                    <a href="/q" class="btn btn-secondary">← Retour</a>
+                </div>
+
+                <!-- Zone d'aperçu pour le JSON -->
+                <div id="jsonPreview" class="preview-box" style="display: none;">
+                    <h4>🔍 Aperçu du JSON valide :</h4>
+                    <pre id="jsonPreviewContent"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/questionnaire/js/formCreate.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!-- views/formulaire/view.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .btn-download {
+            background: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-download:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>📄 Détails de la réponse</h2>
+            
+            <div class="download-buttons">
+                <form action="/q/download/<%= formulaireId %>" method="POST" style="display: inline;">
+                    <input type="hidden" name="format" value="pdf">
+                    <input type="hidden" name="nom" value="<%= reponse.contenu.reponses?.nom %>">
+                    <input type="hidden" name="poste" value="<%= reponse.contenu.reponses?.poste %>">
+                    <input type="hidden" name="entreprise" value="<%= reponse.contenu.reponses?.entreprise %>">
+                    <input type="hidden" name="date" value="<%= reponse.contenu.meta?.date %>">
+                    <input type="hidden" name="questionnaire" value='<%= JSON.stringify(reponse.contenu.reponses) %>'>
+                    
+                    <button type="submit" class="btn-download">
+                        📥 Télécharger en PDF
+                    </button>
+                </form>
+                
+                <a href="/q/download/<%= formulaireId %>/pdf" class="btn-download">
+                    📥 PDF (lien direct)
+                </a>
+            </div>
+
+            <pre><%= JSON.stringify(reponse.contenu, null, 2) %></pre>
+        </div>
+    </div>
+</body>
+</html>

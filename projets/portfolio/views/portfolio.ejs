@@ -138,19 +138,21 @@
         ]; %>
     
         <% sections.forEach((section, index) => { %>
+            <!-- Carte de projet -->
             <div class="project-card" data-category="<%= section.category %>">
+                
                 <% if (section.badge) { %>
-                    <div class="project-badge"><%= section.badge %></div>
-                <% } %>
+                                        <div class="project-badge"><%= section.badge %></div>
+                                    <% } %>
                 
                 <div class="project-header">
                     <div class="project-icon"><%= section.icon %></div>
-                    <div>
-                        <h3 class="project-title"><%= section.title %></h3>
-                        <div class="project-category">
-                            <i class="fas fa-tag"></i> <%= section.category %>
+                        <div>
+                            <h3 class="project-title"><%= section.title %></h3>
+                            <div class="project-category">
+                                <i class="fas fa-tag"></i> <%= section.category %>
+                            </div>
                         </div>
-                    </div>
                 </div>
                 
                 <div class="project-tags">
@@ -162,16 +164,15 @@
                 <div class="project-description">
                     <ul class="feature-list">
                         <% section.description.forEach(line => { %>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <%= line %>
-                            </li>
-                        <% }); %>
+                                                                    <li>
+                                                                        <i class="fas fa-check-circle"></i>
+                                                                        <%= line %>
+                                                                    </li>
+                                                                <% }); %>
                     </ul>
                 </div>
                 
                 <div class="project-footer">
-                    <!--<a href="<%= section.link %>" class="btn btn-<%= section.color %>">-->
                         <a href="<%= section.link %>" class="btn btn-<%= section.color %>" target="<%= section.target || '_self' %>"  rel="<%= section.target === '_blank' ? 'noopener noreferrer' : '' %>">
                         <span><%= section.btn %></span>
                         <i class="fas fa-arrow-right"></i>

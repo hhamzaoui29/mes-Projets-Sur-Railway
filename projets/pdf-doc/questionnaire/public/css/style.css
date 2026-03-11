@@ -1,172 +1,309 @@
-/* =============================
-   RESET SIMPLE
-============================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-/* =============================
-   GLOBAL
-============================= */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
-    line-height: 1.6;
-    padding: 30px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* =============================
-   CONTAINER PRINCIPAL
-============================= */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-/* =============================
-   TITRES
-============================= */
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #1f3c88;
-}
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-h2 {
-    margin: 25px 0 10px;
-    color: #333;
-    border-left: 4px solid #1f3c88;
-    padding-left: 10px;
-}
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
 
-/* =============================
-   INFOS (NOM / ENTREPRISE / DATE)
-============================= */
-.info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-bottom: 25px;
-}
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+        }
 
-.info p {
-    background: #f1f3f6;
-    padding: 10px;
-    border-radius: 5px;
-}
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
 
-/* =============================
-   TABLE QUESTIONNAIRE
-============================= */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
+        .tab {
+            padding: 12px 25px;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-thead {
-    background: #1f3c88;
-    color: #fff;
-}
+        .tab:hover {
+            color: #667eea;
+            background: #f0f2f5;
+        }
 
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    vertical-align: top;
-}
+        .tab.active {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+        }
 
-th {
-    text-align: center;
-}
+        .tab-content {
+            display: none;
+        }
 
-td {
-    text-align: justify;
-}
+        .tab-content.active {
+            display: block;
+        }
 
-/* Lignes alternées */
-tbody tr:nth-child(even) {
-    background: #f8f9fb;
-}
+        /* Info box */
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
 
-/* =============================
-   FORMULAIRES
-============================= */
-form {
-    margin-top: 20px;
-}
+        .info-box h4 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-label {
-    font-weight: bold;
-    margin-top: 15px;
-    display: block;
-}
+        .info-box pre {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+            margin-top: 10px;
+        }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
+        /* Formulaire de base */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
 
-/* =============================
-   BOUTONS
-============================= */
-button {
-    margin-top: 20px;
-    padding: 12px 18px;
-    background: #1f3c88;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
 
-button:hover {
-    background: #163172;
-}
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
 
-/* =============================
-   FOOTER
-============================= */
-.footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 13px;
-    color: #777;
-}
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Courier New', monospace;
+            min-height: 300px;
+            resize: vertical;
+            transition: all 0.3s;
+        }
 
-/* Icônes dans le tableau */
-.icon-question {
-    color: #2563eb; /* bleu */
-    margin-right: 6px;
-}
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
 
-.icon-answer {
-    color: #059669; /* vert */
-    margin-right: 6px;
-}
+        /* Mode étape par étape */
+        .section-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-/* Alignement icône + texte */
-.question-cell,
-.answer-cell {
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-}
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
 
+        .section-header input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-supprimer {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .questions-list {
+            margin-left: 20px;
+        }
+
+        .question-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .question-item input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-ajouter-question {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-supprimer-question {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Boutons d'action */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .preview-box {
+            background: #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow: auto;
+            border: 2px solid #667eea;
+        }
+
+        .preview-box pre {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .convert-btn {
+            background: #ffc107;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .convert-btn:hover {
+            background: #e0a800;
+        }
+    

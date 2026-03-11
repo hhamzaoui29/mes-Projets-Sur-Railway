@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+        }
+
+        .header-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0 30px 0;
+            border-left: 4px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .section {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            padding: 20px;
+            border-bottom: 2px solid #667eea;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .section-header:hover {
+            background: linear-gradient(135deg, #667eea25, #764ba225);
+        }
+
+        .section-header h3 {
+            color: #333;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header .toggle-icon {
+            font-size: 24px;
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+
+        .section-header.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .section-content {
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .section-content.collapsed {
+            display: none;
+        }
+
+        .question-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .question-item:hover {
+            border-left-color: #667eea;
+            background: #f0f2f5;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question-number {
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 5px 0;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover,
+        .checkbox-option:hover {
+            background: #f0f2f5;
+            border-color: #667eea;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .question-required {
+            color: #ff4444;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            flex: 2;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .required-field {
+            border-left: 3px solid #ff4444 !important;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .stats-badge {
+            background: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #333;
+            border: 1px solid #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        
+
+        <div class="card">
+            <h2>
+                📋 <%= title %>
+            </h2>
+            
+            <% if (locals.erreur) { %>
+                <div class="alert alert-error">
+                    <%= erreur %>
+                </div>
+            <% } %>
+
+            <!-- En-tête avec informations -->
+            <div class="header-info">
+                <div>
+                    <strong>📄 Questionnaire :</strong> <%= nomFichierSource.replace('.json', '') %>
+                </div>
+                <div>
+                    <span class="badge">
+                        📚 <%= Object.keys(questionnaire).length %> section(s)
+                    </span>
+                    <span class="stats-badge" id="totalQuestions">
+                        ❓ 0 question(s)
+                    </span>
+                </div>
+            </div>
+
+            <!-- Barre de progression -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- Formulaire -->
+            <form id="reponseForm" action="/q/save" method="POST">
+                <!-- Champs cachés -->
+                <input type="hidden" name="formulaireId" value="<%= formulaireId %>">
+                <input type="hidden" name="nomFichierSource" value="<%= nomFichierSource %>">
+                
+                <% 
+                let sectionIndex = 0;
+                let questionCount = 0;
+                for (const [titreSection, questions] of Object.entries(questionnaire)) { 
+                    sectionIndex++;
+                %>
+                    <div class="section" id="section-<%= sectionIndex %>">
+                        <div class="section-header" onclick="toggleSection(<%= sectionIndex %>)">
+                            <h3>
+                                <span class="question-number"><%= sectionIndex %></span>
+                                <%= titreSection %>
+                            </h3>
+                            <span class="toggle-icon" id="toggle-<%= sectionIndex %>">▼</span>
+                        </div>
+                        
+                        <div class="section-content" id="content-<%= sectionIndex %>">
+                            <% questions.forEach((question, qIndex) => { 
+                                questionCount++;
+                                const questionId = `q_${sectionIndex}_${qIndex + 1}`;
+                            %>
+                                <div class="question-item">
+                                    <div class="question-text">
+                                        <span class="question-number"><%= questionCount %></span>
+                                        <%= question %>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="text" 
+                                               name="<%= questionId %>"
+                                               id="<%= questionId %>"
+                                               class="question-input"
+                                               placeholder="Votre réponse..."
+                                               onchange="updateProgress()"
+                                               onkeyup="updateProgress()">
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                <% } %>
+
+                <!-- Boutons d'action -->
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary" onclick="return validateForm()">
+                        💾 Envoyer mes réponses
+                    </button>
+                    <a href="/q/formSelect" class="btn btn-secondary">
+                        ← Choisir un autre questionnaire
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let totalQuestions = <%= questionCount %>;
+        let repondues = 0;
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            
+            // Ajouter l'écouteur sur tous les champs
+            document.querySelectorAll('.question-input').forEach(input => {
+                input.addEventListener('input', updateProgress);
+            });
+        });
+
+        // Fonction pour ouvrir/fermer les sections
+        function toggleSection(sectionIndex) {
+            const content = document.getElementById(`content-${sectionIndex}`);
+            const toggle = document.getElementById(`toggle-${sectionIndex}`);
+            const header = document.querySelector(`#section-${sectionIndex} .section-header`);
+            
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+
+        // Mettre à jour la progression
+        function updateProgress() {
+            let repondues = 0;
+            
+            document.querySelectorAll('.question-input').forEach(input => {
+                if (input.value.trim() !== '') {
+                    repondues++;
+                }
+            });
+            
+            const pourcentage = (repondues / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = pourcentage + '%';
+            document.getElementById('totalQuestions').innerHTML = `❓ ${repondues}/${totalQuestions} question(s)`;
+        }
+
+        // Valider le formulaire
+        function validateForm() {
+            let toutesRemplies = true;
+            let premierChampVide = null;
+            
+            document.querySelectorAll('.question-input').forEach(input => {
+                if (input.value.trim() === '') {
+                    toutesRemplies = false;
+                    input.style.borderColor = '#ff4444';
+                    if (!premierChampVide) {
+                        premierChampVide = input;
+                    }
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+            
+            if (!toutesRemplies) {
+                alert('Veuillez répondre à toutes les questions avant d\'envoyer le formulaire.');
+                if (premierChampVide) {
+                    premierChampVide.focus();
+                    // Ouvrir la section contenant le champ vide
+                    const section = premierChampVide.closest('.section-content');
+                    if (section && section.classList.contains('collapsed')) {
+                        const sectionId = section.id.replace('content-', '');
+                        toggleSection(parseInt(sectionId));
+                    }
+                }
+                return false;
+            }
+            
+            return confirm('Voulez-vous envoyer vos réponses ?');
+        }
+
+        // Raccourci clavier pour soumettre (Ctrl+Enter)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                if (validateForm()) {
+                    document.getElementById('reponseForm').submit();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

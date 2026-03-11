@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title ? title + ' - ' : '' %><%= shopName %></title>
+    
+    <!-- Google Fonts pour une belle typographie -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Notre CSS personnalisé (on le créera plus tard) -->
+    <link rel="stylesheet" href="/shop/css/style.css">
+    <link rel="stylesheet" href="/shop/css/cart.css">
+     
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/shop">
+                    <i class="fas fa-store"></i>
+                    <%= shopName %>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="/shop/" class="nav-link">Accueil</a>
+                <a href="/shop/products" class="nav-link">Produits</a>
+                <a href="/shop/cart" class="nav-link"> <i class="fas fa-shopping-cart"></i> Panier </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenu principal de la page -->
+    <main class="main"> 
+        <%- body %> 
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <%= shopName %>. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

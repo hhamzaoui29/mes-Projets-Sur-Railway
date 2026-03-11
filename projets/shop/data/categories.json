@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "vetements",
+    "slug": "vetements",
+    "description": "Le passage standard du Lorem Ipsum utilisé depuis le XVIe siècle est reproduit ci-dessous pour les personnes intéressées. Les sections 1.10.32 et 1.10.33 du « De Finibus Bonorum et Malorum » de Cicéron sont également reproduites dans leur version originale, accompagnées de leur traduction anglaise de 1914 par H. Rackham.",
+    "parentId": null,
+    "createdAt": "2026-03-02T19:19:59.406Z",
+    "updatedAt": "2026-03-02T19:20:07.756Z"
+  },
+  {
+    "id": 2,
+    "name": "CHAUSSURES",
+    "slug": "chaussures",
+    "description": "Le passage standard du Lorem Ipsum utilisé depuis le XVIe siècle est reproduit ci-dessous pour les personnes intéressées. Les sections 1.10.32 et 1.10.33 du « De Finibus Bonorum et Malorum » de Cicéron sont également reproduites dans leur version originale, accompagnées de leur traduction anglaise de 1914 par H. Rackham.",
+    "parentId": null,
+    "createdAt": "2026-03-07T06:58:52.283Z",
+    "updatedAt": "2026-03-07T07:03:46.824Z"
+  },
+  {
+    "id": 3,
+    "name": "CATERORIE A",
+    "slug": "caterorie-a",
+    "description": "Le passage standard du Lorem Ipsum utilisé depuis le XVIe siècle est reproduit ci-dessous pour les personnes intéressées. Les sections 1.10.32 et 1.10.33 du « De Finibus Bonorum et Malorum » de Cicéron sont également reproduites dans leur version originale, accompagnées de leur traduction anglaise de 1914 par H. Rackham.",
+    "parentId": null,
+    "createdAt": "2026-03-07T07:04:29.897Z",
+    "updatedAt": "2026-03-07T07:05:12.316Z"
+  }
+]

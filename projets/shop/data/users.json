@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "email": "admin@artisan.com",
+    "password": "$2b$10$sU1kWrfkMPBiPhXifXUAV.pwLRzBukk1DFUGNCV7rVh6Kcn6FQ/y6",
+    "nom": "Dupond",
+    "prenom": "Durand",
+    "adresse": "123 rue de la paix , 75 000 paris",
+    "telephone": "0602030405",
+    "roleId": 1,
+    "createdAt": "2026-03-03T17:04:35.582Z",
+    "updatedAt": "2026-03-03T17:04:35.582Z"
+  },
+  {
+    "id": 3,
+    "email": "teste@mail.com",
+    "password": "$2b$10$GMIa14XyOXMYGvak7D436eJQLbkqG8V.zl3smvvfJNQP3bY0wBdvK",
+    "nom": "TESTE",
+    "prenom": "Teste",
+    "adresse": "10 rues des teste 01000 Teste",
+    "telephone": "0105060708",
+    "roleId": 3,
+    "createdAt": "2026-03-07T08:40:49.194Z",
+    "updatedAt": "2026-03-07T08:41:08.623Z"
+  }
+]

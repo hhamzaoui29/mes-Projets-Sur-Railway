@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan E-Commerce - Suivi du projet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+            padding-left: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        
+        .phase {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .etape {
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .etape.en-cours {
+            border-left-color: #f39c12;
+            background: #fff3e0;
+        }
+        
+        .etape.termine {
+            border-left-color: #27ae60;
+            background: #e8f5e8;
+        }
+        
+        .etape.bloquee {
+            border-left-color: #e74c3c;
+            background: #fde9e9;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .badge.vert {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .badge.orange {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .badge.rouge {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        code {
+            background: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .note {
+            background: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .warning {
+            background: #ffebcc;
+            border-left: 4px solid #ff9900;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #27ae60;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛒 PLAN DE DÉVELOPPEMENT E-COMMERCE</h1>
+    
+    <div class="progress-bar">
+        <div class="progress-fill" id="globalProgress" style="width: 0%"></div>
+    </div>
+    <p style="text-align: right" id="progressText">0% complété</p>
+    
+    <div class="note">
+        <strong>📋 INSTRUCTIONS :</strong>
+        <ul>
+            <li>On avance étape par étape, uniquement quand tu me le demandes</li>
+            <li>Chaque étape doit être validée avant de passer à la suivante</li>
+            <li>N'hésite pas à poser des questions si une étape n'est pas claire</li>
+            <li>Je te donnerai le code complet pour chaque étape quand tu seras prêt</li>
+        </ul>
+    </div>
+    <div class="plan">
+
+        <h2>📋 PLAN COMPLET DU PROJET E-COMMERCE</h2>
+        <ul>
+
+        </ul>
+         <h2>PHASE 1 : CRUD DE BASE (Sans authentification) </h2>
+            <li> Étape 1 : CRUD Produits (Créer, Lire, Modifier, Supprimer)</li>
+            <li>Étape 2 : CRUD Utilisateurs (Créer, Lire, Modifier, Supprimer)</li>
+            <li>Étape 3 : CRUD Catégories (optionnel mais utile)</li>
+
+         <h2>PHASE 2 : AUTHENTIFICATION </h2>
+            <li>Étape 4 : Inscription des utilisateurs</li>
+            <li>Étape 5 : Connexion / Déconnexion</li>
+            <li>Étape 6 : Protection des routes (certaines pages réservées aux admins)</li>
+
+         <h2>PHASE 3 : PANIER D'ACHAT </h2>
+            <li>Étape 7 : Structure du panier en session</li>
+            <li> Étape 8 : Ajout au panier (depuis page produit)</li>
+            <li>Étape 9 : Affichage du panier</li>
+            <li>Étape 10 : Modification du panier (quantités, suppression)</li>
+
+         <h2>PHASE 4 : COMMANDE ET PAIEMENT </h2>
+            <li>Étape 11 : Validation de la commande</li>
+            <li>Étape 12 : Création de la facture (PDF</li>
+            <li>Étape 13 : Historique des commandes</li>
+
+         <h2>PHASE 5 : AMÉLIORATIONS </h2>
+            <li>Étape 14 : Images des produits</li>
+            <li>Étape 15 : Recherche et filtres</li>
+            <li>Étape 16 : Pagination</li>
+
+
+    </div>
+    
+    <!-- PHASE 1 : CRUD DE BASE -->
+    <div class="phase">
+        <h2>📦 PHASE 1 : CRUD DE BASE <span class="badge orange" id="phase1Badge">En attente</span></h2>
+        
+        <div class="etape" id="etape1">
+            <h3>✅ ÉTAPE 1 : CRUD Produits <span class="badge orange" id="etape1Badge">En cours</span></h3>
+            <p><strong>Objectif :</strong> Créer la gestion complète des produits (Créer, Lire, Modifier, Supprimer)</p>
+            
+            <h4>Fichiers à créer/modifier :</h4>
+            <ul>
+                <li><code>models/Product.js</code> - Modèle Produit (déjà existant ?)</li>
+                <li><code>controllers/productController.js</code> - Contrôleur pour les produits</li>
+                <li><code>routes/productRoutes.js</code> - Routes pour les produits</li>
+                <li><code>views/products/</code> - Dossier pour les vues produits</li>
+            </ul>
+            
+            <h4>Routes à créer :</h4>
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <th>URL</th>
+                    <th>Méthode</th>
+                    <th>Fichier vue</th>
+                </tr>
+                <tr>
+                    <td>Liste des produits</td>
+                    <td><code>/shop/products</code></td>
+                    <td>GET</td>
+                    <td><code>products/index.ejs</code></td>
+                </tr>
+                <tr>
+                    <td>Voir un produit</td>
+                    <td><code>/shop/products/:id</code></td>
+                    <td>GET</td>
+                    <td><code>products/show.ejs</code> (ou product.ejs existant)</td>
+                </tr>
+                <tr>
+                    <td>Formulaire création</td>
+                    <td><code>/shop/admin/products/new</code></td>
+                    <td>GET</td>
+                    <td><code>products/new.ejs</code></td>
+                </tr>
+                <tr>
+                    <td>Créer produit</td>
+                    <td><code>/shop/admin/products</code></td>
+                    <td>POST</td>
+                    <td>Redirection vers liste</td>
+                </tr>
+                <tr>
+                    <td>Formulaire modification</td>
+                    <td><code>/shop/admin/products/:id/edit</code></td>
+                    <td>GET</td>
+                    <td><code>products/edit.ejs</code></td>
+                </tr>
+                <tr>
+                    <td>Modifier produit</td>
+                    <td><code>/shop/admin/products/:id</code></td>
+                    <td>POST</td>
+                    <td>Redirection vers liste</td>
+                </tr>
+                <tr>
+                    <td>Supprimer produit</td>
+                    <td><code>/shop/admin/products/:id/delete</code></td>
+                    <td>POST</td>
+                    <td>Redirection vers liste</td>
+                </tr>
+            </table>
+            
+            <h4>Structure des données produit :</h4>
+            <pre><code>{
+  id: 1,
+  name: "T-shirt en coton bio",
+  slug: "t-shirt-coton-bio",
+  description: "Un t-shirt confortable...",
+  price: 29.99,
+  stock: 150,
+  categoryId: 1,
+  imageUrl: "/static/images/tshirt.jpg",
+  createdAt: "2024-01-20T10:00:00.000Z",
+  updatedAt: null
+}</code></pre>
+            
+            <div class="warning">
+                <strong>⚠️ AVANT DE COMMENCER :</strong> Montre-moi le contenu de <code>models/products.js</code> (ou Product.js) pour voir ce qu'on a déjà.
+            </div>
+        </div>
+        
+        <div class="etape" id="etape2">
+            <h3>✅ ÉTAPE 2 : CRUD Utilisateurs <span class="badge rouge" id="etape2Badge">En attente</span></h3>
+            <p><strong>Objectif :</strong> Créer la gestion complète des utilisateurs</p>
+            
+            <h4>Fichiers à créer :</h4>
+            <ul>
+                <li><code>models/User.js</code> - Modèle Utilisateur</li>
+                <li><code>controllers/userController.js</code> - Contrôleur pour les utilisateurs</li>
+                <li><code>routes/userRoutes.js</code> - Routes pour les utilisateurs</li>
+                <li><code>views/users/</code> - Dossier pour les vues utilisateurs</li>
+            </ul>
+            
+            <h4>Structure des données utilisateur :</h4>
+            <pre><code>{
+  id: 1,
+  nom: "Dupont",
+  prenom: "Jean",
+  email: "jean@email.com",
+  motDePasse: "hash_du_mdp",  // Jamais en clair !
+  role: "client",  // "client" ou "admin"
+  adresse: "123 Rue de la Paix, 75001 Paris",
+  telephone: "0123456789",
+  createdAt: "2024-01-20T10:00:00.000Z"
+}</code></pre>
+        </div>
+        
+        <div class="etape" id="etape3">
+            <h3>✅ ÉTAPE 3 : CRUD Catégories (optionnel) <span class="badge rouge" id="etape3Badge">En attente</span></h3>
+            <p><strong>Objectif :</strong> Créer la gestion des catégories pour organiser les produits</p>
+        </div>
+    </div>
+    
+    <!-- PHASE 2 : AUTHENTIFICATION -->
+    <div class="phase">
+        <h2>🔐 PHASE 2 : AUTHENTIFICATION <span class="badge rouge" id="phase2Badge">En attente</span></h2>
+        
+        <div class="etape" id="etape4">
+            <h3>✅ ÉTAPE 4 : Inscription <span class="badge rouge" id="etape4Badge">En attente</span></h3>
+            <p>Création du formulaire d'inscription avec hash du mot de passe (bcrypt)</p>
+        </div>
+        
+        <div class="etape" id="etape5">
+            <h3>✅ ÉTAPE 5 : Connexion / Déconnexion <span class="badge rouge" id="etape5Badge">En attente</span></h3>
+            <p>Gestion des sessions utilisateur</p>
+        </div>
+        
+        <div class="etape" id="etape6">
+            <h3>✅ ÉTAPE 6 : Protection des routes <span class="badge rouge" id="etape6Badge">En attente</span></h3>
+            <p>Middleware pour protéger l'accès admin</p>
+        </div>
+    </div>
+    
+    <!-- PHASE 3 : PANIER D'ACHAT -->
+    <div class="phase">
+        <h2>🛒 PHASE 3 : PANIER D'ACHAT <span class="badge rouge" id="phase3Badge">En attente</span></h2>
+        
+        <div class="etape" id="etape7">
+            <h3>✅ ÉTAPE 7 : Structure du panier <span class="badge rouge" id="etape7Badge">En attente</span></h3>
+            <p>Mise en place des sessions et structure du panier</p>
+        </div>
+        
+        <div class="etape" id="etape8">
+            <h3>✅ ÉTAPE 8 : Ajout au panier <span class="badge rouge" id="etape8Badge">En attente</span></h3>
+            <p>Boutons d'ajout depuis la page produit</p>
+        </div>
+        
+        <div class="etape" id="etape9">
+            <h3>✅ ÉTAPE 9 : Affichage du panier <span class="badge rouge" id="etape9Badge">En attente</span></h3>
+            <p>Page récapitulative du panier</p>
+        </div>
+        
+        <div class="etape" id="etape10">
+            <h3>✅ ÉTAPE 10 : Modification du panier <span class="badge rouge" id="etape10Badge">En attente</span></h3>
+            <p>Changer quantités, supprimer articles</p>
+        </div>
+    </div>
+    
+    <!-- PHASE 4 : COMMANDE ET PAIEMENT -->
+    <div class="phase">
+        <h2>💰 PHASE 4 : COMMANDE ET PAIEMENT <span class="badge rouge" id="phase4Badge">En attente</span></h2>
+        
+        <div class="etape" id="etape11">
+            <h3>✅ ÉTAPE 11 : Validation commande <span class="badge rouge" id="etape11Badge">En attente</span></h3>
+            <p>Formulaire d'adresse de livraison, validation du panier</p>
+        </div>
+        
+        <div class="etape" id="etape12">
+            <h3>✅ ÉTAPE 12 : Facture PDF <span class="badge rouge" id="etape12Badge">En attente</span></h3>
+            <p>Génération de facture en PDF</p>
+        </div>
+        
+        <div class="etape" id="etape13">
+            <h3>✅ ÉTAPE 13 : Historique commandes <span class="badge rouge" id="etape13Badge">En attente</span></h3>
+            <p>Liste des commandes passées par l'utilisateur</p>
+        </div>
+    </div>
+    
+    <!-- PHASE 5 : AMÉLIORATIONS -->
+    <div class="phase">
+        <h2>✨ PHASE 5 : AMÉLIORATIONS <span class="badge rouge" id="phase5Badge">En attente</span></h2>
+        
+        <div class="etape" id="etape14">
+            <h3>✅ ÉTAPE 14 : Images produits <span class="badge rouge" id="etape14Badge">En attente</span></h3>
+            <p>Upload d'images pour les produits</p>
+        </div>
+        
+        <div class="etape" id="etape15">
+            <h3>✅ ÉTAPE 15 : Recherche et filtres <span class="badge rouge" id="etape15Badge">En attente</span></h3>
+            <p>Recherche par nom, filtre par catégorie/prix</p>
+        </div>
+        
+        <div class="etape" id="etape16">
+            <h3>✅ ÉTAPE 16 : Pagination <span class="badge rouge" id="etape16Badge">En attente</span></h3>
+            <p>Pagination pour la liste des produits</p>
+        </div>
+    </div>
+    
+    <!-- SECTION RAPPELS ARCHITECTURE -->
+    <div class="phase">
+        <h2>📁 RAPPEL DE L'ARCHITECTURE</h2>
+        <pre><code>projet/shop/
+├── controllers/
+│   ├── shopController.js (existant)
+│   ├── cartController.js (existant)
+│   ├── productController.js (à créer)
+│   └── userController.js (à créer)
+├── models/
+│   ├── Database.js (existant)
+│   ├── Product.js (existant)
+│   ├── Cart.js (existant)
+│   ├── User.js (à créer)
+│   └── Order.js (à créer)
+├── routes/
+│   ├── shopRoutes.js (existant)
+│   ├── productRoutes.js (à créer)
+│   └── userRoutes.js (à créer)
+├── views/
+│   ├── layout.ejs (existant)
+│   ├── index.ejs (existant)
+│   ├── product.ejs (existant)
+│   ├── cart/
+│   │   └── index.ejs (existant)
+│   ├── products/ (à créer)
+│   └── users/ (à créer)
+├── public/
+│   └── css/
+│       └── style.css (existant)
+├── data/ (dossier des données JSON)
+│   ├── products/
+│   ├── users/
+│   └── orders/
+└── middleware/
+    ├── guestSession.js (existant)
+    └── flash.js (existant)</code></pre>
+    </div>
+    
+    <!-- SECTION NOTES -->
+    <div class="phase">
+        <h2>📝 NOTES IMPORTANTES</h2>
+        
+        <div class="success">
+            <strong>✅ CE QUI FONCTIONNE DÉJÀ :</strong>
+            <ul>
+                <li>Base de données JSON (Database.js)</li>
+                <li>Modèle Product avec getAll() et getById()</li>
+                <li>Page d'accueil avec liste produits</li>
+                <li>Page de détail produit</li>
+                <li>Structure du panier (Cart.js)</li>
+                <li>Sessions anonymes</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ CE QU'IL RESTE À FAIRE :</strong>
+            <ul>
+                <li>CRUD complet des produits</li>
+                <li>CRUD des utilisateurs</li>
+                <li>Authentification</li>
+                <li>Finaliser le panier</li>
+                <li>Commandes et paiement</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <strong>🎯 PROCHAINE ÉTAPE :</strong> ÉTAPE 1 - CRUD Produits
+            <br>
+            <em>Dis-moi "ÉTAPE 1 COMMENCÉE" et montre-moi le fichier models/products.js</em>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Suivi du projet - Mise à jour le <span id="dateUpdate"></span></p>
+        <p>⚡ Avancement : <span id="etapesRealisees">0</span>/16 étapes</p>
+    </div>
+    
+    <script>
+        // Met à jour la date
+        document.getElementById('dateUpdate').textContent = new Date().toLocaleDateString('fr-FR');
+        
+        // Fonction pour mettre à jour la progression (à appeler manuellement ou via console)
+        function updateProgress(etapes) {
+            // etapes = tableau des étapes terminées (ex: [1,2,3])
+            const total = 16;
+            const terminees = etapes.length;
+            const pourcentage = (terminees / total) * 100;
+            
+            document.getElementById('globalProgress').style.width = pourcentage + '%';
+            document.getElementById('progressText').textContent = pourcentage.toFixed(0) + '% complété';
+            document.getElementById('etapesRealisees').textContent = terminees;
+            
+            // Mise à jour des badges (à compléter selon les étapes)
+            for(let i = 1; i <= 16; i++) {
+                const badge = document.getElementById('etape' + i + 'Badge');
+                const etape = document.getElementById('etape' + i);
+                if(etapes.includes(i)) {
+                    badge.textContent = 'Terminé';
+                    badge.className = 'badge vert';
+                    etape.className = 'etape termine';
+                } else if(i === 1) {
+                    // La première étape est en cours par défaut
+                    badge.textContent = 'En cours';
+                    badge.className = 'badge orange';
+                    etape.className = 'etape en-cours';
+                }
+            }
+        }
+        
+        // Initialisation : étape 1 en cours
+        updateProgress([]);
+        
+        // Fonctions pour avancer (à utiliser dans la console pour tester)
+        window.terminerEtape = function(numero) {
+            alert('Étape ' + numero + ' marquée comme terminée !');
+            // Logique à implémenter
+        };
+    </script>
+</body>
+</html>
