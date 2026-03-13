@@ -32,6 +32,7 @@ app.set("view engine", "ejs");
 app.set("views", [
                     path.join(__dirname, "views"),               
                     path.join(__dirname, "projets" ),
+                    path.join(__dirname, 'projets/partials'),  // Partages globaux
                     path.join(__dirname, "projets/pdf-doc/questionnaire/views"),
                     path.join(__dirname, "projets/pdf-doc/facture/views"),
                     path.join(__dirname, "projets/pdf-doc/lettre/views"),

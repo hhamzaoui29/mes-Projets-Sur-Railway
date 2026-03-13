@@ -1,0 +1,22 @@
+<!-- views/partials/_header.ejs -->
+<header class="app-header" data-app="<%= appData.id %>">
+    <div class="app-header-content">
+        <div class="app-header-icon"><%= appData.icon %></div>
+        <div class="app-header-text">
+            <h1><%= appData.title %></h1>
+            <p class="app-header-description"><%= appData.description %></p>
+            <div class="app-header-meta">
+                <span class="app-header-badge"><%= appData.badge %></span>
+                <span class="app-header-category">
+                    <i class="fas fa-tag"></i> <%= appData.category %>
+                </span>
+                <span class="app-header-tech">
+                    <i class="fas fa-code"></i> <%= appData.tech %>
+                </span>
+            </div>
+        </div>
+        <a href="/" class="btn btn-back">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+    </div>
+</header>
